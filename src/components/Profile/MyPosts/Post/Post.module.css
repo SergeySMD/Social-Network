@@ -1,0 +1,9 @@
+.item {
+    color: purple;
+    padding: 8px 16px;
+}
+.item img {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+}
