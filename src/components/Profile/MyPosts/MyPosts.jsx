@@ -14,8 +14,8 @@ let MyPosts = () => {
           My posts
         </div>
         <div className={s.posts}>
-            <Post/>
-            <Post/>
+            <Post message='Hi, World'/>
+            <Post message='Welcome'/>
         </div>
       </div>
   )
