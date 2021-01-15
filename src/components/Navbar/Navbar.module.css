@@ -1,7 +1,7 @@
 .nav {
     grid-area: n;
+    height: 360px;
     background-color: rgb(25, 59, 114);
-    margin: 10px 10px 0px 0px;
     border-radius: 8px;
 }
 .item {
@@ -12,14 +12,20 @@
     display: block;
     padding: 8px 0px;
     text-decoration: none;
+
 }
 .item a {
     padding-left: 16px;
-       }
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+}
 
 .item.active {
     color: #000000;
     font-weight: bold;
     background-color: #f1f1f1;
-
+}
+.item.active a {
+    color: #000000;
 }

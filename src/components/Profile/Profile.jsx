@@ -4,7 +4,7 @@ import MyPosts from "./MyPosts/MyPosts";
 
 let Profile = () => {
   return (
-    <div>
+    <div className={s.content}>
       <div>
         <img src="https://creativo.one/lessons/les5669/01.jpg" />
       </div>
