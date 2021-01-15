@@ -1,7 +1,7 @@
 .nav {
     grid-area: n;
-    height: 360px;
-    background-color: rgb(25, 59, 114);
+    height: 300px;
+    background-color: rgb(240, 240, 240);
     border-radius: 8px;
 }
 .item {
@@ -10,22 +10,19 @@
     margin: 0px;
     width: 100%;
     display: block;
-    padding: 8px 0px;
+    padding: 16px 0px;
     text-decoration: none;
 
 }
 .item a {
-    padding-left: 16px;
+    padding-left: 32px;
     text-decoration: none;
-    color: #ffffff;
+    color: #1d3c96;
     cursor: pointer;
 }
 
-.item.active {
-    color: #000000;
+.item a.activeLink {
+    color: #01367a;
     font-weight: bold;
-    background-color: #f1f1f1;
-}
-.item.active a {
-    color: #000000;
+    padding-left: 48px;
 }
