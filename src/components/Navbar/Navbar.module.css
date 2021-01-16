@@ -5,24 +5,32 @@
     border-radius: 12px;
 }
 .item {
-    color: #ffffff;
+    display: block;
     list-style-type: none;
     margin: 0px;
     width: 100%;
-    display: block;
     padding: 16px 0px;
-    text-decoration: none;
 
 }
 .item a {
-    padding-left: 32px;
+    text-align: center;
     text-decoration: none;
     color: #1d3c96;
     cursor: pointer;
+    display: block;
+    transition: all 500ms ease;
 }
 
 .item a.activeLink {
-    color: #01367a;
+    color: #3d66ff;
     font-weight: bold;
-    padding-left: 48px;
+    text-align: center;
+}
+.item a:hover {
+    font-weight: bold;
+    transition: all 100ms ease;
+}
+.item a.activeLink:hover {
+    color: #3D66FF;
+    text-align: center;
 }

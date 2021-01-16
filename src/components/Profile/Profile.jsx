@@ -1,18 +1,14 @@
 import React from 'react';
 import s from './Profile.module.css';
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 let Profile = () => {
-  return (
-    <div className={s.content}>
-      <div>
-        <img src="https://creativo.one/lessons/les5669/01.jpg" />
-      </div>
-      <div>
-        avatar + descript
-      </div>
-    <MyPosts />
-    </div>
-  )
+    return (
+        <div>
+            <ProfileInfo/>
+            <MyPosts/>
+        </div>
+    )
 }
 export default Profile;
