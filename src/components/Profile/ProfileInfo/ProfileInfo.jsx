@@ -5,7 +5,7 @@ let ProfileInfo = () => {
     return (
         <div className={s.content}>
             <div>
-                <img src="https://creativo.one/lessons/les5669/01.jpg"/>
+                <img src="https://blog.pixlr.com/wp-content/uploads/2019/03/stars-pattern.png"/>
             </div>
             <div className={s.descriptionBlock}>
                 avatar + descript
