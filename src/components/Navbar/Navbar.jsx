@@ -6,7 +6,7 @@ let Navbar = () => {
     return (
         <nav className={s.nav}>
                 <div className={s.item}>
-                    <NavLink to="/profile" activeClassName={s.activeLink}>My page</NavLink>
+                    <NavLink to="/profile" className={s.top} activeClassName={s.activeLink}>My page</NavLink>
                 </div>
                 <div className={s.item}>
                     <NavLink to="/dialogs" activeClassName={s.activeLink}>Messages</NavLink>
@@ -18,7 +18,7 @@ let Navbar = () => {
                     <NavLink to="/news-feed" activeClassName={s.activeLink}>News feed</NavLink>
                 </div>
                 <div className={s.item}>
-                    <NavLink to="/settings" activeClassName={s.activeLink}>Settings</NavLink>
+                    <NavLink to="/settings"  className={s.bottom} activeClassName={s.activeLink}>Settings</NavLink>
                 </div>
         </nav>
     )
