@@ -15,10 +15,10 @@ margin-left: 32px;
 .dialogsItems a {
     text-decoration: none;
     padding: 8px 24px;
+    border-radius: 12px;
     color: #1d3c96;
     cursor: pointer;
     display: block;
-
 }
 .dialogsItems a:hover {
     font-weight: bold;
