@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="UI - BLL, выносим данные в сторону">
+    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="метод массива - map">
+      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogItem/DialogItem.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/Message/Message.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +32,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Profile/ProfileInfo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Dialogs/Message" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -37,11 +42,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Dialogs\Message" />
+      <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Dialogs\DialogItem" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Profile\ProfileInfo" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Dialogs" />
-      <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Profile\MyPosts\Post" />
-      <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Profile\MyPosts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Profile" />
@@ -68,7 +73,9 @@
       <workItem from="1610721049177" duration="218000" />
       <workItem from="1610726119780" duration="683000" />
       <workItem from="1610798061769" duration="6039000" />
-      <workItem from="1610888203116" duration="3490000" />
+      <workItem from="1610888203116" duration="3670000" />
+      <workItem from="1610962992870" duration="2368000" />
+      <workItem from="1610965394941" duration="1239000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1609152784932</created>
@@ -140,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610804117650</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="метод массива - map">
+      <created>1610892227903</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1610892227904</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +183,7 @@
     <MESSAGE value="Route exact" />
     <MESSAGE value="props для Диалогов" />
     <MESSAGE value="UI - BLL, выносим данные в сторону" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI - BLL, выносим данные в сторону" />
+    <MESSAGE value="метод массива - map" />
+    <option name="LAST_COMMIT_MESSAGE" value="метод массива - map" />
   </component>
 </project>

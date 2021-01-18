@@ -1,6 +1,6 @@
 .nav {
     grid-area: n;
-    height: 300px;
+    height: 270px;
     background-color: rgb(240, 240, 240);
     border-radius: 12px;
 }
@@ -9,7 +9,6 @@
     list-style-type: none;
     margin: 0px;
     width: 100%;
-    padding: 16px 0px;
 
 }
 .item a {
@@ -19,18 +18,23 @@
     cursor: pointer;
     display: block;
     transition: all 500ms ease;
+    padding: 16px 0px;
 }
 
 .item a.activeLink {
-    color: #3d66ff;
     font-weight: bold;
     text-align: center;
+    background-color: #8583f7;
+    color: white;
 }
 .item a:hover {
     font-weight: bold;
     transition: all 100ms ease;
+    background-color: #dbdbf5;
+    color: #1d3c96;
 }
 .item a.activeLink:hover {
-    color: #3D66FF;
+    color: #ffffff;
     text-align: center;
+    background-color: #8583f7;
 }
