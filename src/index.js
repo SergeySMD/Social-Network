@@ -9,7 +9,11 @@ let Dialogs = [
     {id: 2, name: "Mihail"},
     {id: 3, name: "Andrey"},
     {id: 4, name: "Victor"},
-    {id: 5, name: "Yuriy"}
+    {id: 5, name: "Yuriy"},
+    {id: 6, name: "Ivan"},
+    {id: 7, name: "Anton"},
+    {id: 8, name: "Vitaliy"},
+    {id: 9, name: "Dmitriy"}
 
 ];
 let Messages = [

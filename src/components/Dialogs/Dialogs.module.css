@@ -4,23 +4,28 @@
     padding: 8px 16px;
 }
 .dialogsItems {
-
-}
-.dialog {
-    padding: 12px 0px;
+text-align: center;
 }
 .messages {
-
+margin-left: 32px;
 }
 .message {
 
 }
 .dialogsItems a {
     text-decoration: none;
+    padding: 8px 24px;
     color: #1d3c96;
     cursor: pointer;
+    display: block;
+
 }
-a.activeLink {
-    color: #01367a;
+.dialogsItems a:hover {
     font-weight: bold;
+}
+.dialogsItems a.activeLink {
+    color: #ffffff;
+    border-radius: 12px;
+    font-weight: bold;
+    background-color: #8583f7;
 }
