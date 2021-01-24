@@ -11,11 +11,17 @@
     text-align: center;
 
 }
-.messages {
-margin-left: 32px;
-}
-.message {
+.messagesItems {
 
+}
+.messages {
+    margin-left: 32px;
+    display: grid;
+    grid-template-rows: 9fr 1fr;
+}
+.messageSendingBlock textarea {
+    width: 85%;
+    margin-right: 10px;
 }
 
 .dialog a {
