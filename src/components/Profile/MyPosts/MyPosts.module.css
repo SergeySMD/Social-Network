@@ -4,3 +4,6 @@
 .posts {
     margin-top: 10px;
 }
+.inputBlock textarea {
+    width: 800px;
+}

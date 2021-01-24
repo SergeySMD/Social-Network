@@ -12,6 +12,7 @@ let MyPosts = (props) => {
     let addPost = () => {
         let text = newPostElement.current.value;
         props.addPost(text);
+        newPostElement.current.value = '';
     }
 
     return (
@@ -20,9 +21,9 @@ let MyPosts = (props) => {
                 <h3>My posts</h3>
             </div>
             New post
-            <div>
+            <div className={s.inputBlock}>
                 <div>
-                    <textarea ref={newPostElement}></textarea>
+                    <textarea placeholder="Your post message" ref={newPostElement}></textarea>
                 </div>
                 <div>
                     <button onClick={addPost}>Опубликовать</button>

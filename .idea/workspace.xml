@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="onClick, ref, VirtualDOM">
+    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="прокидываем callback через props">
+      <change afterPath="$PROJECT_DIR$/src/render.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/Post/Post.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/Post/Post.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.js" afterDir="false" />
     </list>
@@ -33,7 +34,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Dialogs/Message" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -43,11 +44,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Dialogs\Message" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Dialogs\DialogItem" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Profile\ProfileInfo" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components" />
-      <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Dialogs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Profile" />
@@ -96,7 +97,7 @@
       <workItem from="1610965394941" duration="5985000" />
       <workItem from="1610972351823" duration="848000" />
       <workItem from="1611058201982" duration="12072000" />
-      <workItem from="1611485203721" duration="9143000" />
+      <workItem from="1611485203721" duration="13029000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1609152784932</created>
@@ -231,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611492267907</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="прокидываем callback через props">
+      <created>1611494441123</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1611494441123</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,6 +286,7 @@
     <MESSAGE value="упаковываем данные в state" />
     <MESSAGE value="CSS update" />
     <MESSAGE value="onClick, ref, VirtualDOM" />
-    <option name="LAST_COMMIT_MESSAGE" value="onClick, ref, VirtualDOM" />
+    <MESSAGE value="прокидываем callback через props" />
+    <option name="LAST_COMMIT_MESSAGE" value="прокидываем callback через props" />
   </component>
 </project>
