@@ -1,4 +1,7 @@
 .nav {
+    position: fixed;
+    width: 210px;
+    margin-top: 70px;
     grid-area: n;
     height: 255px;
     background-color: rgb(240, 240, 240);

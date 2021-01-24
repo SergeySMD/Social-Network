@@ -5,6 +5,17 @@ let state = {
             {id: 1, message: "Hi, World", likeCounter: 3},
             {id: 2, message: "Welcome", likeCounter: 0},
             {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
+            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
+            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
+            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
+            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
+            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
+            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
+            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
+            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
+            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
+            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
+            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
             {id: 4, message: "Khabib, you are next", likeCounter: 2}
         ]
     },

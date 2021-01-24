@@ -1,7 +1,11 @@
 .header {
+    position: fixed;
+    width: 1280px;
+    height: 60px;
     grid-area: h;
     background-color: rgb(133, 131, 247);
     border-radius: 0px 0px 12px 12px;
+
 }
 .header img {
     height: 60px;

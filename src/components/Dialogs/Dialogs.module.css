@@ -1,10 +1,15 @@
+.dialogs *{
+    box-sizing: border-box;
+    transition: all 500ms ease;
+}
 .dialogs {
     display: grid;
-    grid-template-columns: 2fr 10fr;
-    padding: 8px 16px;
+    grid-template-columns: 2fr 14fr;
+    padding: 0px 16px;
 }
 .dialogsItems {
-text-align: center;
+    text-align: center;
+
 }
 .messages {
 margin-left: 32px;
@@ -12,20 +17,43 @@ margin-left: 32px;
 .message {
 
 }
-.dialogsItems a {
+
+.dialog a {
+    grid-area: name;
     text-decoration: none;
-    padding: 8px 24px;
-    border-radius: 12px;
+    padding: 8px 0px;
     color: #1d3c96;
     cursor: pointer;
-    display: block;
+    display: inline-block;
 }
-.dialogsItems a:hover {
+.dialog a:hover {
     font-weight: bold;
+    color: #1d3c96;
 }
-.dialogsItems a.activeLink {
+.dialog a.activeLink {
     color: #ffffff;
-    border-radius: 12px;
     font-weight: bold;
+    height: 35px;
     background-color: #8583f7;
+    margin-left: -25px;
+    padding-left: 35px;
+    line-height: 20px;
+    border-radius: 12px;
+}
+.dialog {
+    display: grid;
+    grid-template-areas: "ava name";
+    grid-template-columns: 35px 120px;
+    padding: 6px 0;
+    align-items: center;
+}
+
+.dialog .image {
+    z-index: 10;
+    grid-area: ava;
+    display: inline-block;
+    vertical-align: bottom;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
 }
