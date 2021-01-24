@@ -5,17 +5,6 @@ let state = {
             {id: 1, message: "Hi, World", likeCounter: 3},
             {id: 2, message: "Welcome", likeCounter: 0},
             {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
-            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
-            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
-            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
-            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
-            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
-            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
-            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
-            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
-            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
-            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
-            {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
             {id: 4, message: "Khabib, you are next", likeCounter: 2}
         ]
     },
@@ -41,4 +30,13 @@ let state = {
         ]
     }
 }
+export let addPost = (PostMessage) => {
+    let newPost = {
+        id: state.profilePage.posts.length+1,
+        message: PostMessage,
+        likeCounter: 0
+    }
+    state.profilePage.posts.push(newPost);
+}
+
 export default state;
