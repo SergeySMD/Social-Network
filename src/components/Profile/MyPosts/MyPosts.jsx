@@ -10,10 +10,16 @@ let MyPosts = (props) => {
     let newPostElement = React.createRef();
 
     let addPost = () => {
+        if (props.newPostText === "")
+            alert("Enter Message")
+        else
+            props.addPost();
+    };
+
+    let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.addPost(text);
-        newPostElement.current.value = '';
-    }
+        props.updateNewPostText(text);
+    };
 
     return (
         <div className={s.postBlock}>
@@ -23,7 +29,11 @@ let MyPosts = (props) => {
             New post
             <div className={s.inputBlock}>
                 <div>
-                    <textarea placeholder="Your post message" ref={newPostElement}></textarea>
+                    <textarea
+                        onChange={onPostChange}
+                        value={props.newPostText}
+                        placeholder="Your post message"
+                        ref={newPostElement}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Опубликовать</button>
