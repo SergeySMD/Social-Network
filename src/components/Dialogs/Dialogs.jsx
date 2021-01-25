@@ -3,7 +3,6 @@ import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
-
 let Dialogs = (props) => {
 
     let DialogsElements = props.dialogsPage.dialogs
@@ -30,19 +29,19 @@ let Dialogs = (props) => {
             <div className={s.dialogsItems}>
                 {DialogsElements}
             </div>
-            <div className={s.messages}>
-                <div className={s.messagesItems}>
-                    {MessageElements}
-                </div>
-                <div className={s.messageSendingBlock}>
+                <div className={s.messages}>
+                    <div className={s.messagesItems}>
+                        {MessageElements}
+                    </div>
+                    <div className={s.messageSendingBlock}>
                     <textarea
                         onChange={onMessageChange}
                         value={props.dialogsPage.newMessageText}
                         placeholder="Enter new message"
                         ref={newMessageText}/>
-                    <button onClick={addMessage}>Оправить</button>
+                        <button onClick={addMessage}>Оправить</button>
+                    </div>
                 </div>
-            </div>
         </div>
     );
 }
