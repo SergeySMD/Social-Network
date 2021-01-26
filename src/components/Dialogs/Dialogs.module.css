@@ -1,6 +1,6 @@
 .dialogs *{
     box-sizing: border-box;
-    transition: all 500ms ease;
+    transition: all 100ms ease;
 }
 .dialogs {
     display: grid;
@@ -31,20 +31,23 @@
     color: #1d3c96;
     cursor: pointer;
     display: inline-block;
+    height: 35px;
+    margin-left: -25px;
+    line-height: 20px;
+    border-radius: 12px;
 }
 .dialog a:hover {
     font-weight: bold;
     color: #1d3c96;
+    background-color: #DBDBF5;
+    border-radius: 12px;
 }
 .dialog a.activeLink {
     color: #ffffff;
     font-weight: bold;
-    height: 35px;
     background-color: #8583f7;
-    margin-left: -25px;
     padding-left: 35px;
-    line-height: 20px;
-    border-radius: 12px;
+
 }
 .dialog {
     display: grid;

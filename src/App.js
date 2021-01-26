@@ -11,24 +11,24 @@ import News from "./components/News/News";
 
 
 const App = (props) => {
+    debugger;
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-
                     <Route path='/profile'
                            render={() => <Profile
                                profilePage={props.state.profilePage}
-                               updateNewPostText={props.updateNewPostText}
-                               addPost={props.addPost}/>}/>
+                               updateNewPostText={props.store.updateNewPostText.bind(props.store)}
+                               addPost={props.store.addPost.bind(props.store)}/>}/>
 
                     <Route path='/dialogs'
                            render={() => <Dialogs
                                dialogsPage={props.state.dialogsPage}
-                               updateNewMessageText={props.updateNewMessageText}
-                               addMessage={props.addMessage}/>}/>
+                               updateNewMessageText={props.store.updateNewMessageText.bind(props.store)}
+                               addMessage={props.store.addMessage.bind(props.store)}/>}/>
 
                     <Route path='/news-feed' render={() => <News/>}/>
                     <Route path='/music' render={() => <Music/>}/>
