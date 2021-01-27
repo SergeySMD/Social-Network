@@ -18,11 +18,11 @@ let Dialogs = (props) => {
         if (props.dialogsPage.newMessageText === "")
             alert("Enter message")
         else
-            props.addMessage();
+            props.dispatch({type:"ADD-MESSAGE"});
     }
     let onMessageChange = () => {
         let text = newMessageText.current.value;
-        props.updateNewMessageText(text);
+        props.dispatch({type:"UPDATE-NEW-MESSAGE-TEXT", newMessageText: text});
     }
 
     return (
