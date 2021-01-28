@@ -1,5 +1,4 @@
 .item {
-    color: purple;
     padding: 8px 16px;
     display: grid;
     grid-template-areas:
@@ -40,8 +39,10 @@
 }
 .message {
     grid-area: message;
+    min-height: 60px;
     display: block;
     max-width: calc(100% - 48px);
+    font-size: 18px;
     word-wrap: break-word;
     white-space: pre-wrap;
     background-color: white;

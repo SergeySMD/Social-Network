@@ -21,7 +21,7 @@ body
 
 .app-wrapper-content {
     grid-area: c;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(255, 255, 255);
     border-radius: 12px;
     border-bottom: 2px solid rgba(34, 60, 80, 0.2);
 }

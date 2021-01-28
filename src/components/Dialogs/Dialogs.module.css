@@ -12,16 +12,41 @@
 
 }
 .messagesItems {
-
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 .messages {
+    padding-top: 10px;
     margin-left: 32px;
     display: grid;
-    grid-template-rows: 9fr 1fr;
+    grid-template-rows: 9fr auto;
+}
+.message {
+    display: block;
+    background-color: white;
+    margin: 5px;
+    padding: 4px 12px;
+    border-radius: 8px;
+    border-bottom: 2px solid rgba(34, 60, 80, 0.2);
+}
+.messageSendingBlock {
+    align-items: center;
+    vertical-align: bottom;
+    margin-top: 24px;
+    padding-bottom: 6px;
 }
 .messageSendingBlock textarea {
-    width: 85%;
+    width: calc(100% - 140px);
     margin-right: 10px;
+    vertical-align: bottom;
+    max-width: calc(100% - 48px);
+    resize: vertical;
+    max-height: 200%;
+    font-size: 16px;
+    overflow: auto;
+}
+.messageSendingBlock button {
+    width: 120px;
 }
 
 .dialog a {
