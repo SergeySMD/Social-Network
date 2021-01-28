@@ -3,6 +3,7 @@
     max-height: 200px;
     overflow: hidden;
     border-radius: 12px 12px 0px 0px;
+    border-bottom: 2px solid rgba(34, 60, 80, 0.2);
 }
 .descriptionBlock {
 padding: 10px;

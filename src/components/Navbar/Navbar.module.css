@@ -7,6 +7,7 @@
     margin-top: 70px;
     background-color: rgb(240, 240, 240);
     border-radius: 12px;
+    border-bottom: 2px solid rgba(34, 60, 80, 0.2);
 }
 .item {
     display: block;
