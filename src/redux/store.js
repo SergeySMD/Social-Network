@@ -5,12 +5,17 @@ let store = {
     _state: {
         profilePage: {
             posts: [
-                {id: 1, message: "Hi, World", likeCounter: 3},
-                {id: 2, message: "Welcome", likeCounter: 0},
-                {id: 3, message: "Hi, how are you today?", likeCounter: 4324},
-                {id: 4, message: "Khabib, you are next", likeCounter: 2}
+                {id: 1, message: "Hi, World", likeCounter: 3,date: "21:00, 20/01/2021"},
+                {id: 2, message: "Welcome", likeCounter: 0,date: "21:00, 20/01/2021"},
+                {id: 3, message: "Hi, how are you today?", likeCounter: 4324,date: "21:00, 20/01/2021"},
+                {id: 4, message: "Khabib, you are next", likeCounter: 2,date: "21:00, 20/01/2021"}
             ],
-            newPostText: "New Post Message"
+            newPostText: "New Post Message",
+
+            backgroundImageLink:"https://blog.pixlr.com/wp-content/uploads/2019/03/stars-pattern.png",
+            avatarImageLink: "https://ru.meming.world/images/ru/thumb/7/73/Шаблон_кот.jpg/300px-Шаблон_кот.jpg",
+            userName: "Sergey Alekseev",
+            userDescription: "My life, my rules, no wife, old schools!"
         },
         dialogsPage: {
             dialogs: [

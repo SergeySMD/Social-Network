@@ -1,10 +1,46 @@
-.content img {
+.image {
+    height: 200px;
+}
+.image img {
     width: 100%;
     max-height: 200px;
     overflow: hidden;
-    border-radius: 12px 12px 0px 0px;
-    border-bottom: 2px solid rgba(34, 60, 80, 0.2);
+    border-radius: 5px 5px 0px 0px;
 }
 .descriptionBlock {
-padding: 10px;
+    display: grid;
+    grid-template-areas:
+            "avatar name"
+            "avatar status";
+    grid-template-columns: 200px auto;
+    padding-bottom: 30px;
+}
+.avatar {
+    grid-area: avatar;
+}
+.avatar img {
+    height: 140px;
+    width: 140px;
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-top: -70px;
+}
+.userName {
+    grid-area: name;
+    padding-top: 15px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+}
+.description {
+    grid-area: status;
+    padding-top: 9px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif Text;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #707070;
 }

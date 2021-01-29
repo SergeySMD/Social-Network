@@ -2,51 +2,84 @@
 .nav {
     grid-area: n;
     position: fixed;
-    width: 210px;
-    height: 255px;
-    margin-top: 70px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 12px;
-    border-bottom: 2px solid rgba(34, 60, 80, 0.2);
+    width: 200px;
+    height: 240px;
+    top: 100px;
+    background: #FFFFFF;
+    border-radius: 5px;
+}
+.navList {
+    padding: 20px 0;
 }
 .item {
-    display: block;
-    list-style-type: none;
-    margin: 0px;
-    width: 100%;
-
+    display: grid;
+    grid-template-areas: "indicator icon text" ;
+    grid-template-columns: 4px 32px auto;
+    padding: 10px 0;
+    align-items: center;
 }
-.item a {
-    text-align: center;
-    text-decoration: none;
-    color: #1d3c96;
+.item a{
+    grid-area: text;
+    color: #707070;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+
+    margin-left: 10px;
     cursor: pointer;
-    display: block;
-    transition: all 500ms ease;
-    padding: 16px 0px;
+    text-decoration: none;
 }
 
 .item a.activeLink {
-    font-weight: bold;
-    text-align: center;
-    background-color: #8583f7;
-    color: white;
+    font-weight: 500;
+    color: #000000;
+
 }
 .item a:hover {
-    font-weight: bold;
-    transition: all 100ms ease;
-    background-color: #dbdbf5;
-    color: #1d3c96;
-}
-.item a.activeLink:hover {
-    color: #ffffff;
-    text-align: center;
-    background-color: #8583f7;
+    font-weight: 500;
 }
 
-a.top {
-    border-radius: 12px 12px 0 0;
-}
-a.bottom {
-    border-radius: 0 0 12px 12px;
-}
+/*.item {*/
+/*    display: block;*/
+/*    list-style-type: none;*/
+/*    margin: 0px;*/
+/*    width: 100%;*/
+
+/*}*/
+/*.item a {*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*    color: #1d3c96;*/
+/*    cursor: pointer;*/
+/*    display: block;*/
+/*    transition: all 500ms ease;*/
+/*    padding: 16px 0px;*/
+/*}*/
+
+/*.item a.activeLink {*/
+/*    font-weight: bold;*/
+/*    text-align: center;*/
+/*    background-color: #8583f7;*/
+/*    color: white;*/
+/*}*/
+/*.item a:hover {*/
+/*    font-weight: bold;*/
+/*    transition: all 100ms ease;*/
+/*    background-color: #dbdbf5;*/
+/*    color: #1d3c96;*/
+/*}*/
+/*.item a.activeLink:hover {*/
+/*    color: #ffffff;*/
+/*    text-align: center;*/
+/*    background-color: #8583f7;*/
+/*}*/
+
+/*a.top {*/
+/*    border-radius: 12px 12px 0 0;*/
+/*}*/
+/*a.bottom {*/
+/*    border-radius: 0 0 12px 12px;*/
+/*}*/

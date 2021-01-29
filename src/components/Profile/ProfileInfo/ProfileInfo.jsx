@@ -1,14 +1,16 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
 
-let ProfileInfo = () => {
+let ProfileInfo = (props) => {
     return (
         <div className={s.content}>
-            <div>
-                <img src="https://blog.pixlr.com/wp-content/uploads/2019/03/stars-pattern.png"/>
+            <div className={s.image}>
+                <img src={props.state.backgroundImageLink}/>
             </div>
             <div className={s.descriptionBlock}>
-                avatar + descript
+                <div className={s.avatar}><img src={props.state.avatarImageLink}/></div>
+                <div className={s.userName}>{props.state.userName}</div>
+                <div className={s.description}>{props.state.userDescription}</div>
             </div>
         </div>
     )
