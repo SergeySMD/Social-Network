@@ -5,12 +5,12 @@ let ProfileInfo = (props) => {
     return (
         <div className={s.content}>
             <div className={s.image}>
-                <img src={props.state.backgroundImageLink}/>
+                <img src={props.backgroundImage}/>
             </div>
             <div className={s.descriptionBlock}>
-                <div className={s.avatar}><img src={props.state.avatarImageLink}/></div>
-                <div className={s.userName}>{props.state.userName}</div>
-                <div className={s.description}>{props.state.userDescription}</div>
+                <div className={s.avatar}><img src={props.avatar}/></div>
+                <div className={s.userName}>{props.username}</div>
+                <div className={s.description}>{props.description}</div>
             </div>
         </div>
     )

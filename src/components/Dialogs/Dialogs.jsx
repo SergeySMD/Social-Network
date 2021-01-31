@@ -2,23 +2,18 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/dialogsReducer";
-
 let Dialogs = (props) => {
 
 
-    let DialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
-    let MessageElements = props.dialogsPage.messages.map(m => <Message message={m.message}/>)
+    let DialogsElements = props.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
+    let MessageElements = props.messages.map(m => <Message message={m.message}/>)
 
     let addMessage = () => {
-        if (props.dialogsPage.newMessageText === "")
-            alert("Enter message")
-        else
-            props.dispatch(addMessageActionCreator());
+        props.addMessage();
     }
     let onMessageChange = (e) => {
         let text = e.target.value;
-        props.dispatch(updateNewMessageTextActionCreator(text));
+        props.onMessageChange(text);
     }
 
     return (
@@ -33,7 +28,7 @@ let Dialogs = (props) => {
                 <div className={s.messageSendingBlock}>
                     <textarea
                         onChange={onMessageChange}
-                        value={props.dialogsPage.newMessageText}
+                        value={props.newMessageText}
                         placeholder="Enter new message"/>
                     <button onClick={addMessage}>Оправить</button>
                 </div>

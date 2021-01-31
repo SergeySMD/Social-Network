@@ -1,30 +1,25 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profileReducer";
 import TextareaAutosize from 'react-textarea-autosize';
 
 
 let MyPosts = (props) => {
-    let postsElements = props.state.posts
+    let postsElements = props.posts
         .map(p => <Post
-            avatar={props.state.avatarImageLink}
-            username={props.state.userName}
+            avatar={props.avatar}
+            username={props.username}
             message={p.message}
             likeCounter={p.likeCounter}
             date={p.date} />);
 
     let addPost = () => {
-        if (props.state.newPostText === "")
-            alert("Enter Message")
-        else {
-            props.dispatch(addPostActionCreator());
-        }
+        props.addPost();
     };
 
     let onPostChange = (e) => {
         let text = e.target.value;
-        props.dispatch(updateNewPostTextActionCreator(text));
+        props.onPostChange(text);
     };
 
     return (
@@ -34,7 +29,7 @@ let MyPosts = (props) => {
                     <TextareaAutosize
                         onChange={onPostChange}
                         maxRows="16"
-                        value={props.state.newPostText}
+                        value={props.newPostText}
                         placeholder="Your post message"/>
                 </div>
                 <div className={s.button}>
