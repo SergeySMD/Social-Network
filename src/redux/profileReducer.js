@@ -37,6 +37,7 @@ const ProfileReducer = (state = initState,action) => {
 };
 let postAddDate = () => {
     let date = new Date();
+
     return (date.getHours() + ":" + date.getMinutes() + ", " + date.getDate() + "/" + date.getMonth()+1 + "/" + date.getFullYear())
 }
 export let addPostActionCreator = () => ({ type: ADD_POST });

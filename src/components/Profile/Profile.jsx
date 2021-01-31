@@ -5,7 +5,6 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
 let Profile = (props) => {
-    debugger;
     return (
         <div className={s.profilePage}>
             <div className={s.profileInfo}>

@@ -12,9 +12,7 @@
     padding: 20px 0;
 }
 .item {
-    display: grid;
-    grid-template-areas: "indicator icon text" ;
-    grid-template-columns: 4px 32px auto;
+    display: block;
     padding: 10px 0;
     align-items: center;
 }
@@ -28,20 +26,45 @@
     font-size: 16px;
     line-height: 20px;
 
-    margin-left: 10px;
     cursor: pointer;
     text-decoration: none;
 }
-
+.pageName {
+    display: inline-block;
+    margin-left: 10px;
+}
 .item a.activeLink {
     font-weight: 500;
     color: #000000;
-
 }
 .item a:hover {
     font-weight: 500;
 }
 
+.item a .icon {
+    margin-left: 16px;
+    height: 15px;
+    width: 16px;
+    vertical-align: middle;
+    margin-bottom: 2px;
+    opacity: 60%;
+}
+.item a:hover .icon{
+    opacity: 70%;
+}
+.item a.activeLink .icon{
+    opacity: 100%;
+}
+
+.item a .indicator {
+    display: inline-block;
+    height: 20px;
+    width: 4px;
+    color: rgba(0,0,0,0);
+}
+.item a.activeLink .indicator{
+    background-color: #9f9df6;
+}
 /*.item {*/
 /*    display: block;*/
 /*    list-style-type: none;*/
