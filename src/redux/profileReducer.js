@@ -18,27 +18,40 @@ let initState = {
 
 const ProfileReducer = (state = initState,action) => {
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
             let newPost = {
                 id: state.posts.length + 1,
                 message: state.newPostText,
                 likeCounter: 0,
                 date: postAddDate()
             }
-            state.posts.unshift(newPost);
-            state.newPostText = "";
-            return state;
-        case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newPostText;
-            return state;
+
+            let stateCopy = {...state};
+            stateCopy.posts = [...state.posts]
+            stateCopy.posts.unshift(newPost);
+            stateCopy.newPostText = "";
+            return stateCopy;
+        }
+        case UPDATE_NEW_POST_TEXT: {
+            let stateCopy = {...state};
+            stateCopy.newPostText = action.newPostText;
+            return stateCopy;
+        }
         default:
             return state;
     }
 };
 let postAddDate = () => {
     let date = new Date();
+    let minutes;
+    let months;
+    let dates;
+    if (date.getMinutes()<10) minutes = "0"+date.getMinutes(); else minutes = date.getMinutes();
+    if (date.getMonth()<10) months = "0"+date.getMonth(); else months = date.getMonth();
+    if (date.getDate()<10) dates = "0"+date.getDate(); else dates = date.getDate();
 
-    return (date.getHours() + ":" + date.getMinutes() + ", " + date.getDate() + "/" + date.getMonth()+1 + "/" + date.getFullYear())
+    return (date.getHours() + ":" + minutes + ", " + dates + "/" + months + "/" + date.getFullYear())
+
 }
 export let addPostActionCreator = () => ({ type: ADD_POST });
 export let updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT,newPostText: text});

@@ -5,7 +5,6 @@ import TextareaAutosize from 'react-textarea-autosize';
 
 
 let MyPosts = (props) => {
-    debugger;
     let postsElements = props.posts
         .map(p => <Post
             avatar={props.avatar}
