@@ -24,6 +24,7 @@
     word-wrap: break-word;
     white-space: pre-wrap;
     overflow: auto;
+    cursor: text;
 }
 .button {
     text-align: center;

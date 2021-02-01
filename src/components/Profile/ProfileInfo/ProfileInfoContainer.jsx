@@ -1,12 +1,15 @@
 import React from 'react';
 import ProfileInfo from "./ProfileInfo";
+import {connect} from "react-redux";
 
-let ProfileInfoContainer = (props) => {
-    let state = props.store.getState().profilePage;
-
-    return <ProfileInfo backgroundImage={state.backgroundImageLink}
-                        avatar={state.avatarImageLink}
-                        username={state.userName}
-                        description={state.userDescription}/>
+let mapStateToProps = (state) => {
+    return {
+        backgroundImage: state.profilePage.backgroundImageLink,
+        avatar: state.profilePage.avatarImageLink,
+        username: state.profilePage.userName,
+        description: state.profilePage.userDescription
+    }
 }
+export let ProfileInfoContainer = connect(mapStateToProps)(ProfileInfo);
+
 export default ProfileInfoContainer;

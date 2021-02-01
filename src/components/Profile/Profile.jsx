@@ -8,10 +8,10 @@ let Profile = (props) => {
     return (
         <div className={s.profilePage}>
             <div className={s.profileInfo}>
-                <ProfileInfoContainer store={props.store}/>
+                <ProfileInfoContainer/>
             </div>
             <div className={s.myPosts}>
-                <MyPostsContainer store={props.store}/>
+                <MyPostsContainer/>
             </div>
         </div>
     )
