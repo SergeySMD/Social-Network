@@ -24,7 +24,7 @@ let initState = {
 };
 
 export const DialogsReducer = (state = initState,action) => {
-
+    let stateCopy;
     switch (action.type) {
         case ADD_MESSAGE:
             let newMessage = {
@@ -32,12 +32,21 @@ export const DialogsReducer = (state = initState,action) => {
                 message: state.newMessageText,
                 likeCounter: 0
             }
-            state.messages.push(newMessage);
-            state.newMessageText = "";
-            return state;
+            stateCopy = {
+                ...state,
+                messages: [...state.messages]
+            }
+            if (stateCopy.newMessageText!=="")
+            stateCopy.messages.push(newMessage); else alert("Пустое поле. Введите текст")
+            stateCopy.newMessageText = "";
+            return stateCopy;
         case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessageText = action.newMessageText;
-            return state;
+            stateCopy = {
+                ...state,
+                newMessageText: action.newMessageText
+            }
+            return stateCopy;
+
         default:
             return state;
     }

@@ -17,26 +17,30 @@ let initState = {
 }
 
 const ProfileReducer = (state = initState,action) => {
+    let stateCopy;
     switch (action.type) {
-        case ADD_POST: {
+        case ADD_POST:
             let newPost = {
                 id: state.posts.length + 1,
                 message: state.newPostText,
                 likeCounter: 0,
                 date: postAddDate()
             }
-
-            let stateCopy = {...state};
+            stateCopy = {
+                ...state,
+                posts: state.posts
+            }
             stateCopy.posts = [...state.posts]
-            stateCopy.posts.unshift(newPost);
+            if (stateCopy.newPostText!=="")
+            stateCopy.posts.unshift(newPost); else alert("Пустое поле. Введите текст")
             stateCopy.newPostText = "";
             return stateCopy;
-        }
-        case UPDATE_NEW_POST_TEXT: {
-            let stateCopy = {...state};
+        case UPDATE_NEW_POST_TEXT:
+            stateCopy = {
+                ...state
+            }
             stateCopy.newPostText = action.newPostText;
             return stateCopy;
-        }
         default:
             return state;
     }
@@ -46,6 +50,7 @@ let postAddDate = () => {
     let minutes;
     let months;
     let dates;
+
     if (date.getMinutes()<10) minutes = "0"+date.getMinutes(); else minutes = date.getMinutes();
     if (date.getMonth()<10) months = "0"+date.getMonth(); else months = date.getMonth();
     if (date.getDate()<10) dates = "0"+date.getDate(); else dates = date.getDate();
