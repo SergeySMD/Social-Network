@@ -1,0 +1,108 @@
+.userBlock {
+    display: grid;
+    grid-template-areas:
+            "avatar info";
+    grid-template-columns: 126px auto;
+    background-color: white;
+    align-items: center;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.userInfoBlock {
+    grid-area: info;
+    height: 96px;
+    display: grid;
+    grid-template-areas:
+            "name country city"
+            "status status status"
+            "button . .";
+    grid-template-columns: auto max-content max-content;
+    align-items: end;
+
+}
+
+.title {
+    margin: 0px 0 10px 0;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.avatar {
+    grid-area: avatar;
+    margin-left: 30px;
+    height: 96px;
+    padding: 30px 0;
+}
+
+.avatar img {
+    height: 96px;
+    width: 96px;
+    border-radius: 10px;
+}
+
+.name {
+    grid-area: name;
+    padding: 0 20px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    align-self: start;
+}
+
+.country {
+    grid-area: country;
+    margin-right: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #707070;
+    align-self: start;
+}
+
+.status {
+    grid-area: status;
+    display: block;
+    padding: 10px 30px 10px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.city {
+    grid-area: city;
+    margin-right: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #707070;
+    align-self: start;
+}
+
+.button {
+    grid-area: button;
+    margin-left: 20px;
+}
+.button button {
+    background-color: #8583f7;
+    text-align: center;
+    padding: 5px 10px;
+    width: 120px;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}

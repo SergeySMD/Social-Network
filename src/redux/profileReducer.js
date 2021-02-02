@@ -45,11 +45,10 @@ const ProfileReducer = (state = initState,action) => {
             return state;
     }
 };
+
 let postAddDate = () => {
     let date = new Date();
-    let minutes;
-    let months;
-    let dates;
+    let minutes; let months; let dates;
 
     if (date.getMinutes()<10) minutes = "0"+date.getMinutes(); else minutes = date.getMinutes();
     if (date.getMonth()<10) months = "0"+date.getMonth(); else months = date.getMonth();
