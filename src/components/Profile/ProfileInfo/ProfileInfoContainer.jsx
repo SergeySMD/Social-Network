@@ -1,6 +1,7 @@
 import React from 'react';
 import ProfileInfo from "./ProfileInfo";
 import {connect} from "react-redux";
+import {updateStatusAC} from "../../../redux/profileReducer";
 
 let mapStateToProps = (state) => {
     return {
@@ -10,6 +11,14 @@ let mapStateToProps = (state) => {
         description: state.profilePage.userDescription
     }
 }
-export let ProfileInfoContainer = connect(mapStateToProps)(ProfileInfo);
+let mapDispatchToProps = (dispatch) => {
+    return {
+        updateStatus: (text) => {
+            dispatch(updateStatusAC(text))
+        }
+    }
+}
+
+export let ProfileInfoContainer = connect(mapStateToProps, mapDispatchToProps)(ProfileInfo);
 
 export default ProfileInfoContainer;

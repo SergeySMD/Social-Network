@@ -18,7 +18,7 @@ let Users = (props) => {
                     id: 2,
                     followed: false,
                     name: "Mihail Alekseev",
-                    avatar: "https://www.meme-arsenal.com/memes/7496ced82ab2d16a0bdebc3d4c143d29.jpg",
+                    avatar: "https://www.rockstargames.com/ru/img/global/downloads/buddyiconsconavatars/v_heists_balaclava_256x256.jpg",
                     status: "Welcome",
                     location: {city: "Moscow", country: "Russia"}
                 }

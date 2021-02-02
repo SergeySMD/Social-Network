@@ -1,5 +1,8 @@
+import {act} from "@testing-library/react";
+
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = "ADD-POST";
+const UPDATE_STATUS = "UPDATE-STATUS"
 
 let initState = {
         posts: [
@@ -10,10 +13,10 @@ let initState = {
         ],
         newPostText: "New Post Message",
 
-        backgroundImageLink:"https://blog.pixlr.com/wp-content/uploads/2019/03/stars-pattern.png",
-        avatarImageLink: "https://ru.meming.world/images/ru/thumb/7/73/Шаблон_кот.jpg/300px-Шаблон_кот.jpg",
+        backgroundImageLink:"https://i1.wp.com/fountravel.ru/wp-content/uploads/2016/07/faroe-islands-photo-26.jpg?fit=1605%2C642&ssl=1",
+        avatarImageLink: "https://icdn.lenta.ru/images/0000/0095/000000954560/pic_1358526899.jpg",
         userName: "Sergey Alekseev",
-        userDescription: "My life, my rules, no wife, old schools!"
+        userDescription: "My life, my rules, no wife, old schools!",
 }
 
 const ProfileReducer = (state = initState,action) => {
@@ -41,6 +44,10 @@ const ProfileReducer = (state = initState,action) => {
             }
             stateCopy.newPostText = action.newPostText;
             return stateCopy;
+        case UPDATE_STATUS:
+            return {
+                ...state, userDescription: action.description
+            }
         default:
             return state;
     }
@@ -59,5 +66,6 @@ let postAddDate = () => {
 }
 export let addPostActionCreator = () => ({ type: ADD_POST });
 export let updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT,newPostText: text});
+export let updateStatusAC = (text) => ({type: UPDATE_STATUS, description: text})
 
 export default ProfileReducer;
