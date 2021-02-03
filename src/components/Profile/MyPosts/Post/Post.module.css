@@ -1,10 +1,10 @@
 .item {
     display: grid;
     grid-template-areas:
-    "ava  author"
-    "ava date"
-    "message message"
-    "like like";
+    "ava  author menu"
+    "ava date ."
+    "message message message"
+    "like like like";
     grid-template-columns: 78px 10fr;
     grid-template-rows: auto;
     align-items: center;
@@ -13,7 +13,6 @@
     margin: 10px 0;
     cursor: default;
 }
-
 
 .image {
     grid-area: ava;
@@ -27,6 +26,7 @@
     border-radius: 10px;
     object-fit: cover;
     object-position: center;
+    background-image: url("https://supercharge.info/images/avatar-placeholder.png");
 }
 
 .author {
@@ -39,7 +39,13 @@
     font-size: 18px;
     line-height: 22px;
 }
-
+.menu {
+    padding-top: 30px;
+    padding-right: 30px;
+}
+.menu svg path {
+    fill: #C4C4C4;
+}
 .date {
     grid-area: date;
     margin-left: 20px;

@@ -1,8 +1,7 @@
-import {act} from "@testing-library/react";
-
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = "ADD-POST";
-const UPDATE_STATUS = "UPDATE-STATUS"
+const UPDATE_STATUS = "UPDATE-STATUS";
+
 
 let initState = {
         posts: [
@@ -13,7 +12,7 @@ let initState = {
         ],
         newPostText: "New Post Message",
 
-        backgroundImageLink:"https://i1.wp.com/fountravel.ru/wp-content/uploads/2016/07/faroe-islands-photo-26.jpg?fit=1605%2C642&ssl=1",
+        backgroundImageLink:"https://www.incimages.com/uploaded_files/image/1920x1080/westworld-2-hbo-background-1920_419617.jpg",
         avatarImageLink: "https://icdn.lenta.ru/images/0000/0095/000000954560/pic_1358526899.jpg",
         userName: "Sergey Alekseev",
         userDescription: "My life, my rules, no wife, old schools!",
@@ -31,7 +30,6 @@ const ProfileReducer = (state = initState,action) => {
             }
             stateCopy = {
                 ...state,
-                posts: state.posts
             }
             stateCopy.posts = [...state.posts]
             if (stateCopy.newPostText!=="")

@@ -22,7 +22,6 @@ let MyPosts = (props) => {
         let text = e.target.value;
         props.onPostChange(text);
     };
-
     return (
         <div className={s.postBlock}>
             <div className={s.inputBlock}>

@@ -13,11 +13,12 @@ let ProfileInfo = (props) => {
             <div className={s.descriptionBlock}>
                 <div className={s.avatar}><img src={props.avatar}/></div>
                 <div className={s.userName}>{props.username}</div>
-                <div className={s.description}><textarea
+                <div className={s.description}><input
                     onChange={onStatusChange}
+                    onFocus={(e) => {e.target.style.cursor = "text"}}
+                    onBlur={(e) => {e.target.style.cursor = "pointer"}}
                     value={props.description}
                     placeholder="Enter your status"
-                    rows="1"
                     maxLength="60"
                 /></div>
             </div>

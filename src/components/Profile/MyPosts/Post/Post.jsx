@@ -6,6 +6,12 @@ let Post = (props) => {
       <div className={s.item}>
           <div className={s.image}><img src={props.avatar}/></div>
           <div className={s.author}>{props.username}</div>
+          <div className={s.menu}><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.00001 12C3.10459 12 4.00003 11.1046 4.00003 10C4.00003 8.89543 3.10459 8 2.00001 8C0.895437 8 0 8.89543 0 10C0 11.1046 0.895437 12 2.00001 12Z" fill="black"/>
+              <path d="M9.99996 12C11.1045 12 12 11.1046 12 10C12 8.89543 11.1045 8 9.99996 8C8.89539 8 7.99995 8.89543 7.99995 10C7.99995 11.1046 8.89539 12 9.99996 12Z" fill="black"/>
+              <path d="M18 12C19.1046 12 20 11.1046 20 10C20 8.89543 19.1046 8 18 8C16.8954 8 16 8.89543 16 10C16 11.1046 16.8954 12 18 12Z" fill="black"/>
+          </svg>
+          </div>
           <div className={s.date}>{props.date}</div>
           <div className={s.message}>{props.message}</div>
           <div className={s.likeBlock}>
