@@ -1,26 +1,15 @@
+
 const USER_FOLLOW = "USER-FOLLOW";
 const USER_UNFOLLOW = "USER-UNFOLLOW";
 const SET_USERS = "SET-USERS";
+const UPDATE_CURRENT_PAGE = "UPDATE_CURRENT_PAGE";
+const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 
 let initState = {
-    users: [
-        // {
-        //     id: 1,
-        //     followed: true,
-        //     name: "Sergey Alekseev",
-        //     avatar: "https://www.meme-arsenal.com/memes/7496ced82ab2d16a0bdebc3d4c143d29.jpg",
-        //     status: "Hello",
-        //     location: {city: "London", country: "United Kingdom"}
-        // },
-        // {
-        //     id: 2,
-        //     followed: false,
-        //     name: "Mihail Alekseev",
-        //     avatar: "https://www.meme-arsenal.com/memes/7496ced82ab2d16a0bdebc3d4c143d29.jpg",
-        //     status: "Welcome",
-        //     location: {city: "Moscow", country: "Russia"}
-        // }
-    ]
+    users: [],
+    pageSize: 10,
+    totalUsersCount: 200,
+    currentPage:1
 }
 
 const UsersReducer = (state = initState, action) => {
@@ -42,7 +31,11 @@ const UsersReducer = (state = initState, action) => {
                     return u;
                 })}
         case SET_USERS:
-            return {...state, users: [...state.users, ...action.users]}
+            return {...state, users: [...action.users]}
+        case UPDATE_CURRENT_PAGE:
+            return {...state, currentPage: action.pageId}
+        case SET_TOTAL_USERS_COUNT:
+            return {...state, totalUsersCount: action.totalUsersCount}
         default:
             return state;
     }
@@ -51,5 +44,7 @@ const UsersReducer = (state = initState, action) => {
 export let userFollowAC = (userId) => ({type: USER_FOLLOW, userId});
 export let userUnfollowAC = (userId) => ({type: USER_UNFOLLOW, userId});
 export let setUsersAC = (users) => ({type:SET_USERS, users});
+export let updatePageAC = (pageId) => ({type: UPDATE_CURRENT_PAGE, pageId});
+export let setTotalUsersCountAC = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount});
 
 export default UsersReducer;
