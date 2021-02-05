@@ -148,3 +148,11 @@
     padding-left: 8px;
     display: inline-block;
 }
+.fetching {
+    margin-left: 350px;
+    padding: 20px 0;
+    height: 300px;
+    width: 300px;
+}
+
+

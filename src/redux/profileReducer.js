@@ -62,8 +62,8 @@ let postAddDate = () => {
     return (date.getHours() + ":" + minutes + ", " + dates + "/" + months + "/" + date.getFullYear())
 
 }
-export let addPostActionCreator = () => ({ type: ADD_POST });
-export let updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT,newPostText: text});
-export let updateStatusAC = (text) => ({type: UPDATE_STATUS, description: text})
+export let addPost = () => ({ type: ADD_POST });
+export let onPostChange = (text) => ({type: UPDATE_NEW_POST_TEXT,newPostText: text});
+export let updateStatus = (text) => ({type: UPDATE_STATUS, description: text})
 
 export default ProfileReducer;

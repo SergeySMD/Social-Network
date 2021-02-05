@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Users.module.css';
 import userPhoto from "../../assets/images/User_avatar_placeholder.png"
 import UserPaginationMenu from "./usersPagination";
+import Preloader from "../../assets/images/preloader-users.svg";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -17,6 +18,7 @@ let Users = (props) => {
                                 currentPage={props.currentPage}
                                 onPageClick={props.onPageMenuClick}
                                 onPageSizeClick={props.onPageSizeClick}/>
+            {/*{props.isFetching ? <img className={s.fetching} src={Preloader}/> : null}*/}
             <div className={s.users}>
                 {
                     props.users.map(u => (
