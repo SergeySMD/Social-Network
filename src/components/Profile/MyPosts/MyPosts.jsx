@@ -14,26 +14,18 @@ let MyPosts = (props) => {
             date={p.date}
             key={p.id}/>);
 
-    let addPost = () => {
-        props.addPost();
-    };
-
-    let onPostChange = (e) => {
-        let text = e.target.value;
-        props.onPostChange(text);
-    };
     return (
         <div className={s.postBlock}>
             <div className={s.inputBlock}>
                 <div className={s.newPost}>
                     <TextareaAutosize
-                        onChange={onPostChange}
+                        onChange={props.onPostChange}
                         maxRows="16"
                         value={props.newPostText}
                         placeholder="Your post message"/>
                 </div>
                 <div className={s.button}>
-                    <button onClick={addPost}>
+                    <button onClick={props.addPost}>
                         <svg width="20" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">
                                 <path
