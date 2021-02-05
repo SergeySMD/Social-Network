@@ -6,13 +6,15 @@ const UPDATE_CURRENT_PAGE = "UPDATE_CURRENT_PAGE";
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 const SET_PAGE_SIZE = "SET_PAGE_SIZE";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
+const SEARCH_USER = "SEARCH_USER"
 
 let initState = {
     users: [],
     pageSize: 10,
     totalUsersCount: 200,
     currentPage:1,
-    isFetching:false
+    isFetching:false,
+    searchUserString: ''
 }
 
 const UsersReducer = (state = initState, action) => {
@@ -43,6 +45,8 @@ const UsersReducer = (state = initState, action) => {
             return {...state, pageSize: action.pageSize}
         case TOGGLE_IS_FETCHING:
             return {...state, isFetching: action.isFetching}
+        case SEARCH_USER:
+            return {...state, searchUserString: action.text}
         default:
             return state;
     }
@@ -55,5 +59,6 @@ export let updatePage = (pageId) => ({type: UPDATE_CURRENT_PAGE, pageId});
 export let setUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount});
 export let setPageSize = (pageSize) => ({type: SET_PAGE_SIZE, pageSize});
 export let toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
+export let onSearchUsersChange = (text) => ( {type: SEARCH_USER, text})
 
 export default UsersReducer;

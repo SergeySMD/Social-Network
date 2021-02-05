@@ -3,21 +3,26 @@ import s from './Users.module.css';
 import userPhoto from "../../assets/images/User_avatar_placeholder.png"
 import UserPaginationMenu from "./usersPagination";
 import Preloader from "../../assets/images/preloader-users.svg";
+import SearchUsersMenu from "./UsersSearchMenu/usersSearchMenu";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
     return (
         <div>
+            <SearchUsersMenu searchUserString={props.searchUserString}
+                             onSearchChange={props.onSearchChange}
+                             onSearchUserClick={props.onSearchUserClick}
+                             onSearchUserChange={props.onSearchUserChange}
+            />
             <div className={s.title}>Users</div>
-            {/*<div className={s.searchBlock}>*/}
-            {/*    <input placeholder="Enter username"/>*/}
-            {/*</div>*/}
+
             <UserPaginationMenu pagesCount={pagesCount}
                                 pageSize={props.pageSize}
                                 currentPage={props.currentPage}
                                 onPageClick={props.onPageMenuClick}
-                                onPageSizeClick={props.onPageSizeClick}/>
+                                onPageSizeClick={props.onPageSizeClick}
+            />
             {/*{props.isFetching ? <img className={s.fetching} src={Preloader}/> : null}*/}
             <div className={s.users}>
                 {
