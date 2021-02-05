@@ -26,8 +26,7 @@
     border-radius: 10px;
     object-fit: cover;
     object-position: center;
-    background-image: url("https://supercharge.info/images/avatar-placeholder.png");
-}
+    }
 
 .author {
     grid-area: author;

@@ -1,6 +1,7 @@
 body
 {
     padding: 0 calc(20px - (100vw - 100%)) 0 0;
+    background-color: #EDEEF0;
 }
 .app-wrapper {
     display: grid;
@@ -20,8 +21,9 @@ body
 .app-wrapper-content {
     grid-area: c;
     margin-top: 20px;
-    background-color: rgb(237, 238, 240);
+    background: rgb(237, 238, 240);
     border-radius: 12px;
 }
+
 
 
