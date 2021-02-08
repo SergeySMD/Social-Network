@@ -1,3 +1,5 @@
+import userPhoto from "../assets/images/User_avatar_placeholder.png";
+
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = "ADD-POST";
 const UPDATE_STATUS = "UPDATE-STATUS";
@@ -49,7 +51,10 @@ const ProfileReducer = (state = initState,action) => {
             }
         case SET_PROFILE:
             return {
-                ...state, avatarImageLink: action.data.photos.small, userName: action.data.fullName, userDescription: action.data.aboutMe
+                ...state,
+                avatarImageLink: action.data.photos.small !== null ? action.data.photos.small : userPhoto,
+                userName: action.data.fullName,
+                userDescription: action.data.aboutMe!==null ? action.data.aboutMe : "Empty status"
             }
         default:
             return state;
