@@ -1,6 +1,7 @@
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = "ADD-POST";
 const UPDATE_STATUS = "UPDATE-STATUS";
+const SET_PROFILE = "SET_PROFILE";
 
 
 let initState = {
@@ -46,6 +47,10 @@ const ProfileReducer = (state = initState,action) => {
             return {
                 ...state, userDescription: action.description
             }
+        case SET_PROFILE:
+            return {
+                ...state, avatarImageLink: action.data.photos.small, userName: action.data.fullName, userDescription: action.data.aboutMe
+            }
         default:
             return state;
     }
@@ -65,5 +70,6 @@ let postAddDate = () => {
 export let addPost = () => ({ type: ADD_POST });
 export let onPostChange = (text) => ({type: UPDATE_NEW_POST_TEXT,newPostText: text});
 export let updateStatus = (text) => ({type: UPDATE_STATUS, description: text})
+export let setProfile = (data) => ({type: SET_PROFILE, data})
 
 export default ProfileReducer;

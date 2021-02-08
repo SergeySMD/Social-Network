@@ -2,8 +2,8 @@ import React from 'react';
 import s from './Users.module.css';
 import userPhoto from "../../assets/images/User_avatar_placeholder.png"
 import UserPaginationMenu from "./usersPagination";
-import Preloader from "../../assets/images/preloader-users.svg";
 import SearchUsersMenu from "./UsersSearchMenu/usersSearchMenu";
+import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -28,8 +28,10 @@ let Users = (props) => {
                 {
                     props.users.map(u => (
                         <div className={s.userBlock} key={u.id}>
-                            <div className={s.avatar}><img
-                                src={u.photos.small != null ? u.photos.small : userPhoto}/>
+                            <div className={s.avatar}>
+                                <NavLink to={"/profile/" + u.id}>
+                                <img src={u.photos.small != null ? u.photos.small : userPhoto}/>
+                                </NavLink>
                             </div>
                             <div className={s.userInfoBlock}>
                                 <div className={s.name}>{u.name}</div>
@@ -54,6 +56,7 @@ let Users = (props) => {
                                 currentPage={props.currentPage}
                                 onPageClick={props.onPageClick}
                                 onPageSizeClick={props.onPageSizeClick}/>
+
         </div>
     )
 }
