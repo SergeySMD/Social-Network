@@ -54,8 +54,9 @@ let Users = (props) => {
             <UserPaginationMenu pagesCount={pagesCount}
                                 pageSize={props.pageSize}
                                 currentPage={props.currentPage}
-                                onPageClick={props.onPageClick}
-                                onPageSizeClick={props.onPageSizeClick}/>
+                                onPageClick={props.onPageMenuClick}
+                                onPageSizeClick={props.onPageSizeClick}
+            />
 
         </div>
     )

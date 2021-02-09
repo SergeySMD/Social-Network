@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="profile page, ajax, api">
+    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="withRouter, props.match.params">
+      <change afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/authReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/Users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Users.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reduxStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduxStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Users/User" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Header" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -51,11 +55,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Header" />
+      <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\redux" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Users\User" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Users" />
-      <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\redux" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Dialogs" />
-      <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Profile\ProfileInfo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Users\UsersSearchMenu" />
@@ -129,7 +133,8 @@
       <workItem from="1612516226441" duration="17859000" />
       <workItem from="1612770192517" duration="4714000" />
       <workItem from="1612777029470" duration="864000" />
-      <workItem from="1612801242138" duration="2451000" />
+      <workItem from="1612801242138" duration="3298000" />
+      <workItem from="1612857618954" duration="4319000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1609152784932</created>
@@ -453,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612774930694</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="withRouter, props.match.params">
+      <created>1612804113135</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1612804113135</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +495,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="FLUX-круговорот на каждый символ" />
     <MESSAGE value="callback, subscribe, observer" />
     <MESSAGE value="store, state, ООП, рефакторинг" />
     <MESSAGE value="dispatch и action" />
@@ -508,6 +519,7 @@
     <MESSAGE value="mapDispatchToProps лайф-хак" />
     <MESSAGE value="Поиск пользователей, доработка компонент" />
     <MESSAGE value="profile page, ajax, api" />
-    <option name="LAST_COMMIT_MESSAGE" value="profile page, ajax, api" />
+    <MESSAGE value="withRouter, props.match.params" />
+    <option name="LAST_COMMIT_MESSAGE" value="withRouter, props.match.params" />
   </component>
 </project>
