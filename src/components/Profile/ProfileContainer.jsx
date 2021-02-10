@@ -5,7 +5,7 @@ import MyPosts from "./MyPosts/MyPosts";
 import {connect} from "react-redux";
 import {addPost, onPostChange, setProfile, updateStatus} from "../../redux/profileReducer";
 import * as axios from "axios";
-import { withRouter } from 'react-router';
+import {withRouter} from 'react-router';
 
 
 let mapStateToProps = (state) => {
@@ -16,14 +16,14 @@ let mapStateToProps = (state) => {
         description: state.profilePage.userDescription,
         posts: state.profilePage.posts,
         newPostText: state.profilePage.newPostText,
-        login: state.auth.login
+        id: state.auth.id
     }
 }
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId;
-        if(!userId) userId = this.props.login;
+        if (!userId) userId = this.props.id;
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
             .then(response => {
                 this.props.setProfile(response.data)
@@ -42,6 +42,7 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
+        console.log(this.props.match.params.userId)
         return (
             <div className={s.profilePage}>
                 <div className={s.profileInfo}>
@@ -49,10 +50,11 @@ class ProfileContainer extends React.Component {
                                  onStatusChange={this.onStatusChange}/>
                 </div>
                 <div className={s.myPosts}>
-                    <MyPosts {...this.props}
-                             addPost={this.addPost}
-                             onPostChange={this.onPostChange}
-                    />
+                    {this.props.match.params.userId === undefined ?
+                        <MyPosts {...this.props}
+                                 addPost={this.addPost}
+                                 onPostChange={this.onPostChange}
+                        /> : null}
                 </div>
             </div>
         )
@@ -60,4 +62,9 @@ class ProfileContainer extends React.Component {
 }
 
 let WithURLDataContainerComponent = withRouter(ProfileContainer);
-export default connect(mapStateToProps, {addPost, onPostChange, updateStatus,setProfile})(WithURLDataContainerComponent);
+export default connect(mapStateToProps, {
+    addPost,
+    onPostChange,
+    updateStatus,
+    setProfile
+})(WithURLDataContainerComponent);
