@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="withRouter, props.match.params">
-      <change afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/authReducer.js" afterDir="false" />
+    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="cookie, login в теории, auth/me">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Users/Users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Users.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reduxStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduxStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/authReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +131,8 @@
       <workItem from="1612770192517" duration="4714000" />
       <workItem from="1612777029470" duration="864000" />
       <workItem from="1612801242138" duration="3298000" />
-      <workItem from="1612857618954" duration="4319000" />
+      <workItem from="1612857618954" duration="5383000" />
+      <workItem from="1612951114467" duration="2800000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1609152784932</created>
@@ -465,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612804113135</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="cookie, login в теории, auth/me">
+      <created>1612861984263</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1612861984263</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,7 +500,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="callback, subscribe, observer" />
     <MESSAGE value="store, state, ООП, рефакторинг" />
     <MESSAGE value="dispatch и action" />
     <MESSAGE value="action creator, action type" />
@@ -520,6 +524,7 @@
     <MESSAGE value="Поиск пользователей, доработка компонент" />
     <MESSAGE value="profile page, ajax, api" />
     <MESSAGE value="withRouter, props.match.params" />
-    <option name="LAST_COMMIT_MESSAGE" value="withRouter, props.match.params" />
+    <MESSAGE value="cookie, login в теории, auth/me" />
+    <option name="LAST_COMMIT_MESSAGE" value="cookie, login в теории, auth/me" />
   </component>
 </project>

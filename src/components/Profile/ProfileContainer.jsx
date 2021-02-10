@@ -15,14 +15,15 @@ let mapStateToProps = (state) => {
         username: state.profilePage.userName,
         description: state.profilePage.userDescription,
         posts: state.profilePage.posts,
-        newPostText: state.profilePage.newPostText
+        newPostText: state.profilePage.newPostText,
+        login: state.auth.login
     }
 }
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId;
-        if(!userId) userId = 2;
+        if(!userId) userId = this.props.login;
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
             .then(response => {
                 this.props.setProfile(response.data)
