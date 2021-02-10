@@ -41,12 +41,24 @@ let Users = (props) => {
                                 <div className={s.button}>
                                     {u.followed
                                         ? <button className={s.follow}
+                                                  disabled={props.followingProcess.some(id => id===u.id)}
                                                   onClick={() => {
-                                                      followAPI.unfollow(u.id).then(data => {if (data.resultCode === 0) props.unfollow(u.id)})}}
+                                                      props.toggleFollowingProcess(true, u.id);
+                                                      followAPI.unfollow(u.id).then(data => {
+                                                          if (data.resultCode === 0) props.unfollow(u.id);
+                                                          props.toggleFollowingProcess(false, u.id);
+                                                      })
+                                                  }}
                                         >Unfollow</button>
                                         : <button className={s.unfollow}
+                                                  disabled={props.followingProcess.some(id => id===u.id)}
                                                   onClick={() => {
-                                                      followAPI.follow(u.id).then(data => {if (data.resultCode === 0) props.follow(u.id)})}}
+                                                      props.toggleFollowingProcess(true, u.id);
+                                                      followAPI.follow(u.id).then(data => {
+                                                          if (data.resultCode === 0) props.follow(u.id)
+                                                          props.toggleFollowingProcess(false, u.id);
+                                                      })
+                                                  }}
                                         >Follow</button>
                                     }
                                 </div>

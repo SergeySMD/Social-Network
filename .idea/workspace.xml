@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="практика, follow-unfollow api">
-      <change afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
+    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="практика, DAL, axios.create">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Users/Users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Users.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/usersReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,14 +132,7 @@
       <workItem from="1612777029470" duration="864000" />
       <workItem from="1612801242138" duration="3298000" />
       <workItem from="1612857618954" duration="5383000" />
-      <workItem from="1612951114467" duration="8346000" />
-    </task>
-    <task id="LOCAL-00001" summary="First commit">
-      <created>1609152784932</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1609152784932</updated>
+      <workItem from="1612951114467" duration="11937000" />
     </task>
     <task id="LOCAL-00002" summary="CSS - modules">
       <created>1609157807189</created>
@@ -477,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612953953156</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="практика, DAL, axios.create">
+      <created>1612959653653</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1612959653654</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +507,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="dispatch и action" />
     <MESSAGE value="action creator, action type" />
     <MESSAGE value="добавление Сообщения - refactoring&#10;Update CSS" />
     <MESSAGE value="reducer (почти redux)" />
@@ -532,6 +531,7 @@
     <MESSAGE value="withRouter, props.match.params" />
     <MESSAGE value="cookie, login в теории, auth/me" />
     <MESSAGE value="практика, follow-unfollow api" />
-    <option name="LAST_COMMIT_MESSAGE" value="практика, follow-unfollow api" />
+    <MESSAGE value="практика, DAL, axios.create" />
+    <option name="LAST_COMMIT_MESSAGE" value="практика, DAL, axios.create" />
   </component>
 </project>
