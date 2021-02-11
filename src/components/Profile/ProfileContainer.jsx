@@ -3,9 +3,10 @@ import s from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPosts from "./MyPosts/MyPosts";
 import {connect} from "react-redux";
-import {addPost, onPostChange, setProfile, updateStatus} from "../../redux/profileReducer";
+import {addPost, getProfile, onPostChange, updateStatus} from "../../redux/profileReducer";
 import * as axios from "axios";
 import {withRouter} from 'react-router';
+import {profileAPI} from "../../api/api";
 
 
 let mapStateToProps = (state) => {
@@ -23,11 +24,8 @@ let mapStateToProps = (state) => {
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId;
-        if (!userId) userId = (this.props.id!==null ? this.props.id : 14698);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-            .then(response => {
-                this.props.setProfile(response.data)
-            })
+        if (userId===null) userId=this.props.id;
+        this.props.getProfile(userId);
     }
 
     onStatusChange = (e) => {
@@ -66,5 +64,5 @@ export default connect(mapStateToProps, {
     addPost,
     onPostChange,
     updateStatus,
-    setProfile
+    getProfile
 })(WithURLDataContainerComponent);

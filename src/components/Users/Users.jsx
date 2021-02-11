@@ -43,21 +43,23 @@ let Users = (props) => {
                                         ? <button className={s.follow}
                                                   disabled={props.followingProcess.some(id => id===u.id)}
                                                   onClick={() => {
-                                                      props.toggleFollowingProcess(true, u.id);
-                                                      followAPI.unfollow(u.id).then(data => {
-                                                          if (data.resultCode === 0) props.unfollow(u.id);
-                                                          props.toggleFollowingProcess(false, u.id);
-                                                      })
+                                                      props.following(u.id,true)
+                                                      // props.toggleFollowingProcess(true, u.id);
+                                                      // followAPI.unfollow(u.id).then(data => {
+                                                      //     if (data.resultCode === 0) props.unfollow(u.id);
+                                                      //     props.toggleFollowingProcess(false, u.id);
+                                                      // })
                                                   }}
                                         >Unfollow</button>
                                         : <button className={s.unfollow}
                                                   disabled={props.followingProcess.some(id => id===u.id)}
                                                   onClick={() => {
-                                                      props.toggleFollowingProcess(true, u.id);
-                                                      followAPI.follow(u.id).then(data => {
-                                                          if (data.resultCode === 0) props.follow(u.id)
-                                                          props.toggleFollowingProcess(false, u.id);
-                                                      })
+                                                      props.following(u.id,false)
+                                                      // props.toggleFollowingProcess(true, u.id);
+                                                      // followAPI.follow(u.id).then(data => {
+                                                      //     if (data.resultCode === 0) props.follow(u.id)
+                                                      //     props.toggleFollowingProcess(false, u.id);
+                                                      // })
                                                   }}
                                         >Follow</button>
                                     }

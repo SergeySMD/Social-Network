@@ -1,4 +1,5 @@
 import userPhoto from "../assets/images/User_avatar_placeholder.png";
+import {profileAPI} from "../api/api";
 
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = "ADD-POST";
@@ -7,18 +8,13 @@ const SET_PROFILE = "SET_PROFILE";
 
 
 let initState = {
-        posts: [
-            {id: 1, message: "Hi, World", likeCounter: 3,date: "21:00, 20/01/2021"},
-            {id: 2, message: "Welcome", likeCounter: 0,date: "21:00, 20/01/2021"},
-            {id: 3, message: "Hi, how are you today?", likeCounter: 4324,date: "21:00, 20/01/2021"},
-            {id: 4, message: "Khabib, you are next", likeCounter: 2,date: "21:00, 20/01/2021"}
-        ],
+        posts: [],
         newPostText: "New Post Message",
 
         backgroundImageLink:"https://www.incimages.com/uploaded_files/image/1920x1080/westworld-2-hbo-background-1920_419617.jpg",
-        avatarImageLink: "https://icdn.lenta.ru/images/0000/0095/000000954560/pic_1358526899.jpg",
-        userName: "Sergey Alekseev",
-        userDescription: "My life, my rules, no wife, old schools!",
+        avatarImageLink: "",
+        userName: "",
+        userDescription: "",
 }
 
 const ProfileReducer = (state = initState,action) => {
@@ -76,5 +72,14 @@ export let addPost = () => ({ type: ADD_POST });
 export let onPostChange = (text) => ({type: UPDATE_NEW_POST_TEXT,newPostText: text});
 export let updateStatus = (text) => ({type: UPDATE_STATUS, description: text})
 export let setProfile = (data) => ({type: SET_PROFILE, data})
+export let getProfile = (userId) => {
+    return (dispatch) => {
+        if (!userId) userId = 14698;
+        profileAPI.getProfile(userId).then(data => {
+            dispatch(setProfile(data));
+        })
+    }
+}
+
 
 export default ProfileReducer;

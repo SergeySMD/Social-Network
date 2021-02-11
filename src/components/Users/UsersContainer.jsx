@@ -1,57 +1,31 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
-    follow,
+    following, getUsers,
     onSearchUsersChange,
     setPageSize,
-    setUsers,
-    setUsersCount,
     toggleFollowingProcess,
-    toggleIsFetching,
-    unfollow,
     updatePage
 } from "../../redux/usersReducer";
 import Users from "./Users";
-import {usersAPI} from "../../api/api";
 
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        if (this.props.users.length === 0) {
-            this.props.toggleIsFetching(true);
-            usersAPI.getUsers(this.props.pageSize, this.props.currentPage, this.props.searchUserString).then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(data.items)
-                this.props.setUsersCount(data.totalCount)
-            })
-        }
+            this.props.getUsers(this.props.pageSize, this.props.currentPage, this.props.searchUserString)
     }
 
     onPageClick = (page) => {
         this.props.updatePage(page);
-        this.props.toggleIsFetching(true);
-        usersAPI.getUsers(this.props.pageSize, page, this.props.searchUserString).then(data => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(data.items)
-        })
+        this.props.getUsers(this.props.pageSize, page, this.props.searchUserString)
     }
     onPageSizeClick = (pageSize) => {
         this.props.setPageSize(pageSize);
-        this.props.toggleIsFetching(true);
-        usersAPI.getUsers(pageSize, this.props.currentPage, this.props.searchUserString).then(data => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(data.items)
-        })
+        this.props.getUsers(pageSize, this.props.currentPage, this.props.searchUserString)
     }
     onSearchUserClick = () => {
-        this.props.toggleIsFetching(true);
-        console.log(this.props);
-        usersAPI.getUsers(this.props.pageSize, this.props.currentPage, this.props.searchUserString).then(data => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(data.items)
-            this.props.setUsersCount(data.totalCount)
-        })
+        this.props.getUsers(this.props.pageSize, this.props.currentPage, this.props.searchUserString)
     }
     onSearchUserChange = (e) => {
         let text = e.target.value;
@@ -87,13 +61,10 @@ let mapStateToProps = (state) => {
 
 export default connect
 (mapStateToProps, {
-    follow,
-    unfollow,
-    setUsers,
+    following,
     updatePage,
-    setUsersCount,
     setPageSize,
     onSearchUsersChange,
-    toggleIsFetching,
-    toggleFollowingProcess
+    toggleFollowingProcess,
+    getUsers
 })(UsersContainer);

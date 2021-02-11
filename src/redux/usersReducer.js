@@ -1,3 +1,5 @@
+import {followAPI, usersAPI} from "../api/api";
+
 const USER_FOLLOW = "USER-FOLLOW";
 const USER_UNFOLLOW = "USER-UNFOLLOW";
 const SET_USERS = "SET-USERS";
@@ -15,7 +17,7 @@ let initState = {
     currentPage: 1,
     searchUserString: '',
     isFetching: false,
-    followingProcess: [2, 3]
+    followingProcess: []
 }
 
 const UsersReducer = (state = initState, action) => {
@@ -54,7 +56,7 @@ const UsersReducer = (state = initState, action) => {
             return {
                 ...state, followingProcess: action.process
                     ? [...state.followingProcess, action.userId]
-                    : state.followingProcess.filter(id => id!== action.userId)
+                    : state.followingProcess.filter(id => id !== action.userId)
             }
         default:
             return state;
@@ -70,5 +72,33 @@ export let setPageSize = (pageSize) => ({type: SET_PAGE_SIZE, pageSize});
 export let onSearchUsersChange = (text) => ({type: SEARCH_USER, text})
 export let toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export let toggleFollowingProcess = (process, userId) => ({type: TOGGLE_FOLLOWING_PROCESS, process, userId});
+
+export let getUsers = (pageSize = 10, currentPage, searchUserString) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true));
+        usersAPI.getUsers(pageSize, currentPage, searchUserString).then(data => {
+            dispatch(toggleIsFetching(false));
+            dispatch(setUsers(data.items));
+            dispatch(setUsersCount(data.totalCount));
+        })
+    }
+}
+export let following = (id, status) => {
+    return (dispatch) => {
+        dispatch(toggleFollowingProcess(true, id));
+        if (status) {
+            followAPI.unfollow(id).then(data => {
+                if (data.resultCode === 0) dispatch(unfollow(id));
+                dispatch(toggleFollowingProcess(false, id));
+            })
+        } else {
+            followAPI.follow(id).then(data => {
+                if (data.resultCode === 0) dispatch(follow(id));
+                dispatch(toggleFollowingProcess(false, id));
+            })
+        }
+    }
+}
+
 
 export default UsersReducer;
