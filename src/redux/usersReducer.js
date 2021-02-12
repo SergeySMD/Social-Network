@@ -1,4 +1,4 @@
-import {followAPI, usersAPI} from "../api/api";
+import {usersAPI} from "../api/api";
 
 const USER_FOLLOW = "USER-FOLLOW";
 const USER_UNFOLLOW = "USER-UNFOLLOW";
@@ -73,30 +73,26 @@ export let onSearchUsersChange = (text) => ({type: SEARCH_USER, text})
 export let toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export let toggleFollowingProcess = (process, userId) => ({type: TOGGLE_FOLLOWING_PROCESS, process, userId});
 
-export let getUsers = (pageSize = 10, currentPage, searchUserString) => {
-    return (dispatch) => {
-        dispatch(toggleIsFetching(true));
-        usersAPI.getUsers(pageSize, currentPage, searchUserString).then(data => {
-            dispatch(toggleIsFetching(false));
-            dispatch(setUsers(data.items));
-            dispatch(setUsersCount(data.totalCount));
-        })
-    }
+export let getUsers = (pageSize, currentPage, searchUserString) => (dispatch) => {
+    dispatch(toggleIsFetching(true));
+    usersAPI.getUsers(pageSize, currentPage, searchUserString).then(data => {
+        dispatch(toggleIsFetching(false));
+        dispatch(setUsers(data.items));
+        dispatch(setUsersCount(data.totalCount));
+    })
 }
-export let following = (id, status) => {
-    return (dispatch) => {
-        dispatch(toggleFollowingProcess(true, id));
-        if (status) {
-            followAPI.unfollow(id).then(data => {
-                if (data.resultCode === 0) dispatch(unfollow(id));
-                dispatch(toggleFollowingProcess(false, id));
-            })
-        } else {
-            followAPI.follow(id).then(data => {
-                if (data.resultCode === 0) dispatch(follow(id));
-                dispatch(toggleFollowingProcess(false, id));
-            })
-        }
+export let following = (id, status) => (dispatch) => {
+    dispatch(toggleFollowingProcess(true, id));
+    if (status) {
+        usersAPI.follow(id).then(data => {
+            if (data.resultCode === 0) dispatch(follow(id));
+            dispatch(toggleFollowingProcess(false, id));
+        })
+    } else {
+        usersAPI.unfollow(id).then(data => {
+            if (data.resultCode === 0) dispatch(unfollow(id));
+            dispatch(toggleFollowingProcess(false, id));
+        })
     }
 }
 

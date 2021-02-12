@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import News from "./components/News/News";
+import Login from "./components/Login/Login";
 import {Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
@@ -17,6 +18,9 @@ const App = (props) => {
                 <HeaderContainer/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
+
+                    <Route path='/login' render={() => <Login/>}/>
+
                     <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                     <Route path='/dialogs' render={() => <DialogsContainer/>}/>
 

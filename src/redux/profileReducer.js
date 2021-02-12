@@ -1,10 +1,11 @@
 import userPhoto from "../assets/images/User_avatar_placeholder.png";
-import {profileAPI} from "../api/api";
+import {usersAPI} from "../api/api";
 
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = "ADD-POST";
 const UPDATE_STATUS = "UPDATE-STATUS";
 const SET_PROFILE = "SET_PROFILE";
+const LIKE_POST = "LIKE_POST";
 
 
 let initState = {
@@ -25,6 +26,7 @@ const ProfileReducer = (state = initState,action) => {
                 id: state.posts.length + 1,
                 message: state.newPostText,
                 likeCounter: 0,
+                isLiked: false,
                 date: postAddDate()
             }
             stateCopy = {
@@ -52,6 +54,15 @@ const ProfileReducer = (state = initState,action) => {
                 userName: action.data.fullName,
                 userDescription: action.data.aboutMe!==null ? action.data.aboutMe : "Empty status"
             }
+        case LIKE_POST:
+            return {...state,
+            posts: state.posts.map(p=>{
+                if (p.id===action.postId) { return {
+                    ...p,
+                    isLiked: !p.isLiked,
+                    likeCounter: p.isLiked===false ? p.likeCounter+1 : p.likeCounter-1};}
+                return p })
+            }
         default:
             return state;
     }
@@ -72,13 +83,12 @@ export let addPost = () => ({ type: ADD_POST });
 export let onPostChange = (text) => ({type: UPDATE_NEW_POST_TEXT,newPostText: text});
 export let updateStatus = (text) => ({type: UPDATE_STATUS, description: text})
 export let setProfile = (data) => ({type: SET_PROFILE, data})
-export let getProfile = (userId) => {
-    return (dispatch) => {
+export let likePost = (postId) => ({type: LIKE_POST, postId})
+export let getProfile = (userId) => (dispatch) => {
         if (!userId) userId = 14698;
-        profileAPI.getProfile(userId).then(data => {
+        usersAPI.getProfile(userId).then(data => {
             dispatch(setProfile(data));
         })
-    }
 }
 
 

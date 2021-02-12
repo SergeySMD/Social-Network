@@ -4,8 +4,6 @@ import userPhoto from "../../assets/images/User_avatar_placeholder.png"
 import UserPaginationMenu from "./usersPagination";
 import SearchUsersMenu from "./UsersSearchMenu/usersSearchMenu";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
-import {followAPI} from "../../api/api";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -43,7 +41,7 @@ let Users = (props) => {
                                         ? <button className={s.follow}
                                                   disabled={props.followingProcess.some(id => id===u.id)}
                                                   onClick={() => {
-                                                      props.following(u.id,true)
+                                                      props.following(u.id,false)
                                                       // props.toggleFollowingProcess(true, u.id);
                                                       // followAPI.unfollow(u.id).then(data => {
                                                       //     if (data.resultCode === 0) props.unfollow(u.id);
@@ -54,7 +52,7 @@ let Users = (props) => {
                                         : <button className={s.unfollow}
                                                   disabled={props.followingProcess.some(id => id===u.id)}
                                                   onClick={() => {
-                                                      props.following(u.id,false)
+                                                      props.following(u.id,true)
                                                       // props.toggleFollowingProcess(true, u.id);
                                                       // followAPI.follow(u.id).then(data => {
                                                       //     if (data.resultCode === 0) props.follow(u.id)

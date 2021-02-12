@@ -3,10 +3,8 @@ import s from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPosts from "./MyPosts/MyPosts";
 import {connect} from "react-redux";
-import {addPost, getProfile, onPostChange, updateStatus} from "../../redux/profileReducer";
-import * as axios from "axios";
-import {withRouter} from 'react-router';
-import {profileAPI} from "../../api/api";
+import {addPost, getProfile, likePost, onPostChange, updateStatus} from "../../redux/profileReducer";
+import {Redirect, withRouter} from 'react-router';
 
 
 let mapStateToProps = (state) => {
@@ -17,7 +15,8 @@ let mapStateToProps = (state) => {
         description: state.profilePage.userDescription,
         posts: state.profilePage.posts,
         newPostText: state.profilePage.newPostText,
-        id: state.auth.id
+        id: state.auth.id,
+        isAuth: state.auth.isAuth
     }
 }
 
@@ -38,9 +37,12 @@ class ProfileContainer extends React.Component {
         let text = e.target.value;
         this.props.onPostChange(text);
     }
+    onLikeClick = (postId) => {
+        this.props.likePost(postId);
+    }
 
     render() {
-        console.log(this.props.match.params.userId)
+        if (!this.props.isAuth) return <Redirect to='/login'/>
         return (
             <div className={s.profilePage}>
                 <div className={s.profileInfo}>
@@ -52,6 +54,7 @@ class ProfileContainer extends React.Component {
                         <MyPosts {...this.props}
                                  addPost={this.addPost}
                                  onPostChange={this.onPostChange}
+                                 onLikeClick={this.onLikeClick}
                         /> : null}
                 </div>
             </div>
@@ -64,5 +67,6 @@ export default connect(mapStateToProps, {
     addPost,
     onPostChange,
     updateStatus,
-    getProfile
+    getProfile,
+    likePost
 })(WithURLDataContainerComponent);

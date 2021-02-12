@@ -12,6 +12,8 @@ let MyPosts = (props) => {
             message={p.message}
             likeCounter={p.likeCounter}
             date={p.date}
+            onLikeClick={props.onLikeClick}
+            id={p.id}
             key={p.id}/>);
 
     return (
