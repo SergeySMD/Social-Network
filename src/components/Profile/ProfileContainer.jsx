@@ -5,6 +5,7 @@ import MyPosts from "./MyPosts/MyPosts";
 import {connect} from "react-redux";
 import {addPost, getProfile, likePost, onPostChange, updateStatus} from "../../redux/profileReducer";
 import {Redirect, withRouter} from 'react-router';
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
 let mapStateToProps = (state) => {
@@ -15,8 +16,7 @@ let mapStateToProps = (state) => {
         description: state.profilePage.userDescription,
         posts: state.profilePage.posts,
         newPostText: state.profilePage.newPostText,
-        id: state.auth.id,
-        isAuth: state.auth.isAuth
+        id: state.auth.id
     }
 }
 
@@ -42,7 +42,6 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
-        if (!this.props.isAuth) return <Redirect to='/login'/>
         return (
             <div className={s.profilePage}>
                 <div className={s.profileInfo}>
@@ -62,7 +61,7 @@ class ProfileContainer extends React.Component {
     }
 }
 
-let WithURLDataContainerComponent = withRouter(ProfileContainer);
+let WithURLDataContainerComponent = withRouter(withAuthRedirect(ProfileContainer));
 export default connect(mapStateToProps, {
     addPost,
     onPostChange,
