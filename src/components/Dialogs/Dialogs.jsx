@@ -30,7 +30,7 @@ let Dialogs = (props) => {
                         onChange={onMessageChange}
                         value={props.newMessageText}
                         placeholder="Enter new message"/>
-                    <button onClick={addMessage}>Оправить</button>
+                    <button onClick={addMessage}>Отправить</button>
                 </div>
             </div>
         </div>

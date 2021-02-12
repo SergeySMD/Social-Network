@@ -38,7 +38,6 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
-        debugger
         return (
             <div className={s.profilePage}>
                 <div className={s.profileInfo}>
@@ -68,5 +67,5 @@ export default compose(
         likePost
     }),
     withRouter,
-    withAuthRedirect
+    // withAuthRedirect
 )(ProfileContainer)

@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
+import ProfileStatus from './ProfileStatus'
 
 let ProfileInfo = (props) => {
     return (
@@ -10,17 +11,10 @@ let ProfileInfo = (props) => {
             <div className={s.descriptionBlock}>
                 <div className={s.avatar}><img src={props.avatar}/></div>
                 <div className={s.userName}>{props.username}</div>
-                <div className={s.description}><input
-
-                    disabled={true}
-
-                    onChange={props.onStatusChange}
-                    onFocus={(e) => {e.target.style.cursor = "text"}}
-                    onBlur={(e) => {e.target.style.cursor = "pointer"}}
-                    value={props.description}
-                    placeholder="Enter your status"
-                    maxLength="60"
-                /></div>
+                <div>
+                    <ProfileStatus status={props.status}
+                                   onStatusChange={props.onStatusChange}/>
+                </div>
             </div>
         </div>
     )

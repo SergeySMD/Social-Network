@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="High Order Component (hoc)">
+    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="функция compose">
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,14 +146,7 @@
       <workItem from="1613023554584" duration="7695000" />
       <workItem from="1613035289462" duration="1214000" />
       <workItem from="1613116749930" duration="5342000" />
-      <workItem from="1613123453592" duration="3348000" />
-    </task>
-    <task id="LOCAL-00006" summary="route, browser-router, маршрутизация">
-      <created>1610713125903</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1610713125903</updated>
+      <workItem from="1613123453592" duration="15145000" />
     </task>
     <task id="LOCAL-00007" summary="NavLink">
       <created>1610714806457</created>
@@ -488,7 +484,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613125211108</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="функция compose">
+      <created>1613126945970</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1613126945970</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,7 +521,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Практика - Redux" />
     <MESSAGE value="Navbar CSS update" />
     <MESSAGE value="container component (контейнерная компонента)" />
     <MESSAGE value="connect, mapStateToProps, mapDispatchToProps" />
@@ -543,6 +545,7 @@
     <MESSAGE value="урок redux-thunk в деталях (практика)" />
     <MESSAGE value="Redirect" />
     <MESSAGE value="High Order Component (hoc)" />
-    <option name="LAST_COMMIT_MESSAGE" value="High Order Component (hoc)" />
+    <MESSAGE value="функция compose" />
+    <option name="LAST_COMMIT_MESSAGE" value="функция compose" />
   </component>
 </project>
