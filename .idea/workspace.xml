@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="Redirect">
-      <change afterPath="$PROJECT_DIR$/src/hoc/withAuthRedirect.js" afterDir="false" />
+    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="High Order Component (hoc)">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +26,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1mHVWEeMZ7rRSNY4xYYeiah4F7H" />
   <component name="ProjectLevelVcsManager">
@@ -135,14 +143,7 @@
       <workItem from="1613023554584" duration="7695000" />
       <workItem from="1613035289462" duration="1214000" />
       <workItem from="1613116749930" duration="5342000" />
-      <workItem from="1613123453592" duration="1634000" />
-    </task>
-    <task id="LOCAL-00005" summary="dialogs page">
-      <created>1610709886821</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1610709886821</updated>
+      <workItem from="1613123453592" duration="3348000" />
     </task>
     <task id="LOCAL-00006" summary="route, browser-router, маршрутизация">
       <created>1610713125903</created>
@@ -480,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613122813073</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="High Order Component (hoc)">
+      <created>1613125211107</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1613125211108</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -510,7 +518,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Profile page верстка, установка redux" />
     <MESSAGE value="Практика - Redux" />
     <MESSAGE value="Navbar CSS update" />
     <MESSAGE value="container component (контейнерная компонента)" />
@@ -535,6 +542,7 @@
     <MESSAGE value="практика, button disabled (follow\unfollow)" />
     <MESSAGE value="урок redux-thunk в деталях (практика)" />
     <MESSAGE value="Redirect" />
-    <option name="LAST_COMMIT_MESSAGE" value="Redirect" />
+    <MESSAGE value="High Order Component (hoc)" />
+    <option name="LAST_COMMIT_MESSAGE" value="High Order Component (hoc)" />
   </component>
 </project>

@@ -4,18 +4,14 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPosts from "./MyPosts/MyPosts";
 import {connect} from "react-redux";
 import {addPost, getProfile, likePost, onPostChange, updateStatus} from "../../redux/profileReducer";
-import {Redirect, withRouter} from 'react-router';
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {withRouter} from "react-router";
+import {compose} from "redux";
 
 
 let mapStateToProps = (state) => {
     return {
-        backgroundImage: state.profilePage.backgroundImageLink,
-        avatar: state.profilePage.avatarImageLink,
-        username: state.profilePage.userName,
-        description: state.profilePage.userDescription,
-        posts: state.profilePage.posts,
-        newPostText: state.profilePage.newPostText,
+        ...state.profilePage,
         id: state.auth.id
     }
 }
@@ -23,7 +19,7 @@ let mapStateToProps = (state) => {
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId;
-        if (userId===null) userId=this.props.id;
+        if (userId === null) userId = this.props.id;
         this.props.getProfile(userId);
     }
 
@@ -42,6 +38,7 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
+        debugger
         return (
             <div className={s.profilePage}>
                 <div className={s.profileInfo}>
@@ -61,11 +58,15 @@ class ProfileContainer extends React.Component {
     }
 }
 
-let WithURLDataContainerComponent = withRouter(withAuthRedirect(ProfileContainer));
-export default connect(mapStateToProps, {
-    addPost,
-    onPostChange,
-    updateStatus,
-    getProfile,
-    likePost
-})(WithURLDataContainerComponent);
+
+export default compose(
+    connect(mapStateToProps, {
+        addPost,
+        onPostChange,
+        updateStatus,
+        getProfile,
+        likePost
+    }),
+    withRouter,
+    withAuthRedirect
+)(ProfileContainer)

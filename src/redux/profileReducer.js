@@ -12,10 +12,10 @@ let initState = {
         posts: [],
         newPostText: "New Post Message",
 
-        backgroundImageLink:"https://www.incimages.com/uploaded_files/image/1920x1080/westworld-2-hbo-background-1920_419617.jpg",
-        avatarImageLink: "",
-        userName: "",
-        userDescription: "",
+        backgroundImage:"https://www.incimages.com/uploaded_files/image/1920x1080/westworld-2-hbo-background-1920_419617.jpg",
+        avatar: "",
+        username: "",
+        description: "",
 }
 
 const ProfileReducer = (state = initState,action) => {
@@ -45,14 +45,14 @@ const ProfileReducer = (state = initState,action) => {
             return stateCopy;
         case UPDATE_STATUS:
             return {
-                ...state, userDescription: action.description
+                ...state, description: action.description
             }
         case SET_PROFILE:
             return {
                 ...state,
-                avatarImageLink: action.data.photos.small !== null ? action.data.photos.small : userPhoto,
-                userName: action.data.fullName,
-                userDescription: action.data.aboutMe!==null ? action.data.aboutMe : "Empty status"
+                avatar: action.data.photos.small !== null ? action.data.photos.small : userPhoto,
+                username: action.data.fullName,
+                description: action.data.aboutMe!==null ? action.data.aboutMe : "Empty status"
             }
         case LIKE_POST:
             return {...state,

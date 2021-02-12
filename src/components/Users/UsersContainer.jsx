@@ -8,12 +8,13 @@ import {
     updatePage
 } from "../../redux/usersReducer";
 import Users from "./Users";
+import {compose} from "redux";
 
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-            this.props.getUsers(this.props.pageSize, this.props.currentPage, this.props.searchUserString)
+        this.props.getUsers(this.props.pageSize, this.props.currentPage, this.props.searchUserString)
     }
 
     onPageClick = (page) => {
@@ -59,12 +60,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect
-(mapStateToProps, {
-    following,
-    updatePage,
-    setPageSize,
-    onSearchUsersChange,
-    toggleFollowingProcess,
-    getUsers
-})(UsersContainer);
+export default compose(
+    connect (mapStateToProps, {following, updatePage, setPageSize, onSearchUsersChange, toggleFollowingProcess, getUsers}))
+(UsersContainer);
