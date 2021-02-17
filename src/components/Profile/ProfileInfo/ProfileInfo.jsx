@@ -13,7 +13,7 @@ let ProfileInfo = (props) => {
                 <div className={s.userName}>{props.username}</div>
                 <div>
                     <ProfileStatus status={props.status}
-                                   onStatusChange={props.onStatusChange}/>
+                                   updateStatus={props.updateStatus}/>
                 </div>
             </div>
         </div>

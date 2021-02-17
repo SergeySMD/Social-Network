@@ -3,8 +3,7 @@ import s from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPosts from "./MyPosts/MyPosts";
 import {connect} from "react-redux";
-import {addPost, getProfile, likePost, onPostChange, updateStatus} from "../../redux/profileReducer";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {addPost, getProfile, getStatus, likePost, onPostChange, updateStatus} from "../../redux/profileReducer";
 import {withRouter} from "react-router";
 import {compose} from "redux";
 
@@ -19,8 +18,20 @@ let mapStateToProps = (state) => {
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId;
-        if (userId === null) userId = this.props.id;
-        this.props.getProfile(userId);
+        if (userId === undefined) userId = this.props.id;
+        if (userId !== null) {
+            this.props.getStatus(userId);
+            this.props.getProfile(userId);
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        let userId = this.props.match.params.userId;
+        if (userId === undefined) userId = this.props.id;
+        if (this.props.id !== prevProps.id) {
+            this.props.getStatus(userId);
+            this.props.getProfile(userId);
+        }
     }
 
     onStatusChange = (e) => {
@@ -41,8 +52,7 @@ class ProfileContainer extends React.Component {
         return (
             <div className={s.profilePage}>
                 <div className={s.profileInfo}>
-                    <ProfileInfo {...this.props}
-                                 onStatusChange={this.onStatusChange}/>
+                    <ProfileInfo {...this.props}/>
                 </div>
                 <div className={s.myPosts}>
                     {this.props.match.params.userId === undefined ?
@@ -62,9 +72,10 @@ export default compose(
     connect(mapStateToProps, {
         addPost,
         onPostChange,
-        updateStatus,
         getProfile,
-        likePost
+        likePost,
+        getStatus,
+        updateStatus
     }),
     withRouter,
     // withAuthRedirect
