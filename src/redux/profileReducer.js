@@ -1,7 +1,6 @@
 import userPhoto from "../assets/images/User_avatar_placeholder.png";
 import {profileAPI, usersAPI} from "../api/api";
 
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = "ADD-POST";
 const SET_STATUS = "SET-STATUS";
 const SET_PROFILE = "SET_PROFILE";
@@ -26,8 +25,6 @@ let initState = {
             isLiked: false,
             date: "21:00, 16/02/2021"
         }],
-        newPostText: "New Post Message",
-
         backgroundImage:"https://www.incimages.com/uploaded_files/image/1920x1080/westworld-2-hbo-background-1920_419617.jpg",
         avatar: "",
         username: "",
@@ -40,24 +37,16 @@ const ProfileReducer = (state = initState,action) => {
         case ADD_POST:
             let newPost = {
                 id: state.posts.length + 1,
-                message: state.newPostText,
+                message: action.postText,
                 likeCounter: 0,
                 isLiked: false,
                 date: postAddDate()
             }
             stateCopy = {
-                ...state,
+                ...state, posts: [...state.posts]
             }
-            stateCopy.posts = [...state.posts]
-            if (stateCopy.newPostText!=="")
+            if (action.postText!==undefined)
             stateCopy.posts.unshift(newPost); else alert("Пустое поле. Введите текст")
-            stateCopy.newPostText = "";
-            return stateCopy;
-        case UPDATE_NEW_POST_TEXT:
-            stateCopy = {
-                ...state
-            }
-            stateCopy.newPostText = action.newPostText;
             return stateCopy;
         case SET_STATUS:
             return {
@@ -95,14 +84,13 @@ let postAddDate = () => {
     return (date.getHours() + ":" + minutes + ", " + dates + "/" + months + "/" + date.getFullYear())
 
 }
-export let addPost = () => ({ type: ADD_POST });
-export let onPostChange = (text) => ({type: UPDATE_NEW_POST_TEXT,newPostText: text});
+export let addPost = (postText) => ({ type: ADD_POST, postText });
 export let setStatus = (text) => ({type: SET_STATUS, text})
 export let setProfile = (data) => ({type: SET_PROFILE, data})
 export let likePost = (postId) => ({type: LIKE_POST, postId})
 
 export let getProfile = (userId) => (dispatch) => {
-        if (!userId) userId = 14698;
+        // if (!userId) userId = 14698;
         usersAPI.getProfile(userId).then(data => {
             dispatch(setProfile(data));
         })

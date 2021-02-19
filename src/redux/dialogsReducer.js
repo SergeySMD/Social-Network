@@ -1,4 +1,3 @@
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 const ADD_MESSAGE = "ADD-MESSAGE";
 
 let initState = {
@@ -20,7 +19,6 @@ let initState = {
         {id: 4, message: "Website, bro"},
         {id: 5, message: "Wow, cool"}
     ],
-    newMessageText: "New Message"
 };
 
 export const DialogsReducer = (state = initState,action) => {
@@ -29,29 +27,20 @@ export const DialogsReducer = (state = initState,action) => {
         case ADD_MESSAGE:
             let newMessage = {
                 id: state.messages.length + 1,
-                message: state.newMessageText,
+                message: action.text,
                 likeCounter: 0
             }
             stateCopy = {
                 ...state,
                 messages: [...state.messages]
             }
-            if (stateCopy.newMessageText!=="")
-            stateCopy.messages.push(newMessage); else alert("Пустое поле. Введите текст")
-            stateCopy.newMessageText = "";
+            if (action.text!=='')
+                stateCopy.messages.push(newMessage); else alert("Пустое поле. Введите текст")
             return stateCopy;
-        case UPDATE_NEW_MESSAGE_TEXT:
-            stateCopy = {
-                ...state,
-                newMessageText: action.newMessageText
-            }
-            return stateCopy;
-
         default:
             return state;
     }
 }
-export let addMessage = () => ({ type: ADD_MESSAGE });
-export let onMessageChange = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT,newMessageText: text});
+export let addMessage = (text) => ({ type: ADD_MESSAGE, text});
 
 export default DialogsReducer;

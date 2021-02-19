@@ -3,9 +3,10 @@ import s from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPosts from "./MyPosts/MyPosts";
 import {connect} from "react-redux";
-import {addPost, getProfile, getStatus, likePost, onPostChange, updateStatus} from "../../redux/profileReducer";
+import {addPost, getProfile, getStatus, likePost, updateStatus} from "../../redux/profileReducer";
 import {withRouter} from "react-router";
 import {compose} from "redux";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
 let mapStateToProps = (state) => {
@@ -33,13 +34,6 @@ class ProfileContainer extends React.Component {
             this.props.getProfile(userId);
         }
     }
-    addPost = () => {
-        this.props.addPost();
-    }
-    onPostChange = (e) => {
-        let text = e.target.value;
-        this.props.onPostChange(text);
-    }
     onLikeClick = (postId) => {
         this.props.likePost(postId);
     }
@@ -53,8 +47,6 @@ class ProfileContainer extends React.Component {
                 <div className={s.myPosts}>
                     {this.props.match.params.userId === undefined ?
                         <MyPosts {...this.props}
-                                 addPost={this.addPost}
-                                 onPostChange={this.onPostChange}
                                  onLikeClick={this.onLikeClick}
                         /> : null}
                 </div>
@@ -67,12 +59,11 @@ class ProfileContainer extends React.Component {
 export default compose(
     connect(mapStateToProps, {
         addPost,
-        onPostChange,
         getProfile,
         likePost,
         getStatus,
         updateStatus
     }),
     withRouter,
-    // withAuthRedirect
+    withAuthRedirect
 )(ProfileContainer)

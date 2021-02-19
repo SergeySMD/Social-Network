@@ -2,18 +2,14 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {Redirect} from "react-router";
-let Dialogs = (props) => {
+import {Field, reduxForm} from "redux-form";
 
-    let DialogsElements = props.dialogs.map(d => <DialogItem name={d.name} id={d.id} key={d.id}/>);
-    let MessageElements = props.messages.map(m => <Message message={m.message} key={m.id}/>)
+const Dialogs = (props) => {
 
-    let addMessage = () => {
-        props.addMessage();
-    }
-    let onMessageChange = (e) => {
-        let text = e.target.value;
-        props.onMessageChange(text);
+    const DialogsElements = props.dialogs.map(d => <DialogItem name={d.name} id={d.id} key={d.id}/>);
+    const MessageElements = props.messages.map(m => <Message message={m.message} key={m.id}/>)
+    const onSubmit = (formData) => {
+        props.addMessage(formData.messageText)
     }
 
     return (
@@ -25,15 +21,20 @@ let Dialogs = (props) => {
                 <div className={s.messagesItems}>
                     {MessageElements}
                 </div>
-                <div className={s.messageSendingBlock}>
-                    <textarea
-                        onChange={onMessageChange}
-                        value={props.newMessageText}
-                        placeholder="Enter new message"/>
-                    <button onClick={addMessage}>Отправить</button>
-                </div>
+                <NewMessageForm onSubmit={onSubmit}/>
             </div>
         </div>
     );
 }
+const NewMessageForm = reduxForm({form: 'DialogsNewMessageForm'})((props) => {
+    return (
+        <form onSubmit={props.handleSubmit} className={s.messageSendingBlock}>
+                    <Field
+                        component={'textarea'}
+                        name={'messageText'}
+                        placeholder={'Enter new message'}/>
+            <button>Отправить</button>
+        </form>)
+
+})
 export default Dialogs;
