@@ -33,10 +33,6 @@ class ProfileContainer extends React.Component {
             this.props.getProfile(userId);
         }
     }
-
-    onStatusChange = (e) => {
-        this.props.updateStatus(e.target.value);
-    }
     addPost = () => {
         this.props.addPost();
     }

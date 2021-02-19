@@ -13,6 +13,8 @@ let ProfileInfo = (props) => {
                 <div className={s.userName}>{props.username}</div>
                 <div>
                     <ProfileStatus status={props.status}
+                                   link={props.match.params.userId}
+                                   id={props.id}
                                    updateStatus={props.updateStatus}/>
                 </div>
             </div>

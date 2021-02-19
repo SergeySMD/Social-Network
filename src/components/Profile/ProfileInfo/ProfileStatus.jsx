@@ -7,9 +7,12 @@ class ProfileStatus extends React.Component {
         status: this.props.status
     }
     activateEditMode = () => {
-        this.setState( {
-            editMode: true
-        })
+        debugger
+        if (this.props.link===undefined) {
+            this.setState({
+                editMode: true
+            })
+        }
     }
     deactivateEditMode = () => {
         this.setState( {
