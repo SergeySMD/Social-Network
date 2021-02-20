@@ -10,9 +10,13 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import {connect, useSelector} from "react-redux";
+import {compose} from "redux";
+import {addMessage} from "./redux/dialogsReducer";
+import Preloader from "./components/Commons/Preloader/Preloader";
 
+const App = ({isAuth,...props}) => {
 
-const App = (props) => {
     return (
             <div className='app-wrapper'>
                 <HeaderContainer/>
@@ -21,9 +25,8 @@ const App = (props) => {
 
                     <Route path='/login' render={() => <Login/>}/>
 
-                    <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
-                    <Route path='/dialogs' render={() => <DialogsContainer/>}/>
-
+                    <Route path='/profile/:userId?' render={() => isAuth?<ProfileContainer/> : <Preloader/>}/>
+                    <Route path='/dialogs' render={() => isAuth?<DialogsContainer/> : <Preloader/>}/>
                     <Route path='/users' render={() => <UsersContainer/>}/>
 
                     <Route path='/news-feed' render={() => <News/>}/>
@@ -34,4 +37,15 @@ const App = (props) => {
     );
 }
 
-export default App;
+let mapStateToProps = (state) => {
+    return {
+        isAuth: state.auth.isAuth
+    }
+}
+const mapDispatchToProps = {
+    addMessage
+}
+
+export default compose(
+    connect(mapStateToProps,mapDispatchToProps ))
+(App);

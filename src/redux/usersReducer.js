@@ -12,7 +12,7 @@ const TOGGLE_FOLLOWING_PROCESS = "TOGGLE_FOLLOWING_PROCESS";
 
 let initState = {
     users: [],
-    pageSize: 10,
+    pageSize: '10',
     totalUsersCount: 200,
     currentPage: 1,
     searchUserString: '',
@@ -75,6 +75,7 @@ export let toggleFollowingProcess = (process, userId) => ({type: TOGGLE_FOLLOWIN
 
 export let getUsers = (pageSize, currentPage, searchUserString) => (dispatch) => {
     dispatch(toggleIsFetching(true));
+    dispatch(setUsers([]));
     usersAPI.getUsers(pageSize, currentPage, searchUserString).then(data => {
         dispatch(toggleIsFetching(false));
         dispatch(setUsers(data.items));

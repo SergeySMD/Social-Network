@@ -49,11 +49,17 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-    return {
-        ...state.usersPage
-    }
+    return {...state.usersPage}
+}
+let mapDispatchToProps = {
+    following,
+    updatePage,
+    setPageSize,
+    onSearchUsersChange,
+    toggleFollowingProcess,
+    getUsers
 }
 
 export default compose(
-    connect (mapStateToProps, {following, updatePage, setPageSize, onSearchUsersChange, toggleFollowingProcess, getUsers}))
+    connect(mapStateToProps,mapDispatchToProps))
 (UsersContainer);

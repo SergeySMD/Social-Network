@@ -1,16 +1,20 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
-import TextareaAutosize from 'react-textarea-autosize';
 import {Field, reduxForm} from "redux-form";
+import {maxLength, required} from "../../../utils/validators";
+import {PostInputComponent} from "../../Commons/FormControls/FormsControls";
 
-const PostInputComponent = field => <TextareaAutosize {...field.input} type="text" placeholder={"Your post message"} maxRows={16}/>
+
+const maxLength200 = maxLength(200);
 
 const PostInputForm = (props) => {
     return (
         <form className={s.inputBlock} onSubmit={props.handleSubmit}>
             <div className={s.newPost}>
-                <Field name={'postText'} component={PostInputComponent}
+                <Field name={'postText'}
+                       component={PostInputComponent}
+                       validate={[required, maxLength200]}
                 />
             </div>
             <div className={s.button}>

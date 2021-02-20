@@ -32,7 +32,6 @@ let initState = {
 }
 
 const ProfileReducer = (state = initState,action) => {
-    let stateCopy;
     switch (action.type) {
         case ADD_POST:
             let newPost = {
@@ -42,12 +41,9 @@ const ProfileReducer = (state = initState,action) => {
                 isLiked: false,
                 date: postAddDate()
             }
-            stateCopy = {
-                ...state, posts: [...state.posts]
+            return {
+                ...state, posts: [newPost,...state.posts]
             }
-            if (action.postText!==undefined)
-            stateCopy.posts.unshift(newPost); else alert("Пустое поле. Введите текст")
-            return stateCopy;
         case SET_STATUS:
             return {
                 ...state, status: action.text

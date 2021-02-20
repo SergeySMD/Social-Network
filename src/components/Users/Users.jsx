@@ -4,6 +4,7 @@ import userPhoto from "../../assets/images/User_avatar_placeholder.png"
 import UserPaginationMenu from "./usersPagination";
 import SearchUsersMenu from "./UsersSearchMenu/usersSearchMenu";
 import {NavLink} from "react-router-dom";
+import Preloader from "../Commons/Preloader/Preloader";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -23,7 +24,7 @@ let Users = (props) => {
                                 onPageClick={props.onPageMenuClick}
                                 onPageSizeClick={props.onPageSizeClick}
             />
-            {/*{props.isFetching ? <img className={s.fetching} src={Preloader}/> : null}*/}
+            {props.isFetching ? <Preloader/> : null}
             <div className={s.users}>
                 {
                     props.users.map(u => (
@@ -42,22 +43,12 @@ let Users = (props) => {
                                                   disabled={props.followingProcess.some(id => id===u.id)}
                                                   onClick={() => {
                                                       props.following(u.id,false)
-                                                      // props.toggleFollowingProcess(true, u.id);
-                                                      // followAPI.unfollow(u.id).then(data => {
-                                                      //     if (data.resultCode === 0) props.unfollow(u.id);
-                                                      //     props.toggleFollowingProcess(false, u.id);
-                                                      // })
                                                   }}
                                         >Unfollow</button>
                                         : <button className={s.unfollow}
                                                   disabled={props.followingProcess.some(id => id===u.id)}
                                                   onClick={() => {
                                                       props.following(u.id,true)
-                                                      // props.toggleFollowingProcess(true, u.id);
-                                                      // followAPI.follow(u.id).then(data => {
-                                                      //     if (data.resultCode === 0) props.follow(u.id)
-                                                      //     props.toggleFollowingProcess(false, u.id);
-                                                      // })
                                                   }}
                                         >Follow</button>
                                     }
