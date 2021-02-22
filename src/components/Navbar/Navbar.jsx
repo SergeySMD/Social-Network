@@ -7,7 +7,7 @@ let Navbar = (props) => {
         <nav className={s.nav}>
             <div className={s.navList}>
                 <div className={s.item}>
-                    <NavLink to={`/profile`} activeClassName={s.activeLink}>
+                    <NavLink to={`/profile/${props.id}`} activeClassName={s.activeLink}>
                         <div className={s.indicator}>i</div>
                         <svg className={s.icon} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">

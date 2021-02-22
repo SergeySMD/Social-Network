@@ -76,7 +76,7 @@ let postAddDate = () => {
     let minutes; let months; let dates;
 
     if (date.getMinutes()<10) minutes = "0"+date.getMinutes(); else minutes = date.getMinutes();
-    if (date.getMonth()<10) months = "0"+date.getMonth(); else months = date.getMonth();
+    if (date.getMonth()<10) months = "0"+(1+date.getMonth()); else months = (1+date.getMonth());
     if (date.getDate()<10) dates = "0"+date.getDate(); else dates = date.getDate();
 
     return (date.getHours() + ":" + minutes + ", " + dates + "/" + months + "/" + date.getFullYear())

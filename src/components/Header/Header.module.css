@@ -10,6 +10,7 @@
     background: #FFFFFF;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.04);
 }
+
 .logo {
     margin-left: 370px;
     height: 60px;
@@ -17,14 +18,34 @@
     top: 50%;
     transform: translate(-50%, -50%)
 }
+
+.avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+    margin-top: 5px;
+}
+
+
 .loginBlock {
     float: right;
-    margin-top: 20px;
-    padding: 0 calc(430px - (100vw - 100%)) 0 0;
+    height: 80px;
     display: grid;
     align-items: center;
-    grid-template-columns: max-content 40px;
+    grid-template-columns: max-content 60px;
+    grid-template-rows: 75px 5px;
 }
+
+.indicator {
+    height: 5px;
+    width: calc(100% + 60px);
+    color: rgba(0,0,0,0);
+    background-color: #fff;
+    border-radius: 5px 5px 0 0;
+}
+
 .loginBlock a {
     color: black;
     font-family: Montserrat;
@@ -32,13 +53,61 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
-    text-align: end;
-    padding-right: 20px;
+    padding: 0 20px;
+    margin-top: 5px;
 }
-.avatar {
-    height: 40px;
-    width: 40px;
-    border-radius: 10px;
-    object-fit: cover;
-    object-position: center;
+
+.loginBlock {
+    color: white;
+    font-size: 16px;
+    border: none;
 }
+
+.dropdown {
+    position: relative;
+    float: right;
+    left: calc((100vw - 100%));
+    margin-right: 430px;
+    display: inline-block;
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.08);
+    z-index: 0;
+    cursor: pointer;
+    vertical-align: center;
+}
+.dropdownContent .a {
+    color: #707070;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+}
+.exitLogo {
+    float: right;
+    margin: 14px;
+}
+.dropdownItem {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.dropdownContent .dropdownItem:hover .a{
+    color: black; font-weight: 500
+}
+.dropdownContent .dropdownItem:hover .exitLogo path{
+    fill: black;
+}
+
+.dropdown:hover .dropdownContent {display: block;}
+
+.dropdown:hover .loginBlock {background-color: #ffffff;}
+.dropdown:hover .indicator {background-color: #8683F8;}

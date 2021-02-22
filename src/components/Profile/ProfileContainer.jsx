@@ -17,6 +17,13 @@ let mapStateToProps = (state) => {
         isFetching: state.usersPage.isFetching
     }
 }
+let mapDispatchToProps = {
+    addPost,
+    getProfile,
+    likePost,
+    getStatus,
+    updateStatus
+}
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
@@ -29,10 +36,10 @@ class ProfileContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.userId !== prevProps.userId) {
-            console.log(this.props.match.params.userId+' '+prevProps.userId)
-            //     this.props.getStatus(userId);
-            //     this.props.getProfile(userId);
+        if (this.props.match.params.userId !== prevProps.match.params.userId) {
+            console.log(this.props.match.params.userId+' '+prevProps.match.params.userId)
+                this.props.getStatus(this.props.match.params.userId);
+                this.props.getProfile(this.props.match.params.userId);
         }
     }
 
@@ -49,7 +56,7 @@ class ProfileContainer extends React.Component {
                             <ProfileInfo {...this.props}/>
                         </div>
                         <div className={s.myPosts}>
-                            {this.props.match.params.userId === undefined ?
+                            {this.props.match.params.userId == this.props.id ?
                                 <MyPosts {...this.props}
                                          onLikeClick={this.onLikeClick}
                                 /> : null}
@@ -63,13 +70,7 @@ class ProfileContainer extends React.Component {
 
 
 export default compose(
-    connect(mapStateToProps, {
-        addPost,
-        getProfile,
-        likePost,
-        getStatus,
-        updateStatus
-    }),
+    connect(mapStateToProps,mapDispatchToProps),
     withRouter,
     withAuthRedirect
 )(ProfileContainer)

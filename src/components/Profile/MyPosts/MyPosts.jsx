@@ -49,6 +49,7 @@ let MyPosts = (props) => {
             username={props.username}
             message={p.message}
             likeCounter={p.likeCounter}
+            isLiked={p.isLiked}
             date={p.date}
             onLikeClick={props.onLikeClick}
             id={p.id}
