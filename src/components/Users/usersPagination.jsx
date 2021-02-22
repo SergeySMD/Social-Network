@@ -4,7 +4,6 @@ import s from "./Users.module.css";
 import "./user-pagination.css";
 
 let UserPaginationMenu = (props) => {
-    console.log(props.pageSize)
     return (
         <div className={s.pages}>
             <div className={s.pageSizeBlock}>

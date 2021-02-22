@@ -1,5 +1,6 @@
 import userPhoto from "../assets/images/User_avatar_placeholder.png";
 import {profileAPI, usersAPI} from "../api/api";
+import {toggleIsFetching} from "./usersReducer";
 
 const ADD_POST = "ADD-POST";
 const SET_STATUS = "SET-STATUS";
@@ -29,6 +30,7 @@ let initState = {
         avatar: "",
         username: "",
         status: "",
+        userId: null
 }
 
 const ProfileReducer = (state = initState,action) => {
@@ -52,7 +54,7 @@ const ProfileReducer = (state = initState,action) => {
             return {
                 ...state,
                 avatar: action.data.photos.small !== null ? action.data.photos.small : userPhoto,
-                username: action.data.fullName,
+                username: action.data.fullName, userId: action.data.userId
                 // status: action.data.aboutMe!==null ? action.data.aboutMe : "Empty status"
             }
         case LIKE_POST:
@@ -86,9 +88,10 @@ export let setProfile = (data) => ({type: SET_PROFILE, data})
 export let likePost = (postId) => ({type: LIKE_POST, postId})
 
 export let getProfile = (userId) => (dispatch) => {
-        // if (!userId) userId = 14698;
+        dispatch(toggleIsFetching(true));
         usersAPI.getProfile(userId).then(data => {
             dispatch(setProfile(data));
+            dispatch(toggleIsFetching(false));
         })
 }
 export let getStatus = (userId) => (dispatch) => {
