@@ -1,4 +1,3 @@
 .preloader {
-    margin-left: calc(50% - 128px);
-    padding: 20px 0;
+    text-align: center;
 }

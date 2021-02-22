@@ -7,19 +7,21 @@ import {addPost, getProfile, getStatus, likePost, updateStatus} from "../../redu
 import {withRouter} from "react-router";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import Preloader from "../Commons/Preloader/Preloader";
 
 
 let mapStateToProps = (state) => {
     return {
         ...state.profilePage,
-        id: state.auth.id
+        id: state.auth.id,
+        isFetching: state.usersPage.isFetching
     }
 }
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
-        let userId = this.props.match.params.userId;
-        if (userId === undefined) userId = this.props.id;
+        let userId = this.props.match.params.userId; //15432
+        if (userId === undefined) userId = this.props.id; //14854
         if (userId !== null) {
             this.props.getStatus(userId);
             this.props.getProfile(userId);
@@ -27,29 +29,33 @@ class ProfileContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        let userId = this.props.match.params.userId;
-        if (userId === undefined) userId = this.props.id;
-        if (this.props.id !== prevProps.id) {
-            this.props.getStatus(userId);
-            this.props.getProfile(userId);
+        if (this.props.userId !== prevProps.userId) {
+            console.log(this.props.match.params.userId+' '+prevProps.userId)
+            //     this.props.getStatus(userId);
+            //     this.props.getProfile(userId);
         }
     }
+
     onLikeClick = (postId) => {
         this.props.likePost(postId);
     }
 
     render() {
         return (
-            <div className={s.profilePage}>
-                <div className={s.profileInfo}>
-                    <ProfileInfo {...this.props}/>
-                </div>
-                <div className={s.myPosts}>
-                    {this.props.match.params.userId === undefined ?
-                        <MyPosts {...this.props}
-                                 onLikeClick={this.onLikeClick}
-                        /> : null}
-                </div>
+            <div>
+                {!this.props.isFetching ?
+                    <div className={s.profilePage}>
+                        <div className={s.profileInfo}>
+                            <ProfileInfo {...this.props}/>
+                        </div>
+                        <div className={s.myPosts}>
+                            {this.props.match.params.userId === undefined ?
+                                <MyPosts {...this.props}
+                                         onLikeClick={this.onLikeClick}
+                                /> : null}
+                        </div>
+                    </div>
+                    : <Preloader h={256} w={256}/>}
             </div>
         )
     }
