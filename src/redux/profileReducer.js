@@ -6,6 +6,7 @@ const ADD_POST = "ADD-POST";
 const SET_STATUS = "SET-STATUS";
 const SET_PROFILE = "SET_PROFILE";
 const LIKE_POST = "LIKE_POST";
+const REMOVE_POST = 'REMOVE_POST';
 
 
 let initState = {
@@ -37,7 +38,7 @@ const ProfileReducer = (state = initState,action) => {
     switch (action.type) {
         case ADD_POST:
             let newPost = {
-                id: state.posts.length + 1,
+                id: state.posts[0]!==undefined ? state.posts[0].id + 10 : 1,
                 message: action.postText,
                 likeCounter: 0,
                 isLiked: false,
@@ -66,6 +67,8 @@ const ProfileReducer = (state = initState,action) => {
                     likeCounter: p.isLiked===false ? p.likeCounter+1 : p.likeCounter-1};}
                 return p })
             }
+        case REMOVE_POST:
+            return {...state, posts: state.posts.filter(p => p.id!==action.postId)}
         default:
             return state;
     }
@@ -86,6 +89,7 @@ export let addPost = (postText) => ({ type: ADD_POST, postText });
 export let setStatus = (text) => ({type: SET_STATUS, text})
 export let setProfile = (data) => ({type: SET_PROFILE, data})
 export let likePost = (postId) => ({type: LIKE_POST, postId})
+export let removePost = (postId) => ({type: REMOVE_POST, postId})
 
 export let getProfile = (userId) => (dispatch) => {
         dispatch(toggleIsFetching(true));

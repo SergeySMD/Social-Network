@@ -3,7 +3,7 @@ import s from './login.module.css'
 import {Field, reduxForm} from "redux-form";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {getAuth, getLogin} from "../../redux/authReducer";
+import {getLogin} from "../../redux/authReducer";
 import {withProfileRedirect} from "../../hoc/withProfileRedirect";
 import {maxLength, required} from "../../utils/validators";
 import {LoginInputComponent, PasswordInputComponent, RememberMeComponent} from "../Commons/FormControls/FormsControls";
@@ -28,7 +28,7 @@ const LoginForm = reduxForm({form: 'login'})(
                         <Field component={PasswordInputComponent} name={'password'}
                                validate={[required, maxLength100]}/>
                     </div>
-                    <div className={s.warning}>{props.authErrorMessage}</div>
+                    <div className={s.warning}>{props.error}</div>
                 </div>
                 <div className={s.buttonBlock}>
                     <button disabled={!props.valid}>Login</button>
@@ -51,7 +51,7 @@ class Login extends React.Component {
         return (
             <div>
                 <LoginForm onSubmit={this.onSubmit} {...this.props}/>
-                <img className={s.background} src={LoginBackground}/>
+                <div className={s.background}><img src={LoginBackground}/></div>
             </div>
         )
     }
@@ -60,9 +60,11 @@ class Login extends React.Component {
 let mapStateToProps = (state) => {
     return {
         login: state.auth.login,
+        isAuth: state.auth.isAuth,
+        id: state.auth.id,
         authErrorMessage: state.auth.authErrorMessage
     }
 }
 export default compose(
-    connect(mapStateToProps, {getLogin,getAuth}), withProfileRedirect)
+    connect(mapStateToProps, {getLogin}), withProfileRedirect)
 (Login);

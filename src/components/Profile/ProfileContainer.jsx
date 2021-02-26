@@ -3,7 +3,7 @@ import s from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPosts from "./MyPosts/MyPosts";
 import {connect} from "react-redux";
-import {addPost, getProfile, getStatus, likePost, updateStatus} from "../../redux/profileReducer";
+import {addPost, getProfile, getStatus, likePost, removePost, updateStatus} from "../../redux/profileReducer";
 import {withRouter} from "react-router";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
@@ -22,7 +22,8 @@ let mapDispatchToProps = {
     getProfile,
     likePost,
     getStatus,
-    updateStatus
+    updateStatus,
+    removePost
 }
 
 class ProfileContainer extends React.Component {

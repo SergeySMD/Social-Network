@@ -52,6 +52,7 @@ let MyPosts = (props) => {
             isLiked={p.isLiked}
             date={p.date}
             onLikeClick={props.onLikeClick}
+            removePost={props.removePost}
             id={p.id}
             key={p.id}/>);
 
@@ -62,9 +63,9 @@ let MyPosts = (props) => {
     return (
         <div className={s.postBlock}>
             <PostInputReduxForm onSubmit={onSubmit}/>
-            <div className={s.title}>
+            {props.posts.length > 0 && <div className={s.title}>
                 My posts
-            </div>
+            </div>}
             <div className={s.posts}>
                 {postsElements}
             </div>
