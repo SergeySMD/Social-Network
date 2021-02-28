@@ -4,7 +4,9 @@ import * as axios from "axios";
 const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     withCredentials: true,
-    headers: {"API-KEY": "1114fa74-300b-4849-84b5-d50778e5acb1"}
+    headers: {
+        "API-KEY": "1114fa74-300b-4849-84b5-d50778e5acb1",
+    }
 })
 
 export const usersAPI = {
@@ -30,6 +32,11 @@ export const profileAPI = {
     },
     updateStatus(status) {
         return instance.put(`profile/status`, {status: status})
+    },
+    updateAvatar(avatar) {
+        let formData = new FormData();
+        formData.append("image", avatar);
+        return instance.put(`profile/photo`, formData,{headers:{ 'Content-Type': 'multipart/form-data'}})
     }
 }
 export const authAPI = {

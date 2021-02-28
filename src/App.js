@@ -16,7 +16,7 @@ import Preloader from "./components/Commons/Preloader/Preloader";
 import {authAPI} from "./api/api";
 import {getMyDataProfile, setAuthUserData} from "./redux/authReducer";
 import Header from "./components/Header/Header";
-import {Redirect} from "react-router";
+import {Redirect, withRouter} from "react-router";
 
 const App = ({isAuth, ...props}) => {
 
@@ -30,6 +30,9 @@ const App = ({isAuth, ...props}) => {
             setLoad(false);
         })
     }, [])
+
+    useEffect(()=> {if (isAuth) props.getMyDataProfile(props.id)},[isAuth])
+
     return (
         load===false ? <div>
             {
@@ -67,9 +70,11 @@ let mapStateToProps = (state) => {
 }
 const mapDispatchToProps = {
     addMessage,
-    setAuthUserData
+    setAuthUserData,
+    getMyDataProfile
 }
 
 export default compose(
+    withRouter,
     connect(mapStateToProps, mapDispatchToProps))
 (App);

@@ -16,17 +16,25 @@
     padding-bottom: 30px;
 }
 .avatar {
+    position: relative;
     grid-area: avatar;
     align-items: end;
-}
-.avatar img {
     height: 140px;
     width: 140px;
-    border-radius: 10px;
     margin-left: 30px;
     margin-top: -70px;
+    border-radius: 10px;
+    background: #ffffff;
+    overflow: hidden;
+}
+.avatar img {
+    margin: -2px 0 0 -2px;
+    height: 145px;
+    width: 145px;
+    border-radius: 10px;
     object-fit: cover;
     object-position: center;
+    transition: opacity 124ms linear, transform 124ms linear;
 }
 .userName {
     grid-area: name;
@@ -37,3 +45,36 @@
     font-size: 24px;
     line-height: 29px;
 }
+.avatar:hover img{
+    opacity: 0.90;
+    transform: scale(1.1);
+}
+.avatarIcon {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    height: 200px;
+    width: 200px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 100px 100px 0 0;
+    left: -30px;
+    bottom: -200px;
+    transition: 124ms;
+}
+.avatarIcon svg {
+    height: 30px;
+    width: 30px;
+    margin-left: 85px;
+    margin-top: 6px;
+    fill: #ffffff;
+}
+.avatar:hover .avatarIcon{
+    bottom: -160px;
+    visibility: visible;
+    cursor: pointer;
+}
+.avatarIcon input {
+    position: absolute;
+    top: -1000px;
+}
+

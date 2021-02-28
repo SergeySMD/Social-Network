@@ -3,7 +3,15 @@ import s from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPosts from "./MyPosts/MyPosts";
 import {connect} from "react-redux";
-import {addPost, getProfile, getStatus, likePost, removePost, updateStatus} from "../../redux/profileReducer";
+import {
+    addPost,
+    getProfile,
+    getStatus,
+    likePost,
+    removePost,
+    updateAvatar,
+    updateStatus
+} from "../../redux/profileReducer";
 import {withRouter} from "react-router";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
@@ -23,7 +31,8 @@ let mapDispatchToProps = {
     likePost,
     getStatus,
     updateStatus,
-    removePost
+    removePost,
+    updateAvatar
 }
 
 class ProfileContainer extends React.Component {
@@ -41,6 +50,9 @@ class ProfileContainer extends React.Component {
             console.log(this.props.match.params.userId+' '+prevProps.match.params.userId)
                 this.props.getStatus(this.props.match.params.userId);
                 this.props.getProfile(this.props.match.params.userId);
+        }
+        if (this.props.avatar !== prevProps.avatar) {
+            this.props.getProfile(this.props.match.params.userId);
         }
     }
 
