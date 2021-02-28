@@ -8,7 +8,7 @@ import {PostInputComponent} from "../../Commons/FormControls/FormsControls";
 
 const maxLength200 = maxLength(200);
 
-const PostInputForm = (props) => {
+export const PostInputForm = (props) => {
     return (
         <form className={s.inputBlock} onSubmit={props.handleSubmit}>
             <div className={s.newPost}>
@@ -53,6 +53,7 @@ let MyPosts = (props) => {
             date={p.date}
             onLikeClick={props.onLikeClick}
             removePost={props.removePost}
+            setEditPostNewText={props.setEditPostNewText}
             id={p.id}
             key={p.id}/>);
 

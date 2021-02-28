@@ -8,7 +8,7 @@ import {
     getProfile,
     getStatus,
     likePost,
-    removePost,
+    removePost, setEditPostNewText,
     updateAvatar,
     updateStatus
 } from "../../redux/profileReducer";
@@ -32,7 +32,8 @@ let mapDispatchToProps = {
     getStatus,
     updateStatus,
     removePost,
-    updateAvatar
+    updateAvatar,
+    setEditPostNewText
 }
 
 class ProfileContainer extends React.Component {
@@ -66,7 +67,7 @@ class ProfileContainer extends React.Component {
                 {!this.props.isFetching ?
                     <div className={s.profilePage}>
                         <div className={s.profileInfo}>
-                            <ProfileInfo {...this.props}/>
+                            <ProfileInfo {...this.props} link={this.props.match.params.userId}/>
                         </div>
                         <div className={s.myPosts}>
                             {this.props.match.params.userId == this.props.id ?

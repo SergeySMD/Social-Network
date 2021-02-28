@@ -20,13 +20,14 @@
     align-items: center;
     padding: 30px 0 0 30px;
 }
-.image img{
+
+.image img {
     height: 48px;
     width: 48px;
     border-radius: 10px;
     object-fit: cover;
     object-position: center;
-    }
+}
 
 .author {
     grid-area: author;
@@ -38,13 +39,16 @@
     font-size: 18px;
     line-height: 22px;
 }
+
 .menu {
     padding-top: 30px;
     padding-right: 30px;
 }
+
 .menu svg path {
     fill: #C4C4C4;
 }
+
 .date {
     grid-area: date;
     margin-left: 20px;
@@ -76,7 +80,7 @@
 .likeBlock {
     grid-area: like;
     display: inline-block;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -85,9 +89,63 @@
     padding: 10px 30px;
     vertical-align: middle;
 }
+
 .likeBlock svg {
     height: 14px;
     width: 16px;
     margin-bottom: -1px;
     margin-right: 8px;
+}
+
+.textArea {
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0 8px;
+    resize: none;
+    outline: none;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow: auto;
+    cursor: text;
+    border-radius: 5px;
+}
+
+.postEdit button {
+    margin: 10px 10px 0 0;
+    align-self: center;
+    text-align: center;
+    padding: 8px 10px;
+    width: 100px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.saveButton {background-color: #8583f7;color: white;}
+.saveButton:hover {background-color: #6865d7;}
+.saveButton:active {background-color: #9f9df6;}
+
+.deleteButton {background-color: #ff2f2f;color: white;}
+.deleteButton:hover {background-color: #ef2626;}
+.deleteButton:active {background-color: #ff3d3d;}
+
+.cancelButton {background-color: #edeef0;color: black;}
+.cancelButton:hover {background-color: #ced1db;}
+.cancelButton:active {background-color: #fcfcfc;}
+
+.postPhoto {
+    display: block;
+    max-width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
 }

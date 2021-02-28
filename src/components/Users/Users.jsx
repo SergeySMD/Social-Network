@@ -24,7 +24,9 @@ let Users = (props) => {
                                 onPageClick={props.onPageMenuClick}
                                 onPageSizeClick={props.onPageSizeClick}
             />
-            {props.isFetching ? <Preloader h={384} w={384}/> : null}
+
+            {props.isFetching ? <Preloader h={256} w={256}/> : null}
+
             <div className={s.users}>
                 {
                     props.users.map(u => (

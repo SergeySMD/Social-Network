@@ -1,17 +1,62 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import s from './Post.module.css';
-import {Dropdown, DropdownItem, DropdownMenu} from "semantic-ui-react";
+import {Dropdown} from "semantic-ui-react";
+import {PostInputComponent} from "../../../Commons/FormControls/FormsControls";
+import TextareaAutosize from "react-textarea-autosize";
 
-let Post = (props) => {
+const Post = (props) => {
+    let [newText, setNewText] = useState(props.message)
+    let [editMode, setEditMode] = useState(false)
+
+    const onTextChange = (event) => {
+        setNewText(event.target.value)
+    }
+    const onCancelButtonClick = () => {
+        setEditMode(false);
+        setNewText(props.message)
+    }
+    const onEditClick = () => {
+        setEditMode(true)
+    }
+    const onSaveButtonClick = (id,text) => {
+        props.setEditPostNewText(id,text)
+        setEditMode(false)
+        setNewText(props.message)
+    }
+    const onDeleteButtonClick = (id) => {
+        props.removePost(id)
+    }
+
     return (
-        <div className={s.item}>
+        <div className={s.item} style={editMode ? {boxShadow: '0px 16px 32px rgba(0, 0, 0, 0.08)'} : {}}>
             <div className={s.image}><img src={props.avatar}/></div>
             <div className={s.author}>{props.username}</div>
             <div className={s.menu}>
-                <PostMenu postId={props.id} remove={props.removePost}/>
+                <PostMenu postId={props.id} remove={props.removePost} editMode={editMode} onEditClick={onEditClick}/>
             </div>
             <div className={s.date}>{props.date}</div>
-            <div className={s.message}>{props.message}</div>
+            <div className={s.message}>
+                {editMode ?
+                    <div className={s.postEdit}>
+                        <TextareaAutosize className={s.textArea}
+                                          value={newText}
+                                          onChange={(event) => {
+                                              onTextChange(event)
+                                          }}
+                                          type="text"
+                                          maxlength={1200}
+                                          placeholder={"Your post message"} maxRows={16}/>
+                        {newText.length !== 0
+                            ? <button className={s.saveButton} onClick={()=>{onSaveButtonClick(props.id,newText)}}>Save</button>
+                            : <button className={s.deleteButton} onClick={()=>{onDeleteButtonClick(props.id)}}>Delete</button>}
+                        <button className={s.cancelButton} onClick={() => {
+                            onCancelButtonClick()
+                        }}>Cancel
+                        </button>
+                    </div>
+                    :
+                    <span>{props.message}</span>}
+            </div>
             <div className={s.likeBlock}>
                 <svg onClick={() => {
                     props.onLikeClick(props.id)
@@ -27,7 +72,7 @@ let Post = (props) => {
 }
 export default Post;
 
-const PostMenu = ({postId, remove}) => {
+const PostMenu = ({postId, remove, editMode, onEditClick}) => {
     return (
         <Dropdown upward
                   icon={<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,9 +88,13 @@ const PostMenu = ({postId, remove}) => {
                   </svg>}>
             <Dropdown.Menu>
                 <Dropdown.Item key="Edit post" text='Edit post' value='Edit post' icon={'edit outline'}
-                               disabled={true}/>
+                               disabled={editMode}
+                               onClick={() => {
+                                   onEditClick()
+                               }}/>
                 <Dropdown.Item key="Delete post" text='Delete post' value='Delete post'
-                               icon={'trash alternate outline'} onClick={()=>remove(postId)}/>
+                               icon={'trash alternate outline'}
+                               onClick={() => remove(postId)}/>
             </Dropdown.Menu>
         </Dropdown>
     )

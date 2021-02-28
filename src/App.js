@@ -58,7 +58,8 @@ const App = ({isAuth, ...props}) => {
                     <Redirect to={'/login'}/>
                 </div>
             }
-        </div> : <Preloader h={256} w={256}/>
+        </div> :
+            <Preloader h={256} w={256}/>
     );
 }
 

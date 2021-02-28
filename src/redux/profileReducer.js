@@ -1,6 +1,7 @@
 import userPhoto from "../assets/images/User_avatar_placeholder.png";
 import {profileAPI, usersAPI} from "../api/api";
 import {toggleIsFetching} from "./usersReducer";
+import {getMyDataProfile} from "./authReducer";
 
 const ADD_POST = "ADD-POST";
 const SET_STATUS = "SET-STATUS";
@@ -8,6 +9,7 @@ const SET_PROFILE = "SET_PROFILE";
 const LIKE_POST = "LIKE_POST";
 const REMOVE_POST = 'REMOVE_POST';
 const UPDATE_AVATAR = 'UPDATE_AVATAR';
+const SET_NEW_EDIT_POST_TEXT = 'SET_NEW_EDIT_POST_TEXT';
 
 
 let initState = {
@@ -76,6 +78,11 @@ const ProfileReducer = (state = initState, action) => {
             return {...state, posts: state.posts.filter(p => p.id !== action.postId)}
         case UPDATE_AVATAR:
             return {...state, avatar: action.avatar}
+        case SET_NEW_EDIT_POST_TEXT:
+            return  {...state, posts: state.posts.map(p=>{
+                if (p.id===action.id && p.message!==action.text) return {...p, message: action.text,date:'edited. '+ postAddDate()}
+                return p
+                })}
         default:
             return state;
     }
@@ -100,6 +107,7 @@ export const setProfile = (data) => ({type: SET_PROFILE, data})
 export const likePost = (postId) => ({type: LIKE_POST, postId})
 export const removePost = (postId) => ({type: REMOVE_POST, postId})
 export const setAvatarLink = (avatar) => ({type: UPDATE_AVATAR, avatar})
+export const setEditPostNewText = (id,text) => ({type: SET_NEW_EDIT_POST_TEXT, id,text})
 
 export const getProfile = (userId) => (dispatch) => {
     dispatch(toggleIsFetching(true));
@@ -123,6 +131,7 @@ export const updateAvatar = (avatar,id) => (dispatch) => {
     profileAPI.updateAvatar(avatar).then(response => {
         if(response.resultCode===0)
         dispatch(setAvatarLink(response.data.photos.small))
+        dispatch(getMyDataProfile(id))
         dispatch(getProfile(id))
     })
 }

@@ -15,7 +15,7 @@
     grid-template-rows: 45px 25px;
     padding-bottom: 30px;
 }
-.avatar {
+.avatar, .avatarOtherUser {
     position: relative;
     grid-area: avatar;
     align-items: end;
@@ -27,7 +27,7 @@
     background: #ffffff;
     overflow: hidden;
 }
-.avatar img {
+.avatar img, .avatarOtherUser img {
     margin: -2px 0 0 -2px;
     height: 145px;
     width: 145px;
@@ -36,18 +36,14 @@
     object-position: center;
     transition: opacity 124ms linear, transform 124ms linear;
 }
-.userName {
-    grid-area: name;
-    padding-top: 15px;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
-}
 .avatar:hover img{
     opacity: 0.90;
     transform: scale(1.1);
+}
+.avatar:hover .avatarIcon{
+    bottom: -160px;
+    visibility: visible;
+    cursor: pointer;
 }
 .avatarIcon {
     visibility: hidden;
@@ -68,13 +64,18 @@
     margin-top: 6px;
     fill: #ffffff;
 }
-.avatar:hover .avatarIcon{
-    bottom: -160px;
-    visibility: visible;
-    cursor: pointer;
-}
+
 .avatarIcon input {
     position: absolute;
     top: -1000px;
 }
 
+.userName {
+    grid-area: name;
+    padding-top: 15px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+}
