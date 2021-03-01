@@ -3,6 +3,7 @@ import s from './Post.module.css';
 import {Dropdown} from "semantic-ui-react";
 import {PostInputComponent} from "../../../Commons/FormControls/FormsControls";
 import TextareaAutosize from "react-textarea-autosize";
+import {ImagePreview} from "../MyPosts";
 
 const Post = (props) => {
     let [newText, setNewText] = useState(props.message)
@@ -18,8 +19,8 @@ const Post = (props) => {
     const onEditClick = () => {
         setEditMode(true)
     }
-    const onSaveButtonClick = (id,text) => {
-        props.setEditPostNewText(id,text)
+    const onSaveButtonClick = (id, text) => {
+        props.setEditPostNewText(id, text)
         setEditMode(false)
         setNewText(props.message)
     }
@@ -46,9 +47,13 @@ const Post = (props) => {
                                           type="text"
                                           maxlength={1200}
                                           placeholder={"Your post message"} maxRows={16}/>
-                        {newText.length !== 0
-                            ? <button className={s.saveButton} onClick={()=>{onSaveButtonClick(props.id,newText)}}>Save</button>
-                            : <button className={s.deleteButton} onClick={()=>{onDeleteButtonClick(props.id)}}>Delete</button>}
+                        {newText
+                            ? <button className={s.saveButton} onClick={() => {
+                                onSaveButtonClick(props.id, newText)
+                            }}>Save</button>
+                            : <button className={s.deleteButton} onClick={() => {
+                                onDeleteButtonClick(props.id)
+                            }}>Delete</button>}
                         <button className={s.cancelButton} onClick={() => {
                             onCancelButtonClick()
                         }}>Cancel
@@ -56,6 +61,22 @@ const Post = (props) => {
                     </div>
                     :
                     <span>{props.message}</span>}
+                {props.PostImage !== null ?
+                    <div className={s.postPhoto}>
+                        <img src={props.PostImage}/>
+                        {editMode ?
+                            <div className={s.imagePreviewButton} title={'Delete image'} onClick={() => {props.deletePostImage(props.id)}}>
+                                <svg height="12pt" width="12pt" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 512.001 512.001"
+                                     fill="black">
+                                    <path d="M294.111,256.001L504.109,46.003c10.523-10.524,10.523-27.586,0-38.109c-10.524-10.524-27.587-10.524-38.11,0L256,217.892
+			L46.002,7.894c-10.524-10.524-27.586-10.524-38.109,0s-10.524,27.586,0,38.109l209.998,209.998L7.893,465.999
+			c-10.524,10.524-10.524,27.586,0,38.109c10.524,10.524,27.586,10.523,38.109,0L256,294.11l209.997,209.998
+			c10.524,10.524,27.587,10.523,38.11,0c10.523-10.524,10.523-27.586,0-38.109L294.111,256.001z"/>
+                                </svg>
+                            </div> : null}
+                    </div>
+                    : null}
             </div>
             <div className={s.likeBlock}>
                 <svg onClick={() => {

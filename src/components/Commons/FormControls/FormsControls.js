@@ -1,6 +1,7 @@
-import React from "react";
+import React, {Component}from "react";
 import TextareaAutosize from "react-textarea-autosize";
 import s from './FormsControls.module.css'
+import {createRef} from "react/cjs/react.production.min";
 
 
 export const PostInputComponent = field => {
@@ -64,4 +65,82 @@ export const RememberMeComponent = field => {
             <span className={s.checkmark}> </span>
         </label>
     )
+}
+export const PostImageUploadComponent2 = field => {
+
+    let onFileChange = (e) => {
+        console.log(e.target.files[0])
+    }
+    return (
+        <label className={s.PostImageUploadComponentLabel}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 612.675 612.675">
+                <g fill="#707070">
+                    <path d="M581.209,223.007L269.839,530.92c-51.592,51.024-135.247,51.024-186.839,0c-51.592-51.023-51.592-133.737,0-184.761
+				L363.248,69.04c34.402-34.009,90.15-34.009,124.553,0c34.402,34.008,34.402,89.166,0,123.174l-280.249,277.12
+				c-17.19,17.016-45.075,17.016-62.287,0c-17.19-16.993-17.19-44.571,0-61.587L394.37,161.42l-31.144-30.793L114.144,376.975
+				c-34.402,34.009-34.402,89.166,0,123.174c34.402,34.009,90.15,34.009,124.552,0l280.249-277.12
+				c51.592-51.023,51.592-133.737,0-184.761c-51.593-51.023-135.247-51.023-186.839,0L36.285,330.784l1.072,1.071
+				c-53.736,68.323-49.012,167.091,14.5,229.88c63.512,62.79,163.35,67.492,232.46,14.325l1.072,1.072l326.942-323.31
+				L581.209,223.007z"/>
+                </g>
+            </svg>
+            <input type="file" onChange={onFileChange}/>
+        </label>
+    )
+}
+export class PostImageUploadComponent  extends Component{
+
+    constructor(props) {
+        super(props)
+        this.onChange = this.onChange.bind(this)
+        this.InputRef = React.createRef();
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        let a= this.props
+        if(this.props.clearImage!==prevProps.clearImage)
+        {
+            let b = this.InputRef
+            this.InputRef.current.value = '';
+            this.InputRef.current.files = undefined;
+            debugger
+        }
+    }
+
+    onChange(e) {
+        this.props.input.onChange(e.target.files)
+
+        if (this.props.clearImage) this.props();
+        let tempArr = [];
+        for (let i=0; i<e.target.files.length;i++)
+            tempArr.push(e.target.files[i])
+        this.props.setFiles(tempArr)
+    }
+    render(){
+        const { input: { value } } = this.props
+        const {input,label, required, meta, } = this.props  //whatever props you send to the component from redux-form Field
+
+        return(
+                <label className={s.PostImageUploadComponentLabel}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 612.675 612.675">
+                        <g fill="#707070">
+                            <path d="M581.209,223.007L269.839,530.92c-51.592,51.024-135.247,51.024-186.839,0c-51.592-51.023-51.592-133.737,0-184.761
+				L363.248,69.04c34.402-34.009,90.15-34.009,124.553,0c34.402,34.008,34.402,89.166,0,123.174l-280.249,277.12
+				c-17.19,17.016-45.075,17.016-62.287,0c-17.19-16.993-17.19-44.571,0-61.587L394.37,161.42l-31.144-30.793L114.144,376.975
+				c-34.402,34.009-34.402,89.166,0,123.174c34.402,34.009,90.15,34.009,124.552,0l280.249-277.12
+				c51.592-51.023,51.592-133.737,0-184.761c-51.593-51.023-135.247-51.023-186.839,0L36.285,330.784l1.072,1.071
+				c-53.736,68.323-49.012,167.091,14.5,229.88c63.512,62.79,163.35,67.492,232.46,14.325l1.072,1.072l326.942-323.31
+				L581.209,223.007z"/>
+                        </g>
+                    </svg>
+                    <input
+                        ref={this.InputRef}
+                        type='file'
+                        accept='image/*'
+                        multiple={false}
+                        onChange={this.onChange}
+                        onClick={this.props.setClearImage(false)}
+                    />
+                </label>
+        )
+    }
 }

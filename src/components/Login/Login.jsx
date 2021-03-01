@@ -51,7 +51,7 @@ class Login extends React.Component {
         return (
             <div>
                 <LoginForm onSubmit={this.onSubmit} {...this.props}/>
-                <div className={s.background}><img src={LoginBackground}/></div>
+                <div className={s.background}/>
             </div>
         )
     }

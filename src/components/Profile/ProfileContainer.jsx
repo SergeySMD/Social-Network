@@ -4,7 +4,8 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPosts from "./MyPosts/MyPosts";
 import {connect} from "react-redux";
 import {
-    addPost,
+    addImagePreview,
+    addPost, deletePostImage,
     getProfile,
     getStatus,
     likePost,
@@ -33,7 +34,9 @@ let mapDispatchToProps = {
     updateStatus,
     removePost,
     updateAvatar,
-    setEditPostNewText
+    setEditPostNewText,
+    addImagePreview,
+    deletePostImage
 }
 
 class ProfileContainer extends React.Component {

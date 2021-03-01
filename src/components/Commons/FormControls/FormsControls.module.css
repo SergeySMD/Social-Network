@@ -150,4 +150,11 @@
 }
 /*-----------------------------------------------------------------------*/
 
-
+.PostImageUploadComponentLabel {
+    position: relative;
+    margin-right: 20px;
+}
+.PostImageUploadComponentLabel input {
+    position: absolute;
+    visibility: hidden;
+}

@@ -10,6 +10,8 @@ const LIKE_POST = "LIKE_POST";
 const REMOVE_POST = 'REMOVE_POST';
 const UPDATE_AVATAR = 'UPDATE_AVATAR';
 const SET_NEW_EDIT_POST_TEXT = 'SET_NEW_EDIT_POST_TEXT';
+const ADD_POST_IMAGE_PREVIEW = 'ADD_POST_IMAGE_PREVIEW';
+const DELETE_POST_IMAGE = 'DELETE_POST_IMAGE';
 
 
 let initState = {
@@ -28,13 +30,15 @@ let initState = {
             'P.s. пей🍻в меру❗😄',
         likeCounter: 4,
         isLiked: false,
-        date: "21:00, 16/02/2021"
+        date: "21:00, 16/02/2021",
+        PostImage: null
     }],
     backgroundImage: "https://www.incimages.com/uploaded_files/image/1920x1080/westworld-2-hbo-background-1920_419617.jpg",
     avatar: "",
     username: "",
     status: "",
-    userId: null
+    userId: null,
+    imagePreview: []
 }
 
 const ProfileReducer = (state = initState, action) => {
@@ -45,7 +49,8 @@ const ProfileReducer = (state = initState, action) => {
                 message: action.postText,
                 likeCounter: 0,
                 isLiked: false,
-                date: postAddDate()
+                date: postAddDate(),
+                PostImage: action.PostImage
             }
             return {
                 ...state, posts: [newPost, ...state.posts]
@@ -83,6 +88,13 @@ const ProfileReducer = (state = initState, action) => {
                 if (p.id===action.id && p.message!==action.text) return {...p, message: action.text,date:'edited. '+ postAddDate()}
                 return p
                 })}
+        case ADD_POST_IMAGE_PREVIEW:
+            return {...state, imagePreview: action.imagePreview}
+        case DELETE_POST_IMAGE:
+            return {...state, posts: state.posts.map(p=>{
+                if (p.id === action.postId) return {...p, PostImage: null}
+                return p
+                })}
         default:
             return state;
     }
@@ -101,13 +113,15 @@ let postAddDate = () => {
     return (date.getHours() + ":" + minutes + ", " + dates + "/" + months + "/" + date.getFullYear())
 
 }
-export const addPost = (postText) => ({type: ADD_POST, postText});
+export const addPost = (postText,PostImage) => ({type: ADD_POST, postText, PostImage});
 export const setStatus = (text) => ({type: SET_STATUS, text})
 export const setProfile = (data) => ({type: SET_PROFILE, data})
 export const likePost = (postId) => ({type: LIKE_POST, postId})
 export const removePost = (postId) => ({type: REMOVE_POST, postId})
 export const setAvatarLink = (avatar) => ({type: UPDATE_AVATAR, avatar})
 export const setEditPostNewText = (id,text) => ({type: SET_NEW_EDIT_POST_TEXT, id,text})
+export const addImagePreviewAC = (imagePreview) => ({type: ADD_POST_IMAGE_PREVIEW, imagePreview})
+export const deletePostImage = (postId) => ({type: DELETE_POST_IMAGE, postId})
 
 export const getProfile = (userId) => (dispatch) => {
     dispatch(toggleIsFetching(true));
@@ -135,5 +149,12 @@ export const updateAvatar = (avatar,id) => (dispatch) => {
         dispatch(getProfile(id))
     })
 }
-
+export const addImagePreview = (PostImageFiles) => (dispatch) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(PostImageFiles);
+        reader.onload = (event) => {
+            const result = event.target.result;
+            dispatch(addImagePreviewAC(result));
+        }
+}
 export default ProfileReducer;
