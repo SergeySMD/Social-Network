@@ -17,27 +17,8 @@ import {withRouter} from "react-router";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import Preloader from "../Commons/Preloader/Preloader";
+import {getIsFetching, getMyId} from "../../redux/profileSelectors";
 
-
-let mapStateToProps = (state) => {
-    return {
-        ...state.profilePage,
-        id: state.auth.id,
-        isFetching: state.usersPage.isFetching
-    }
-}
-let mapDispatchToProps = {
-    addPost,
-    getProfile,
-    likePost,
-    getStatus,
-    updateStatus,
-    removePost,
-    updateAvatar,
-    setEditPostNewText,
-    addImagePreview,
-    deletePostImage
-}
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
@@ -85,6 +66,33 @@ class ProfileContainer extends React.Component {
     }
 }
 
+// let mapStateToProps = (state) => {
+//     return {
+//         ...state.profilePage,
+//         id: state.auth.id,
+//         isFetching: state.usersPage.isFetching
+//     }
+// }
+
+let mapStateToProps = (state) => {
+    return {
+        ...state.profilePage,
+        id: getMyId(state),
+        isFetching: getIsFetching(state)
+    }
+}
+let mapDispatchToProps = {
+    addPost,
+    getProfile,
+    likePost,
+    getStatus,
+    updateStatus,
+    removePost,
+    updateAvatar,
+    setEditPostNewText,
+    addImagePreview,
+    deletePostImage
+}
 
 export default compose(
     connect(mapStateToProps,mapDispatchToProps),

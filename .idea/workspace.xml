@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="edit post functional added">
-      <change afterPath="$PROJECT_DIR$/src/assets/images/bc.jpg" afterDir="false" />
+    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="upload post image functional added.&#10;post image preview added.&#10;delete post image functional added.&#10;and more...">
+      <change afterPath="$PROJECT_DIR$/src/redux/profileSelectors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Commons/FormControls/FormsControls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Commons/FormControls/FormsControls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Commons/FormControls/FormsControls.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Commons/FormControls/FormsControls.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/login.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/login.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/Post/Post.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/Post/Post.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/Post/Post.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/Post/Post.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/validators.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/validators.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,14 +163,10 @@
       <workItem from="1614524657326" duration="626000" />
       <workItem from="1614530896654" duration="16243000" />
       <workItem from="1614579039124" duration="15170000" />
-      <workItem from="1614595799624" duration="8317000" />
-    </task>
-    <task id="LOCAL-00018" summary="CSS update">
-      <created>1611487283751</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1611487283751</updated>
+      <workItem from="1614595799624" duration="8845000" />
+      <workItem from="1614608290163" duration="587000" />
+      <workItem from="1614614268499" duration="338000" />
+      <workItem from="1614763903415" duration="1750000" />
     </task>
     <task id="LOCAL-00019" summary="onClick, ref, VirtualDOM">
       <created>1611492267907</created>
@@ -518,7 +504,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614537627392</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="upload post image functional added.&#10;post image preview added.&#10;delete post image functional added.&#10;and more...">
+      <created>1614604477486</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1614604477487</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +541,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="pagination, постраничный вывод пользователей" />
     <MESSAGE value="Презентационная и Контейнерная компоненты" />
     <MESSAGE value="Презентационная и Контейнерная компоненты (рефакторинг оставшихся компонент)" />
     <MESSAGE value="mapDispatchToProps лайф-хак" />
@@ -573,6 +565,7 @@
     <MESSAGE value="stopSubmit (redux-form)" />
     <MESSAGE value="upload profile avatar functional added" />
     <MESSAGE value="edit post functional added" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit post functional added" />
+    <MESSAGE value="upload post image functional added.&#10;post image preview added.&#10;delete post image functional added.&#10;and more..." />
+    <option name="LAST_COMMIT_MESSAGE" value="upload post image functional added.&#10;post image preview added.&#10;delete post image functional added.&#10;and more..." />
   </component>
 </project>
