@@ -23,15 +23,18 @@ class UsersContainer extends React.Component {
     }
     onPageSizeClick = (pageSize) => {
         this.props.setPageSize(pageSize);
-        this.props.getUsers(pageSize, this.props.currentPage, this.props.searchUserString)
+        this.props.updatePage(1);
+        this.props.getUsers(pageSize, 1, this.props.searchUserString)
     }
     onSearchUserClick = () => {
-        this.props.getUsers(this.props.pageSize, this.props.currentPage, this.props.searchUserString)
+        this.props.updatePage(1);
+        this.props.getUsers(this.props.pageSize, 1, this.props.searchUserString)
     }
     onSearchUserChange = (e) => {
         let text = e.target.value;
         this.props.onSearchUsersChange(text);
-        this.props.getUsers(this.props.pageSize, this.props.currentPage, text)
+        this.props.updatePage(1);
+        this.props.getUsers(this.props.pageSize, 1, text)
         console.log(this.props.searchUserString);
     }
 

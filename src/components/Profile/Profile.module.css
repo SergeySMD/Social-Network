@@ -2,7 +2,7 @@ profilePage {
 }
 .profileInfo {
     min-height: 100px;
-    background-color: white;
+    background-color: var(--wrap-bg-color);
     border-radius: 5px 5px 0 0;
-    border: 1px solid #EDEEF0;
+    border: 1px solid var(--body-bg-color);
 }

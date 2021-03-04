@@ -1,7 +1,7 @@
 body
 {
     padding: 0 calc(20px - (100vw - 100%)) 0 0;
-    background-color: #edeef0;
+    background-color: var(--body-bg-color);
 }
 .app-wrapper {
     display: grid;
@@ -21,9 +21,50 @@ body
 .app-wrapper-content {
     grid-area: c;
     margin-top: 20px;
-    background: rgb(237, 238, 240);
+    background: var(--body-bg-color);
     border-radius: 12px;
 }
 
+
+:root {
+    --body-bg-color: #EDEEF0;
+    --wrap-bg-color: white;
+    --head-bg-color: white;
+    --black-white-text-color: black;
+    --white-black-text-color: white;
+    --707070-EDEEF0-text-color: #707070;
+    --9d9aa8-w-text-color: #9d9aa8;
+    --color-block: #8683F8;
+    --mininav-border-color: rgba(0, 0, 0, 1);
+    --wrap-size: 1440px;
+    --hover-block: #A183F8;
+    --active-block: #9D9AF6;
+}
+
+[data-theme="dark"] {
+    --body-bg-color: #1e2027;
+    --wrap-bg-color: #242630;
+    --head-bg-color: #242630;
+    --black-white-text-color: white;
+    --white-black-text-color: black;
+    --707070-EDEEF0-text-color: #9798a5;
+    --1a122d-w-text-color: white;
+    --9d9aa8-w-text-color: white;
+    --mininav-border-color: #9d9aa8;
+}
+
+::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1); /* color of the tracking area */
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--707070-EDEEF0-text-color);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */ /* creates padding around scroll thumb */
+}
 
 

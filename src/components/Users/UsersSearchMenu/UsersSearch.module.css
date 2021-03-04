@@ -1,7 +1,7 @@
 .searchBlock {
     width: 100%;
-    background-color: white;
-    padding: 20px 0;
+    background-color: var(--wrap-bg-color);
+    padding: 16px 0;
     border-radius: 5px;
 }
 
@@ -24,9 +24,12 @@
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-    line-height: 19px;
+    line-height: 24px;
     border: none;
     outline: none;
+    background: var(--wrap-bg-color);
+    border: var(--wrap-bg-color);
+    color: var(--black-white-text-color);
 }
 .searchButton {
     align-self: center;

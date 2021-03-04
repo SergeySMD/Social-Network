@@ -5,7 +5,7 @@
     top: 175px;
     margin-left: 390px;
     padding: 60px;
-    background-color: white;
+    background-color: var(--wrap-bg-color);
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.08);
 
     display: grid;
@@ -18,7 +18,7 @@
     font-size: 20px;
     line-height: 24px;
     text-align: center;
-
+    color: var(--black-white-text-color);
 }
 .titleBLock img {
     height: 64px;
@@ -27,7 +27,7 @@
     width: 400px;
     height: 60px;
 
-    background: #8683F8;
+    background: var(--color-block);
     border-radius: 5px;
     outline: none;
     border: none;
@@ -39,16 +39,17 @@
     line-height: 24px;
     text-align: center;
     cursor: pointer;
+    color: var(--white-black-text-color);
 }
 .buttonBlock button:disabled {
-    background: #edeef0;
+    background: var(--body-bg-color);
     cursor: default;
 }
 .buttonBlock button:hover:enabled {
-    background: #A183F8;
+    background: var(--hover-block);
 }
 .buttonBlock button:active {
-    background: #8683F8;
+    background: var(--active-block);
 }
 .rememberBlock {
     margin-top: 20px;
@@ -62,6 +63,7 @@
     font-size: 16px;
     line-height: 20px;
     margin-left: 8px;
+    color: var(--black-white-text-color);
 }
 .background {
     left: 0px;

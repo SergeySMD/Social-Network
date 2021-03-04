@@ -23,11 +23,11 @@
 }
 .message {
     display: block;
-    background-color: white;
+    background-color: var(--wrap-bg-color);
     margin: 5px;
     padding: 4px 12px;
     border-radius: 8px;
-    border-bottom: 2px solid rgba(34, 60, 80, 0.2);
+    color: var(--black-white-text-color);
 }
 .messageSendingBlock {
     align-items: center;
@@ -53,7 +53,7 @@
     grid-area: name;
     text-decoration: none;
     padding: 8px 0px;
-    color: #1d3c96;
+    color: var(--707070-EDEEF0-text-color);
     cursor: pointer;
     display: inline-block;
     height: 35px;
@@ -63,17 +63,15 @@
 }
 .dialog a:hover {
     font-weight: bold;
-    color: #1d3c96;
-    background-color: #DBDBF5;
+    color: var(--white-black-text-color);
+    background-color: var(--hover-block);
     border-radius: 0 20px 20px 0;
-    border-bottom: 2px solid rgba(34, 60, 80, 0.2);
 }
 .dialog a.activeLink {
-    color: #ffffff;
+    color: var(--white-black-text-color);
     font-weight: bold;
-    background-color: #8583f7;
+    background-color: var(--color-block);
     padding-left: 35px;
-    border-bottom: 2px solid rgba(34, 60, 80, 0.2);
 
 }
 .dialog {

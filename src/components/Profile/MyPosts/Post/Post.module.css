@@ -8,7 +8,7 @@
     grid-template-columns: 78px 10fr;
     grid-template-rows: auto;
     align-items: center;
-    background-color: white;
+    background-color: var(--wrap-bg-color);
     border-radius: 5px;
     margin: 10px 0;
     cursor: default;
@@ -31,6 +31,7 @@
 
 .author {
     grid-area: author;
+    color: var(--black-white-text-color);
     padding-top: 30px;
     margin-left: 20px;
     font-family: Montserrat;
@@ -57,7 +58,7 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
-    color: #707070;
+    color: var(--707070-EDEEF0-text-color);
     align-self: auto;
 
 }
@@ -73,7 +74,8 @@
     line-height: 22px;
     word-wrap: break-word;
     white-space: pre-wrap;
-    border-bottom: 1px solid #EDEEF0;
+    border-bottom: 1px solid var(--body-bg-color);
+    color: var(--black-white-text-color);
 
 }
 
@@ -88,6 +90,11 @@
     text-align: right;
     padding: 10px 30px;
     vertical-align: middle;
+    color: var(--black-white-text-color);
+}
+.likeBlock::selection {
+    background: transparent;
+    color: var(--black-white-text-color);
 }
 
 .likeBlock svg {
@@ -112,6 +119,8 @@
     overflow: auto;
     cursor: text;
     border-radius: 5px;
+    background-color: var(--wrap-bg-color);
+    color: var(--black-white-text-color);
 }
 
 .postEdit button {
@@ -131,17 +140,17 @@
     line-height: 16px;
 }
 
-.saveButton {background-color: #8583f7;color: white;}
-.saveButton:hover {background-color: #6865d7;}
-.saveButton:active {background-color: #9f9df6;}
+.saveButton {background-color: var(--color-block);color: white;}
+.saveButton:hover {background-color: var(--hover-block);}
+.saveButton:active {background-color: var(--active-block);}
 
 .deleteButton {background-color: #ff2f2f;color: white;}
 .deleteButton:hover {background-color: #ef2626;}
 .deleteButton:active {background-color: #ff3d3d;}
 
-.cancelButton {background-color: #edeef0;color: black;}
-.cancelButton:hover {background-color: #ced1db;}
-.cancelButton:active {background-color: #fcfcfc;}
+.cancelButton {background-color: var(--body-bg-color);color: var(--black-white-text-color);}
+.cancelButton:hover {background-color: var(--body-bg-color);}
+.cancelButton:active {background-color: var(--body-bg-color);}
 
 .postPhoto {
     display: block;

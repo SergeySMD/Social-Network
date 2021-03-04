@@ -4,10 +4,12 @@
     height: 48px;
     border-radius: 5px;
 }
-
+.ui.pagination.menu {
+    background: var(--wrap-bg-color) !important;
+}
 .ui.pagination.menu .item {
     outline: none !important;
-    color: #707070 !important;
+    color: var(--707070-EDEEF0-text-color) !important;
     font-family: Montserrat !important;
     padding:0 11px !important;
     font-style: normal !important;
@@ -18,14 +20,33 @@
 
 .ui.pagination.menu .active.item {
     font-weight: bold !important;
-    background: white !important;
-    color: black !important;
+    background: var(--wrap-bg-color) !important;
+    color: var(--black-white-text-color) !important;
 }
 .ui.pagination.menu .item:hover {
     font-weight: bold !important;
-    background: white !important;
+    background: var(--wrap-bg-color) !important;
 }
 
 .ui.pagination.menu .item:before {
     height: 0 !important;
+}
+.ui.dropdown .menu {
+    background: var(--wrap-bg-color) !important;
+    color: var(--black-white-text-color) !important;
+}
+ui.dropdown .icon {
+    background: var(--wrap-bg-color) !important;
+    color: var(--black-white-text-color) !important;
+}
+.ui.dropdown .menu .item {
+    color: var(--black-white-text-color) !important;
+}
+.ui.dropdown>.text {
+    background: var(--wrap-bg-color) !important;
+    color: var(--black-white-text-color) !important;
+}
+.ui.dropdown>.dropdown.icon:before {
+    background: var(--wrap-bg-color) !important;
+    color: var(--black-white-text-color) !important;
 }

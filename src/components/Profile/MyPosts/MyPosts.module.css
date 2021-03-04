@@ -1,10 +1,11 @@
 .postBlock {
+
 }
 .posts {
     margin-top: 10px;
 }
 .inputBlock {
-    background-color: white;
+    background-color: var(--wrap-bg-color);
     border-radius: 0 0 5px 5px;
     display: grid;
     grid-template-columns: 850px auto;
@@ -19,12 +20,14 @@
     font-size: 16px;
     line-height: normal;
     resize: none;
-    border: white;
+    background: var(--wrap-bg-color);
+    border: var(--wrap-bg-color);
     outline: none;
     word-wrap: break-word;
     white-space: pre-wrap;
     overflow: auto;
     cursor: text;
+    color: var(--black-white-text-color)
 }
 .button {
     text-align: center;
@@ -44,10 +47,10 @@
     cursor: pointer;
 }
 .button svg:hover g path{
-    fill: #6865d7;
+    fill: var(--hover-block);
 }
 .button svg:active g path{
-    fill: #9f9df6;
+    fill: var(--active-block);
 }
 .title {
     margin: 40px 0 10px 0;
@@ -57,13 +60,14 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
+    color: var(--black-white-text-color)
 }
 .imagePreview {
     position: relative;
     display: inline-block;
     height: 300px;
     width: max-content;
-    background-color: #3968b3;
+    background-color: var(--wrap-bg-color);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.1);

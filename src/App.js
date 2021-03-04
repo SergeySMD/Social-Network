@@ -14,7 +14,7 @@ import {compose} from "redux";
 import {addMessage} from "./redux/dialogsReducer";
 import Preloader from "./components/Commons/Preloader/Preloader";
 import {authAPI} from "./api/api";
-import {getMyDataProfile, setAuthUserData} from "./redux/authReducer";
+import {getMyDataProfile, setAuthUserData, toggleDarkTheme} from "./redux/authReducer";
 import Header from "./components/Header/Header";
 import {Redirect, withRouter} from "react-router";
 
@@ -23,6 +23,12 @@ const App = ({isAuth, ...props}) => {
     const [load, setLoad] = useState(true);
 
     useEffect(() => {
+        props.toggleDarkTheme(localStorage.getItem('darkTheme') === 'true');
+        document.documentElement.style.setProperty('--color-block', `${localStorage.getItem('colorBlock') || "#8683F8"}`);
+        document.documentElement.setAttribute('nav', 'none');
+        if (localStorage.getItem('darkTheme') === 'true') {
+            document.documentElement.setAttribute("data-theme", "dark");
+        }
         authAPI.me().then(response => {
             if (response.resultCode === 0) {
                 props.setAuthUserData(response.data.id, response.data.email, response.data.login)
@@ -42,7 +48,6 @@ const App = ({isAuth, ...props}) => {
                     <Navbar id={props.id}/>
                     <div className='app-wrapper-content'>
                         <Route exact path='/' render={() => <Redirect to={'/profile/' + props.id}/>}/>
-
                         <Route path='/login' render={() => <Login/>}/>
                         <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                         <Route path='/dialogs' render={() => <DialogsContainer/>}/>
@@ -72,7 +77,8 @@ let mapStateToProps = (state) => {
 const mapDispatchToProps = {
     addMessage,
     setAuthUserData,
-    getMyDataProfile
+    getMyDataProfile,
+    toggleDarkTheme,
 }
 
 export default compose(

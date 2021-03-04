@@ -8,7 +8,7 @@
             "avatar info";
     grid-template-columns: 90px auto;
     grid-template-rows: auto;
-    background-color: white;
+    background-color: var(--wrap-bg-color);
     align-items: start;
     margin-top: 10px;
     border-radius: 5px;
@@ -32,6 +32,7 @@
 
 .title {
     margin: 40px 0 10px 0;
+    color: var(--black-white-text-color);
     font-family: Montserrat;
     font-style: normal;
     font-weight: 600;
@@ -57,6 +58,7 @@
 .name {
     grid-area: name;
     padding: 0 20px;
+    color: var(--black-white-text-color);
     font-family: Montserrat;
     font-style: normal;
     font-weight: 600;
@@ -69,6 +71,7 @@
     grid-area: status;
     display: block;
     padding: 0 0 0 20px;
+    color: var(--black-white-text-color);
     width: 500px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
@@ -88,11 +91,11 @@
 
 .unfollow {
     align-self: center;
-    background-color: #8583f7;
+    background-color: var(--color-block);
     text-align: center;
     padding: 12px 10px;
     width: 120px;
-    color: white;
+    color: var(--white-black-text-color);
     border: none;
     outline: none;
     border-radius: 5px;
@@ -105,11 +108,11 @@
 }
 
 .follow {
-    background-color: #edeef0;
+    background-color: var(--body-bg-color);
     text-align: center;
     padding: 12px 10px;
     width: 120px;
-    color: black;
+    color: var(--black-white-text-color);
     border: none;
     outline: none;
     border-radius: 5px;
@@ -125,7 +128,7 @@
     display: grid;
     grid-template-areas: "pageSize pagination";
     grid-template-columns: auto max-content;
-    background: white;
+    background: var(--wrap-bg-color);
     border-radius: 5px;
     margin: 0;
 }
@@ -147,7 +150,7 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
-    color: #707070;
+    color: var(--707070-EDEEF0-text-color);
 }
 
 .menu {

@@ -5,6 +5,7 @@ const SET_USER_DATA = "SET_USER_DATA";
 const SET_PROFILE_DATA = "SET_PROFILE_DATA";
 const TOGGLE_IS_AUTH = "TOGGLE_IS_AUTH";
 const SET_CAPTCHA_URL = "SET_CAPTCHA_URL";
+const TOGGLE_DARK_THEME = "TOGGLE_DARK_THEME";
 
 let initState = {
     id: null,
@@ -14,6 +15,7 @@ let initState = {
     avatar: null,
     load: false,
     captchaURL: null,
+    isDarkTheme: false
 }
 
 const authReducer = (state = initState, action) => {
@@ -26,6 +28,8 @@ const authReducer = (state = initState, action) => {
             return {...state, isAuth: action.isAuth}
         case SET_CAPTCHA_URL:
             return {...state, captchaURL: action.captcha}
+        case TOGGLE_DARK_THEME:
+            return {...state, isDarkTheme: action.theme}
         default:
             return state;
     }
@@ -35,6 +39,7 @@ export const setAuthUserData = (id, email, login) => ({type: SET_USER_DATA, data
 export const setProfileData = (login, avatar) => ({type: SET_PROFILE_DATA, login, avatar});
 export const toggleIsAuth = (isAuth) => ({type: TOGGLE_IS_AUTH, isAuth})
 export const setCaptchaURL = (captcha) => ({type: SET_CAPTCHA_URL, captcha})
+export const toggleDarkTheme = (theme) => ({type: TOGGLE_DARK_THEME, theme})
 export let getAuth = () => (dispatch) => {
     authAPI.me().then(response => {
         if (response.resultCode === 0) {

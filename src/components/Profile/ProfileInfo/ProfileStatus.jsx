@@ -45,7 +45,7 @@ class ProfileStatus extends React.Component {
                         onChange={this.onStatusChange}
                         onFocus={(e) => {
                             e.target.style.cursor = "text"
-                            e.target.style.borderBottom = "1px solid grey"
+                            e.target.style.borderBottom = "1px solid var(--black-white-text-color)"
                         }}
                         onBlur={this.deactivateEditMode}
                         value={this.state.status}
