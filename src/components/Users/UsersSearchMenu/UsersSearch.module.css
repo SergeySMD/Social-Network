@@ -9,6 +9,9 @@
     display: inline-block;
     padding-left: 20px;
 }
+.icon img {
+    margin-bottom: -2px;
+}
 
 .input {
     display: inline-block;
@@ -20,8 +23,8 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
-    line-height: 25px;
+    font-size: 16px;
+    line-height: 19px;
     border: none;
     outline: none;
 }

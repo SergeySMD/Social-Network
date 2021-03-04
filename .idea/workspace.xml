@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="upload post image functional added.&#10;post image preview added.&#10;delete post image functional added.&#10;and more...">
-      <change afterPath="$PROJECT_DIR$/src/redux/profileSelectors.js" afterDir="false" />
+    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="селекторы (reselect part 1)">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Commons/FormControls/FormsControls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Commons/FormControls/FormsControls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Commons/FormControls/FormsControls.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Commons/FormControls/FormsControls.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/login.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/login.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/Users.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Users.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersSearchMenu/UsersSearch.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersSearchMenu/UsersSearch.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersSearchMenu/usersSearchMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersSearchMenu/usersSearchMenu.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/authReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,14 +176,9 @@
       <workItem from="1614595799624" duration="8845000" />
       <workItem from="1614608290163" duration="587000" />
       <workItem from="1614614268499" duration="338000" />
-      <workItem from="1614763903415" duration="1750000" />
-    </task>
-    <task id="LOCAL-00019" summary="onClick, ref, VirtualDOM">
-      <created>1611492267907</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1611492267907</updated>
+      <workItem from="1614763903415" duration="2468000" />
+      <workItem from="1614844847901" duration="3994000" />
+      <workItem from="1614868652441" duration="3408000" />
     </task>
     <task id="LOCAL-00020" summary="прокидываем callback через props">
       <created>1611494441123</created>
@@ -511,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614604477487</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="селекторы (reselect part 1)">
+      <created>1614766229766</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1614766229766</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +553,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Презентационная и Контейнерная компоненты" />
     <MESSAGE value="Презентационная и Контейнерная компоненты (рефакторинг оставшихся компонент)" />
     <MESSAGE value="mapDispatchToProps лайф-хак" />
     <MESSAGE value="Поиск пользователей, доработка компонент" />
@@ -566,6 +577,7 @@
     <MESSAGE value="upload profile avatar functional added" />
     <MESSAGE value="edit post functional added" />
     <MESSAGE value="upload post image functional added.&#10;post image preview added.&#10;delete post image functional added.&#10;and more..." />
-    <option name="LAST_COMMIT_MESSAGE" value="upload post image functional added.&#10;post image preview added.&#10;delete post image functional added.&#10;and more..." />
+    <MESSAGE value="селекторы (reselect part 1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="селекторы (reselect part 1)" />
   </component>
 </project>

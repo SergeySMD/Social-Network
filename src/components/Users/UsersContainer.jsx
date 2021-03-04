@@ -31,6 +31,7 @@ class UsersContainer extends React.Component {
     onSearchUserChange = (e) => {
         let text = e.target.value;
         this.props.onSearchUsersChange(text);
+        this.props.getUsers(this.props.pageSize, this.props.currentPage, text)
         console.log(this.props.searchUserString);
     }
 

@@ -4,6 +4,7 @@ import {stopSubmit} from "redux-form";
 const SET_USER_DATA = "SET_USER_DATA";
 const SET_PROFILE_DATA = "SET_PROFILE_DATA";
 const TOGGLE_IS_AUTH = "TOGGLE_IS_AUTH";
+const SET_CAPTCHA_URL = "SET_CAPTCHA_URL";
 
 let initState = {
     id: null,
@@ -11,7 +12,8 @@ let initState = {
     login: null,
     isAuth: false,
     avatar: null,
-    load: false
+    load: false,
+    captchaURL: null,
 }
 
 const authReducer = (state = initState, action) => {
@@ -22,6 +24,8 @@ const authReducer = (state = initState, action) => {
             return {...state, login: action.login, avatar: action.avatar}
         case TOGGLE_IS_AUTH:
             return {...state, isAuth: action.isAuth}
+        case SET_CAPTCHA_URL:
+            return {...state, captchaURL: action.captcha}
         default:
             return state;
     }
@@ -30,6 +34,7 @@ const authReducer = (state = initState, action) => {
 export const setAuthUserData = (id, email, login) => ({type: SET_USER_DATA, data: {id, email, login}});
 export const setProfileData = (login, avatar) => ({type: SET_PROFILE_DATA, login, avatar});
 export const toggleIsAuth = (isAuth) => ({type: TOGGLE_IS_AUTH, isAuth})
+export const setCaptchaURL = (captcha) => ({type: SET_CAPTCHA_URL, captcha})
 export let getAuth = () => (dispatch) => {
     authAPI.me().then(response => {
         if (response.resultCode === 0) {
@@ -37,12 +42,18 @@ export let getAuth = () => (dispatch) => {
         }
     })
 }
-export let getLogin = (login, password, rememberMe) => (dispatch) => {
-    authAPI.login(login, password, rememberMe).then(response => {
+export let getLogin = (login, password, rememberMe, captcha = false) => (dispatch) => {
+    authAPI.login(login, password, rememberMe,captcha).then(response => {
         if (response.resultCode === 0) {
             dispatch(setAuthUserData(response.data.userId, login, ''))
+            dispatch(setCaptchaURL(null))
         } else {
             dispatch(stopSubmit('login', {_error: response.messages[0]}));
+        }
+        if (response.resultCode === 10) {
+            authAPI.getCaptchaURL().then(response => {
+                dispatch(setCaptchaURL(response.data.url))
+            })
         }
     })
 }
@@ -60,6 +71,7 @@ export let getMyDataProfile = (userId) => (dispatch) => {
         dispatch(setProfileData(response.fullName, response.photos.small))
     })
 }
-
+export let getCaptchaURL = () => (dispatch) => {
+}
 
 export default authReducer;

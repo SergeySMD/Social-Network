@@ -6,7 +6,12 @@ import {connect} from "react-redux";
 import {getLogin} from "../../redux/authReducer";
 import {withProfileRedirect} from "../../hoc/withProfileRedirect";
 import {maxLength, required} from "../../utils/validators";
-import {LoginInputComponent, PasswordInputComponent, RememberMeComponent} from "../Commons/FormControls/FormsControls";
+import {
+    CaptchaInputComponent,
+    LoginInputComponent,
+    PasswordInputComponent,
+    RememberMeComponent
+} from "../Commons/FormControls/FormsControls";
 import LoginBackground from '../../assets/images/login-background.png'
 
 
@@ -28,6 +33,12 @@ const LoginForm = reduxForm({form: 'login'})(
                         <Field component={PasswordInputComponent} name={'password'}
                                validate={[required, maxLength100]}/>
                     </div>
+                    {props.captchaURL !== null ? <div>
+                        <div className={s.inputField}>
+                            <Field component={CaptchaInputComponent} name={'captcha'}
+                                   validate={[required, maxLength100]} captcha={props.captchaURL}/>
+                        </div>
+                    </div> : null}
                     <div className={s.warning}>{props.error}</div>
                 </div>
                 <div className={s.buttonBlock}>
@@ -44,7 +55,10 @@ const LoginForm = reduxForm({form: 'login'})(
 class Login extends React.Component {
 
     onSubmit = (formData) => {
-        this.props.getLogin(formData.login, formData.password, formData.rememberMe);
+        if (!formData.captcha)
+            this.props.getLogin(formData.login, formData.password, formData.rememberMe);
+        else
+            this.props.getLogin(formData.login, formData.password, formData.rememberMe, formData.captcha);
     }
 
     render() {
@@ -62,7 +76,8 @@ let mapStateToProps = (state) => {
         login: state.auth.login,
         isAuth: state.auth.isAuth,
         id: state.auth.id,
-        authErrorMessage: state.auth.authErrorMessage
+        authErrorMessage: state.auth.authErrorMessage,
+        captchaURL: state.auth.captchaURL
     }
 }
 export default compose(

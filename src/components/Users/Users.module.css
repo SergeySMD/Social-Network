@@ -19,7 +19,8 @@
 .userInfoBlock {
     grid-area: info;
     display: grid;
-    height: 60px;
+    height: max-content;
+    min-height: 60px;
     grid-template-areas:
             "name button"
             "status button";
@@ -40,6 +41,7 @@
 
 .avatar {
     grid-area: avatar;
+    align-self: center;
     margin-left: 30px;
     height: 60px;
 }

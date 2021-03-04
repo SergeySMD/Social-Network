@@ -12,9 +12,9 @@ let SearchUsersMenu = (props) => {
                                             value={props.searchUserString}
                                             onChange={props.onSearchUserChange}
             /></div>
-            <button className={s.searchButton}
-                    onClick={props.onSearchUserClick}>Search
-            </button>
+            {/*<button className={s.searchButton}*/}
+            {/*        onClick={props.onSearchUserClick}>Search*/}
+            {/*</button>*/}
         </div>
     );
 }
