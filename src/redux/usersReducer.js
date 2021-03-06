@@ -73,10 +73,10 @@ export let onSearchUsersChange = (text) => ({type: SEARCH_USER, text})
 export let toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export let toggleFollowingProcess = (process, userId) => ({type: TOGGLE_FOLLOWING_PROCESS, process, userId});
 
-export let getUsers = (pageSize, currentPage, searchUserString) => (dispatch) => {
+export let getUsers = (pageSize, currentPage, searchUserString, isFriends) => (dispatch) => {
     dispatch(toggleIsFetching(true));
     dispatch(setUsers([]));
-    usersAPI.getUsers(pageSize, currentPage, searchUserString).then(data => {
+    usersAPI.getUsers(pageSize, currentPage, searchUserString, isFriends).then(data => {
         dispatch(toggleIsFetching(false));
         dispatch(setUsers(data.items));
         dispatch(setUsersCount(data.totalCount));

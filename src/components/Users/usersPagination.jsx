@@ -35,7 +35,7 @@ let UserPaginationMenu = (props) => {
                     </Dropdown>
                 </div>
             </div>
-            {props.pagesCount !== 0 ? <div className={s.paginationBlock}>
+            {props.pagesCount > 1 ? <div className={s.paginationBlock}>
                 <Pagination
                     totalPages={props.pagesCount}
                     activePage={props.currentPage}

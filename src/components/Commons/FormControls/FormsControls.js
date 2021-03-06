@@ -138,14 +138,12 @@ export class PostImageUploadComponent extends Component {
             let b = this.InputRef
             this.InputRef.current.value = '';
             this.InputRef.current.files = undefined;
-            debugger
         }
     }
 
     onChange(e) {
         this.props.input.onChange(e.target.files)
 
-        if (this.props.clearImage) this.props();
         let tempArr = [];
         for (let i = 0; i < e.target.files.length; i++)
             tempArr.push(e.target.files[i])

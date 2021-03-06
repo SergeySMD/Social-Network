@@ -65,7 +65,7 @@ class Login extends React.Component {
         return (
             <div>
                 <LoginForm onSubmit={this.onSubmit} {...this.props}/>
-                <div className={s.background}/>
+                {this.props.isDarkTheme ? <div className={s.backgroundDark}/> : <div className={s.backgroundLight}/>}
             </div>
         )
     }
@@ -77,7 +77,8 @@ let mapStateToProps = (state) => {
         isAuth: state.auth.isAuth,
         id: state.auth.id,
         authErrorMessage: state.auth.authErrorMessage,
-        captchaURL: state.auth.captchaURL
+        captchaURL: state.auth.captchaURL,
+        isDarkTheme: state.auth.isDarkTheme
     }
 }
 export default compose(

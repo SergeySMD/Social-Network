@@ -10,8 +10,8 @@ const instance = axios.create({
 })
 
 export const usersAPI = {
-    getUsers(pageSize,currentPage,searchUserString='') {
-        return instance.get(`users?count=${pageSize}&page=${currentPage}&term=${searchUserString !== '' ? searchUserString : ''}`).then(response => response.data)
+    getUsers(pageSize,currentPage,searchUserString='',isFriends) {
+        return instance.get(`users?count=${pageSize}&page=${currentPage}&term=${searchUserString !== '' ? searchUserString : ''}&friend=${isFriends}`).then(response => response.data)
     },
     getProfile(userId) {
       return profileAPI.getProfile(userId)
@@ -31,7 +31,7 @@ export const profileAPI = {
         return instance.get(`profile/status/${userId}`)
     },
     updateStatus(status) {
-        return instance.put(`profile/status`, {status: status})
+        return instance.put(`profile/status`, {status: status}).then(response => response.data)
     },
     updateAvatar(avatar) {
         let formData = new FormData();

@@ -65,7 +65,7 @@
     margin-left: 8px;
     color: var(--black-white-text-color);
 }
-.background {
+.backgroundLight, .backgroundDark {
     left: 0px;
     top: 0px;
     width: 100%;
@@ -73,7 +73,16 @@
     position: absolute;
     text-align: center;
     z-index: -100;
-    background: url("../../assets/images/login-background.png");
+    background-size: cover;
+    opacity: 100%;
+    transition: all .5s linear;
+}
+.backgroundLight {
+    background: url("../../assets/images/bg_light.jpg");
+    background-size: cover;
+}
+.backgroundDark {
+    background: url("../../assets/images/bg_night.jpg");
     background-size: cover;
 }
 .background img {

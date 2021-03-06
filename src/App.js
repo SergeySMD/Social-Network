@@ -17,6 +17,7 @@ import {authAPI} from "./api/api";
 import {getMyDataProfile, setAuthUserData, toggleDarkTheme} from "./redux/authReducer";
 import Header from "./components/Header/Header";
 import {Redirect, withRouter} from "react-router";
+import Users from "./components/Users/Users";
 
 const App = ({isAuth, ...props}) => {
 
@@ -24,8 +25,6 @@ const App = ({isAuth, ...props}) => {
 
     useEffect(() => {
         props.toggleDarkTheme(localStorage.getItem('darkTheme') === 'true');
-        document.documentElement.style.setProperty('--color-block', `${localStorage.getItem('colorBlock') || "#8683F8"}`);
-        document.documentElement.setAttribute('nav', 'none');
         if (localStorage.getItem('darkTheme') === 'true') {
             document.documentElement.setAttribute("data-theme", "dark");
         }
@@ -51,7 +50,8 @@ const App = ({isAuth, ...props}) => {
                         <Route path='/login' render={() => <Login/>}/>
                         <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                         <Route path='/dialogs' render={() => <DialogsContainer/>}/>
-                        <Route path='/users' render={() => <UsersContainer/>}/>
+                        <Route path='/users' render={() => <Users title={'Users'}/>}/>
+                        <Route path='/friends' render={() => <Users title={'Friends'} isFriends/>}/>
                         <Route path='/news-feed' render={() => <News/>}/>
                         <Route path='/music' render={() => <Music/>}/>
                         <Route path='/settings' render={() => <Settings/>}/>

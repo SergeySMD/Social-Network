@@ -90,7 +90,7 @@
     text-align: right;
     padding: 10px 30px;
     vertical-align: middle;
-    color: var(--black-white-text-color);
+    color: var(--707070-EDEEF0-text-color);
 }
 .likeBlock::selection {
     background: transparent;

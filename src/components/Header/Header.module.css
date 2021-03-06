@@ -30,7 +30,7 @@
 
 
 .loginBlock {
-    float: right;
+    position: relative;
     height: 80px;
     display: grid;
     align-items: center;
@@ -63,10 +63,8 @@
 }
 
 .dropdown {
-    position: relative;
-    float: right;
-    left: calc((100vw - 100%));
-    margin-right: 430px;
+    position: absolute;
+    right: calc(110px - (100vw - 100%));
     display: inline-block;
 }
 
@@ -110,3 +108,9 @@
 
 .dropdown:hover .loginBlock {background-color: var(--head-bg-color);}
 .dropdown:hover .indicator {background-color: var(--color-block);}
+
+.themeSlider {
+    position: absolute;
+    right: calc(40px - (100vw - 100%));
+    top: 26px;
+}

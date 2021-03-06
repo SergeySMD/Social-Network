@@ -2,6 +2,7 @@ import userPhoto from "../assets/images/User_avatar_placeholder.png";
 import {profileAPI, usersAPI} from "../api/api";
 import {toggleIsFetching} from "./usersReducer";
 import {getMyDataProfile} from "./authReducer";
+import {reset} from "redux-form";
 
 const ADD_POST = "ADD-POST";
 const SET_STATUS = "SET-STATUS";
@@ -10,7 +11,7 @@ const LIKE_POST = "LIKE_POST";
 const REMOVE_POST = 'REMOVE_POST';
 const UPDATE_AVATAR = 'UPDATE_AVATAR';
 const SET_NEW_EDIT_POST_TEXT = 'SET_NEW_EDIT_POST_TEXT';
-const ADD_POST_IMAGE_PREVIEW = 'ADD_POST_IMAGE_PREVIEW';
+const SET_POST_IMAGE_PREVIEW = 'SET_POST_IMAGE_PREVIEW';
 const DELETE_POST_IMAGE = 'DELETE_POST_IMAGE';
 
 
@@ -38,7 +39,7 @@ let initState = {
     username: "",
     status: "",
     userId: null,
-    imagePreview: []
+    imagePreview: null
 }
 
 const ProfileReducer = (state = initState, action) => {
@@ -84,17 +85,25 @@ const ProfileReducer = (state = initState, action) => {
         case UPDATE_AVATAR:
             return {...state, avatar: action.avatar}
         case SET_NEW_EDIT_POST_TEXT:
-            return  {...state, posts: state.posts.map(p=>{
-                if (p.id===action.id && p.message!==action.text) return {...p, message: action.text,date:'edited. '+ postAddDate()}
-                return p
-                })}
-        case ADD_POST_IMAGE_PREVIEW:
+            return {
+                ...state, posts: state.posts.map(p => {
+                    if (p.id === action.id && p.message !== action.text) return {
+                        ...p,
+                        message: action.text,
+                        date: 'edited. ' + postAddDate()
+                    }
+                    return p
+                })
+            }
+        case SET_POST_IMAGE_PREVIEW:
             return {...state, imagePreview: action.imagePreview}
         case DELETE_POST_IMAGE:
-            return {...state, posts: state.posts.map(p=>{
-                if (p.id === action.postId) return {...p, PostImage: null}
-                return p
-                })}
+            return {
+                ...state, posts: state.posts.map(p => {
+                    if (p.id === action.postId) return {...p, PostImage: null}
+                    return p
+                })
+            }
         default:
             return state;
     }
@@ -113,15 +122,20 @@ let postAddDate = () => {
     return (date.getHours() + ":" + minutes + ", " + dates + "/" + months + "/" + date.getFullYear())
 
 }
-export const addPost = (postText,PostImage) => ({type: ADD_POST, postText, PostImage});
 export const setStatus = (text) => ({type: SET_STATUS, text})
 export const setProfile = (data) => ({type: SET_PROFILE, data})
 export const likePost = (postId) => ({type: LIKE_POST, postId})
 export const removePost = (postId) => ({type: REMOVE_POST, postId})
 export const setAvatarLink = (avatar) => ({type: UPDATE_AVATAR, avatar})
-export const setEditPostNewText = (id,text) => ({type: SET_NEW_EDIT_POST_TEXT, id,text})
-export const addImagePreviewAC = (imagePreview) => ({type: ADD_POST_IMAGE_PREVIEW, imagePreview})
+export const setEditPostNewText = (id, text) => ({type: SET_NEW_EDIT_POST_TEXT, id, text})
+export const setImagePreview = (imagePreview) => ({type: SET_POST_IMAGE_PREVIEW, imagePreview})
 export const deletePostImage = (postId) => ({type: DELETE_POST_IMAGE, postId})
+
+export const addPost = (postText, PostImage) => (dispatch) => {
+    dispatch({type: ADD_POST, postText, PostImage})
+    dispatch(setImagePreview(null))
+    dispatch(reset('ProfilePostInputForm'))
+};
 
 export const getProfile = (userId) => (dispatch) => {
     dispatch(toggleIsFetching(true));
@@ -141,20 +155,19 @@ export const updateStatus = (status) => (dispatch) => {
             dispatch(setStatus(status));
     })
 }
-export const updateAvatar = (avatar,id) => (dispatch) => {
+export const updateAvatar = (avatar, id) => (dispatch) => {
     profileAPI.updateAvatar(avatar).then(response => {
-        if(response.resultCode===0)
-        dispatch(setAvatarLink(response.data.photos.small))
+        if (response.resultCode === 0)
+            dispatch(setAvatarLink(response.data.photos.small))
         dispatch(getMyDataProfile(id))
         dispatch(getProfile(id))
     })
 }
 export const addImagePreview = (PostImageFiles) => (dispatch) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(PostImageFiles);
-        reader.onload = (event) => {
-            const result = event.target.result;
-            dispatch(addImagePreviewAC(result));
-        }
+    const reader = new FileReader();
+    reader.readAsDataURL(PostImageFiles);
+    reader.onload = (event) => {
+        const result = event.target.result;
+    }
 }
 export default ProfileReducer;

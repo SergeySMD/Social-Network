@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
-import {Field, reduxForm} from "redux-form";
+import {Field, reduxForm, reset} from "redux-form";
 import {maxLength, required} from "../../../utils/validators";
 import {
     PostImageUploadComponent, PostInputComponent
 } from "../../Commons/FormControls/FormsControls";
-import {addImagePreview} from "../../../redux/profileReducer";
 
 
 const maxLength1200 = maxLength(1200);
@@ -29,10 +28,10 @@ export const PostInputForm = (props) => {
         console.log(PostImageURL, 'changed')
     }, [PostImageURL])
 
-    if(PostImageURL!==undefined)
-    if (PostImageFiles.length > 0) {
-        readImages(PostImageFiles[0], setPostImageURL)
-    }
+    if (PostImageURL !== undefined)
+        if (PostImageFiles.length > 0) {
+            readImages(PostImageFiles[0], setPostImageURL)
+        }
 
     return (
         <div>
@@ -51,7 +50,7 @@ export const PostInputForm = (props) => {
                            clearImage={clearImage}
                            setClearImage={setClearImage}
                     />
-                    <button>
+                    <button onClick={()=>{setPostImageFiles([]);setPostImageURL(null)}}>
                         <svg width="20" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">
                                 <path
@@ -102,8 +101,7 @@ export const ImagePreview = (props) => {
 const PostInputReduxForm = reduxForm({form: 'ProfilePostInputForm'})(PostInputForm)
 
 let MyPosts = (props) => {
-
-    const [PostImage, setPostImage] = useState([])
+    const [clearPreview, setClearPreview] = useState(false)
 
     let postsElements = props.posts
         .map(p => <Post
@@ -122,14 +120,13 @@ let MyPosts = (props) => {
             key={p.id}/>);
 
     const onSubmit = (Data) => {
-        debugger
         console.log(Data)
-        if (Data.postImage !== undefined && Data.postImage.length!==0) {
+        if (Data.postImage !== undefined && Data.postImage.length !== 0) {
             if (Data.postImage[0])
                 readFile(Data.postText, Data.postImage[0])
-            setPostImage(null);
         } else if (Data.postText !== undefined) {
             props.addPost(Data.postText, null);
+            setClearPreview(true);
         }
     }
 
@@ -137,14 +134,15 @@ let MyPosts = (props) => {
         const reader = new FileReader();
         reader.addEventListener('load', (event) => {
             const result = event.target.result;
-            setPostImage(result);
             props.addPost(postText, result);
+            setClearPreview(true);
         });
         reader.readAsDataURL(file);
     }
     return (
         <div className={s.postBlock}>
-            <PostInputReduxForm {...props} onSubmit={onSubmit}/>
+            <PostInputReduxForm {...props} onSubmit={onSubmit} clearPreview={clearPreview}
+                                setClearPreview={setClearPreview}/>
             {props.posts.length > 0 && <div className={s.title}>
                 My posts
             </div>}

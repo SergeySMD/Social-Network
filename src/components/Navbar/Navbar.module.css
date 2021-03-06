@@ -3,7 +3,7 @@
     grid-area: n;
     position: fixed;
     width: 200px;
-    height: 280px;
+    height: max-content;
     top: 100px;
     background: var(--wrap-bg-color);
     border-radius: 5px;

@@ -14,7 +14,8 @@ import {compose} from "redux";
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getUsers(this.props.pageSize, this.props.currentPage, this.props.searchUserString)
+        debugger
+        this.props.getUsers(this.props.pageSize, this.props.currentPage, this.props.searchUserString,this.props.isFriends)
     }
 
     onPageClick = (page) => {
@@ -43,10 +44,13 @@ class UsersContainer extends React.Component {
             <>
                 <Users
                     {...this.props}
-                    onPageMenuClick={this.onPageClick}
-                    onPageSizeClick={this.onPageSizeClick}
-                    onSearchUserClick={this.onSearchUserClick}
-                    onSearchUserChange={this.onSearchUserChange}/>
+                    isFriends={true}
+                    search={true}
+                    // onPageMenuClick={this.onPageClick}
+                    // onPageSizeClick={this.onPageSizeClick}
+                    // onSearchUserClick={this.onSearchUserClick}
+                    // onSearchUserChange={this.onSearchUserChange}
+                />
             </>
         );
     }

@@ -1,31 +1,33 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import s from "./ProfileStatus.module.css";
 
-class ProfileStatus extends React.Component {
-    state={
+class ProfileStatusClass extends React.Component {
+
+    state = {
         editMode: false,
         status: this.props.status
     }
     activateEditMode = () => {
-        if (this.props.link==this.props.id) {
+        if (this.props.link == this.props.id) {
             this.setState({
                 editMode: true
             })
         }
     }
     deactivateEditMode = () => {
-        this.setState( {
+        this.setState({
             editMode: false
         })
         this.props.updateStatus(this.state.status);
     }
     onStatusChange = (e) => {
-       this.setState({
-           status: e.currentTarget.value
-       });
+        this.setState({
+            status: e.currentTarget.value
+        });
     }
+
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(prevProps.status!==this.props.status) {
+        if (prevProps.status !== this.props.status) {
             this.setState({status: this.props.status})
         }
     }
@@ -35,7 +37,8 @@ class ProfileStatus extends React.Component {
             <div className={s.description}>
                 {!this.state.editMode &&
                 <div className={s.span}>
-                    <span className={s.span} onDoubleClick={this.activateEditMode}>{this.props.status || 'Empty status'}</span>
+                    <span className={s.span}
+                          onDoubleClick={this.activateEditMode}>{this.props.status || 'Empty status'}</span>
                 </div>
                 }
                 {this.state.editMode &&
@@ -56,6 +59,54 @@ class ProfileStatus extends React.Component {
             </div>
         )
     }
+}
+
+const ProfileStatus = (props) => {
+    const [editMode, setEditMode] = useState(false);
+    const [status, setStatus] = useState(props.status);
+    // useEffect(()=>{
+    //     setStatus(props.status)
+    // },[props.status])
+
+    const activateEditMode = () => {
+        if (props.link == props.id) {
+            setStatus(props.status)
+            setEditMode(true)
+        }
+    }
+    const deactivateEditMode = () => {
+        setEditMode(false)
+        props.updateStatus(status);
+    }
+    const onStatusChange = (e) => {
+        setStatus(e.currentTarget.value)
+    }
+
+    return (
+        <div className={s.description}>
+            {!editMode &&
+            <div className={s.span}>
+                <span className={s.span}
+                      onDoubleClick={activateEditMode}>{props.status || 'Empty status'}</span>
+            </div>
+            }
+            {editMode &&
+            <div>
+                <input
+                    autoFocus={true}
+                    onChange={onStatusChange}
+                    onFocus={(e) => {
+                        e.target.style.cursor = "text"
+                        e.target.style.borderBottom = "1px solid var(--black-white-text-color)"
+                    }}
+                    onBlur={deactivateEditMode}
+                    value={status}
+                    placeholder="Enter your status"
+                    maxLength="60"/>
+            </div>
+            }
+        </div>
+    )
 }
 
 export default ProfileStatus;

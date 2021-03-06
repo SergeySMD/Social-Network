@@ -9,7 +9,7 @@ import {
     getProfile,
     getStatus,
     likePost,
-    removePost, setEditPostNewText,
+    removePost, setEditPostNewText, setImagePreview,
     updateAvatar,
     updateStatus
 } from "../../redux/profileReducer";
@@ -90,7 +90,7 @@ let mapDispatchToProps = {
     removePost,
     updateAvatar,
     setEditPostNewText,
-    addImagePreview,
+    setImagePreview,
     deletePostImage
 }
 

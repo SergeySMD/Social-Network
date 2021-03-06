@@ -1,8 +1,15 @@
-body
-{
-    padding: 0 calc(20px - (100vw - 100%)) 0 0;
-    background-color: var(--body-bg-color);
+* {
+    /*transition:*/
+    /*        color 0.2s linear,*/
+    /*        background 0.2s linear,*/
+    /*        border 0.2s linear;*/
 }
+
+body {
+    background-color: var(--body-bg-color);
+    padding: 0 calc(12px - (100vw - 100%)) 0 0;
+}
+
 .app-wrapper {
     display: grid;
     width: 1280px;
@@ -15,7 +22,6 @@ body
     grid-template-rows: 80px 1fr;
     grid-template-columns: 220px 960px;
     font-family: "Montserrat";
-
 }
 
 .app-wrapper-content {
@@ -39,32 +45,34 @@ body
     --wrap-size: 1440px;
     --hover-block: #A183F8;
     --active-block: #9D9AF6;
+    --unfollow-color: #EDEEF0;
 }
 
 [data-theme="dark"] {
-    --body-bg-color: #1e2027;
-    --wrap-bg-color: #242630;
-    --head-bg-color: #242630;
+    --body-bg-color: #18181A;
+    --wrap-bg-color: #202022;
+    --head-bg-color: #202022;
     --black-white-text-color: white;
     --white-black-text-color: black;
-    --707070-EDEEF0-text-color: #9798a5;
-    --1a122d-w-text-color: white;
+    --707070-EDEEF0-text-color: #707070;
+    --707070-text-color: white;
     --9d9aa8-w-text-color: white;
     --mininav-border-color: #9d9aa8;
+    --unfollow-color: #28282A;
 }
 
 ::-webkit-scrollbar {
-    width: 12px;               /* width of the entire scrollbar */
+    width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(0,0,0,0.1); /* color of the tracking area */
+    background: rgba(0, 0, 0, 0.1); /* color of the tracking area */
     width: 0px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--707070-EDEEF0-text-color);    /* color of the scroll thumb */
-    border-radius: 20px;       /* roundness of the scroll thumb */ /* creates padding around scroll thumb */
+    background-color: var(--707070-EDEEF0-text-color); /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */ /* creates padding around scroll thumb */
 }
 
 

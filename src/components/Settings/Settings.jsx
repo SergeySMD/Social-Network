@@ -22,11 +22,11 @@ let Settings = (props) => {
         <div>
             <div className={s.title}>Settings</div>
             <div className={s.settingsBlock}>
-                <div className={s.settingsName}>Dark mode</div>
-                <label className={s.switch}>
-                    <input type="checkbox" checked={props.isDarkTheme}/>
-                    <span onClick={onToggleThemeClick} className={`${s.slider} ${s.round}`}></span>
-                </label>
+                {/*<div className={s.settingsName}>Dark mode</div>*/}
+                {/*<label className={s.switch}>*/}
+                {/*    <input type="checkbox" checked={props.isDarkTheme}/>*/}
+                {/*    <span onClick={onToggleThemeClick} className={`${s.slider} ${s.round}`}></span>*/}
+                {/*</label>*/}
             </div>
         </div>
     );

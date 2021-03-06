@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {getLogout, getMyDataProfile, setAuthUserData} from "../../redux/authReducer";
+import {getLogout, getMyDataProfile, setAuthUserData, toggleDarkTheme} from "../../redux/authReducer";
 import s from "./Header.module.css";
 import {NavLink} from "react-router-dom";
 import userPhoto from "../../assets/images/User_avatar_placeholder.png";
+import Slider from "../Commons/Slider/Slider";
 
 const HeaderUserBlock = (props) => {
     return <div className={s.dropdown}>
@@ -57,11 +58,24 @@ const HeaderUserBlock = (props) => {
 
 class Header extends React.Component {
 
+    onToggleThemeClick = () => {
+        if (!this.props.isDarkTheme) {
+            this.props.toggleDarkTheme(!this.props.isDarkTheme)
+            document.documentElement.setAttribute("data-theme", "dark");
+            localStorage.setItem('darkTheme', String(!this.props.isDarkTheme))
+        } else {
+            this.props.toggleDarkTheme(!this.props.isDarkTheme)
+            localStorage.setItem('darkTheme', String(!this.props.isDarkTheme))
+            document.documentElement.setAttribute('data-theme', 'light')
+        }
+    }
+
     render() {
         return (
             <header className={s.header}>
-                <img className={s.logo} src="https://turbologo.ru/turbologo-logo.png"></img>
+                <img className={s.logo} src="https://turbologo.ru/turbologo-logo.png"/>
                 {this.props.isAuth ? <HeaderUserBlock {...this.props}/> : null}
+                <div className={s.themeSlider}><Slider isDarkTheme={this.props.isDarkTheme} isThemeSlider={true} callback={this.onToggleThemeClick}/></div>
             </header>
         )
     }
@@ -72,11 +86,13 @@ let mapStateToProps = (state) => ({
     login: state.auth.login,
     id: state.auth.id,
     avatar: state.auth.avatar,
+    isDarkTheme: state.auth.isDarkTheme
 })
 let mapDispatchToProps = {
     setAuthUserData,
     getMyDataProfile,
-    getLogout
+    getLogout,
+    toggleDarkTheme
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
