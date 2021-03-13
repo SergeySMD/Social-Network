@@ -1,11 +1,11 @@
 import {authAPI, profileAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
 
-const SET_USER_DATA = "SET_USER_DATA";
-const SET_PROFILE_DATA = "SET_PROFILE_DATA";
-const TOGGLE_IS_AUTH = "TOGGLE_IS_AUTH";
-const SET_CAPTCHA_URL = "SET_CAPTCHA_URL";
-const TOGGLE_DARK_THEME = "TOGGLE_DARK_THEME";
+const SET_USER_DATA = "auth/SET_USER_DATA";
+const SET_PROFILE_DATA = "auth/SET_PROFILE_DATA";
+const TOGGLE_IS_AUTH = "auth/TOGGLE_IS_AUTH";
+const SET_CAPTCHA_URL = "auth/SET_CAPTCHA_URL";
+const TOGGLE_DARK_THEME = "auth/TOGGLE_DARK_THEME";
 
 let initState = {
     id: null,
@@ -47,7 +47,8 @@ export let getAuth = () => (dispatch) => {
         }
     })
 }
-export let getLogin = (login, password, rememberMe, captcha = false) => (dispatch) => {
+export let getLogin = (login, password, rememberMe, captcha = false, fetchCallback) => (dispatch) => {
+    fetchCallback(true);
     authAPI.login(login, password, rememberMe,captcha).then(response => {
         if (response.resultCode === 0) {
             dispatch(setAuthUserData(response.data.userId, login, ''))
@@ -55,9 +56,11 @@ export let getLogin = (login, password, rememberMe, captcha = false) => (dispatc
         } else {
             dispatch(stopSubmit('login', {_error: response.messages[0]}));
         }
+        fetchCallback(false);
         if (response.resultCode === 10) {
             authAPI.getCaptchaURL().then(response => {
                 dispatch(setCaptchaURL(response.data.url))
+                fetchCallback(false);
             })
         }
     })

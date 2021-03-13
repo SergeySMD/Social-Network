@@ -20,8 +20,9 @@
     text-align: center;
     color: var(--black-white-text-color);
 }
-.titleBLock img {
+.logo {
     height: 64px;
+    width: 300px;
 }
 .buttonBlock button{
     width: 400px;

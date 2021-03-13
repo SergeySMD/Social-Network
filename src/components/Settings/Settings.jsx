@@ -3,6 +3,7 @@ import s from './Settings.module.css';
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {toggleDarkTheme} from "../../redux/authReducer";
+import Slider from "../Commons/Slider/Slider";
 
 let Settings = (props) => {
 
@@ -22,11 +23,13 @@ let Settings = (props) => {
         <div>
             <div className={s.title}>Settings</div>
             <div className={s.settingsBlock}>
-                {/*<div className={s.settingsName}>Dark mode</div>*/}
+                <div className={s.settingsName}>Dark mode</div>
+                <div className={s.switch}><Slider isDarkTheme={props.isDarkTheme} isThemeSlider={true} callback={onToggleThemeClick}/>
                 {/*<label className={s.switch}>*/}
                 {/*    <input type="checkbox" checked={props.isDarkTheme}/>*/}
                 {/*    <span onClick={onToggleThemeClick} className={`${s.slider} ${s.round}`}></span>*/}
                 {/*</label>*/}
+                </div>
             </div>
         </div>
     );

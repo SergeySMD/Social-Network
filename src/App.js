@@ -7,8 +7,6 @@ import News from "./components/News/News";
 import Login from "./components/Login/Login";
 import {Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {addMessage} from "./redux/dialogsReducer";
@@ -18,6 +16,7 @@ import {getMyDataProfile, setAuthUserData, toggleDarkTheme} from "./redux/authRe
 import Header from "./components/Header/Header";
 import {Redirect, withRouter} from "react-router";
 import Users from "./components/Users/Users";
+import Profile from "./components/Profile/Profile";
 
 const App = ({isAuth, ...props}) => {
 
@@ -48,7 +47,7 @@ const App = ({isAuth, ...props}) => {
                     <div className='app-wrapper-content'>
                         <Route exact path='/' render={() => <Redirect to={'/profile/' + props.id}/>}/>
                         <Route path='/login' render={() => <Login/>}/>
-                        <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+                        <Route path='/profile/:userId?' render={() => <Profile/>}/>
                         <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                         <Route path='/users' render={() => <Users title={'Users'}/>}/>
                         <Route path='/friends' render={() => <Users title={'Friends'} isFriends/>}/>

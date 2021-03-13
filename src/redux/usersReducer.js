@@ -1,14 +1,14 @@
 import {usersAPI} from "../api/api";
 
-const USER_FOLLOW = "USER-FOLLOW";
-const USER_UNFOLLOW = "USER-UNFOLLOW";
-const SET_USERS = "SET-USERS";
-const UPDATE_CURRENT_PAGE = "UPDATE_CURRENT_PAGE";
-const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
-const SET_PAGE_SIZE = "SET_PAGE_SIZE";
-const SEARCH_USER = "SEARCH_USER";
-const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
-const TOGGLE_FOLLOWING_PROCESS = "TOGGLE_FOLLOWING_PROCESS";
+const USER_FOLLOW = "users/USER-FOLLOW";
+const USER_UNFOLLOW = "users/USER-UNFOLLOW";
+const SET_USERS = "users/SET-USERS";
+const UPDATE_CURRENT_PAGE = "users/UPDATE_CURRENT_PAGE";
+const SET_TOTAL_USERS_COUNT = "users/SET_TOTAL_USERS_COUNT";
+const SET_PAGE_SIZE = "users/SET_PAGE_SIZE";
+const SEARCH_USER = "users/SEARCH_USER";
+const TOGGLE_IS_FETCHING = "users/TOGGLE_IS_FETCHING";
+const TOGGLE_FOLLOWING_PROCESS = "users/TOGGLE_FOLLOWING_PROCESS";
 
 let initState = {
     users: [],
@@ -82,18 +82,16 @@ export let getUsers = (pageSize, currentPage, searchUserString, isFriends) => (d
         dispatch(setUsersCount(data.totalCount));
     })
 }
-export let following = (id, status) => (dispatch) => {
+export let following = (id, status) => async (dispatch) => {
     dispatch(toggleFollowingProcess(true, id));
     if (status) {
-        usersAPI.follow(id).then(data => {
-            if (data.resultCode === 0) dispatch(follow(id));
-            dispatch(toggleFollowingProcess(false, id));
-        })
+        const data = await usersAPI.follow(id)
+        if (data.resultCode === 0) dispatch(follow(id));
+        dispatch(toggleFollowingProcess(false, id));
     } else {
-        usersAPI.unfollow(id).then(data => {
-            if (data.resultCode === 0) dispatch(unfollow(id));
-            dispatch(toggleFollowingProcess(false, id));
-        })
+        const data = await usersAPI.unfollow(id)
+        if (data.resultCode === 0) dispatch(unfollow(id));
+        dispatch(toggleFollowingProcess(false, id));
     }
 }
 

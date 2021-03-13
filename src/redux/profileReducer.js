@@ -4,15 +4,15 @@ import {toggleIsFetching} from "./usersReducer";
 import {getMyDataProfile} from "./authReducer";
 import {reset} from "redux-form";
 
-const ADD_POST = "ADD-POST";
-const SET_STATUS = "SET-STATUS";
-const SET_PROFILE = "SET_PROFILE";
-const LIKE_POST = "LIKE_POST";
-const REMOVE_POST = 'REMOVE_POST';
-const UPDATE_AVATAR = 'UPDATE_AVATAR';
-const SET_NEW_EDIT_POST_TEXT = 'SET_NEW_EDIT_POST_TEXT';
-const SET_POST_IMAGE_PREVIEW = 'SET_POST_IMAGE_PREVIEW';
-const DELETE_POST_IMAGE = 'DELETE_POST_IMAGE';
+const ADD_POST = "profile/ADD-POST";
+const SET_STATUS = "profile/SET-STATUS";
+const SET_PROFILE = "profile/SET_PROFILE";
+const LIKE_POST = "profile/LIKE_POST";
+const REMOVE_POST = 'profile/REMOVE_POST';
+const UPDATE_AVATAR = 'profile/UPDATE_AVATAR';
+const SET_NEW_EDIT_POST_TEXT = 'profile/SET_NEW_EDIT_POST_TEXT';
+const SET_POST_IMAGE_PREVIEW = 'profile/SET_POST_IMAGE_PREVIEW';
+const DELETE_POST_IMAGE = 'profile/DELETE_POST_IMAGE';
 
 
 let initState = {

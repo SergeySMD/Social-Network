@@ -12,10 +12,10 @@
 }
 
 .logo {
-    margin-left: 370px;
-    height: 60px;
+    width: 300px;
     position: absolute;
     top: 50%;
+    left: 200px;
     transform: translate(-50%, -50%)
 }
 

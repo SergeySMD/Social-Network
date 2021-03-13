@@ -1,9 +1,11 @@
 import React from "react";
 import s from './preloader.module.css'
 
-const Preloader = ({h,w}) => {
+const Preloader = ({h,w,position = 'center'}) => {
+    let textAlign = '';
+    if (position ==='start' || position==='center' || position==='end') textAlign = position;
     return (
-        <div className={s.preloader}>
+        <div className={s.preloader} style={textAlign!=='' ? {textAlign: textAlign } : null}>
             <svg id="Preloader" xmlns="http://www.w3.org/2000/svg" width={w+'px'} height={h+'px'} viewBox="0 0 128 128">
                 <g>
                 <path id="Контур_35" data-name="Контур 35" d="M64,0,40.08,21.9a10.98,10.98,0,0,0-5.05,8.75C34.37,44.85,64,60.63,64,60.63Z" fill="#ffb118"/>

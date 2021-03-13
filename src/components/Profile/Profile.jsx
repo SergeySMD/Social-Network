@@ -4,7 +4,6 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPosts from "./MyPosts/MyPosts";
 import {connect} from "react-redux";
 import {
-    addImagePreview,
     addPost, deletePostImage,
     getProfile,
     getStatus,
@@ -20,7 +19,7 @@ import Preloader from "../Commons/Preloader/Preloader";
 import {getIsFetching, getMyId} from "../../redux/profileSelectors";
 
 
-class ProfileContainer extends React.Component {
+class Profile extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId; //15432
         if (userId === undefined) userId = this.props.id; //14854
@@ -97,5 +96,6 @@ let mapDispatchToProps = {
 export default compose(
     connect(mapStateToProps,mapDispatchToProps),
     withRouter,
-    withAuthRedirect
-)(ProfileContainer)
+    withAuthRedirect,
+    React.memo
+)(Profile)

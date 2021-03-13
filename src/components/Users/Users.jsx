@@ -18,7 +18,8 @@ import {connect} from "react-redux";
 let Users = ({search=true,title='Users',...props}) => {
 
     useEffect(() => {
-        props.getUsers(props.pageSize, 1, '', props.isFriends)
+        props.updatePage(1)
+        props.getUsers(props.pageSize, props.currentPage, '', props.isFriends)
         return () => {
             props.onSearchUsersChange('')
         }
