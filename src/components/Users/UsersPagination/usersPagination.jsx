@@ -1,6 +1,6 @@
 import React from 'react';
 import {Dropdown, Pagination} from "semantic-ui-react";
-import s from "./Users.module.css";
+import s from "../Users.module.css";
 import "./user-pagination.css";
 
 let UserPaginationMenu = (props) => {

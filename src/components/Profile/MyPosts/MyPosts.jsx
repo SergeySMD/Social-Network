@@ -24,9 +24,6 @@ export const PostInputForm = (props) => {
     const [PostImageURL, setPostImageURL] = useState(null)
     const [PostImageFiles, setPostImageFiles] = useState([])
     const [clearImage, setClearImage] = useState(false)
-    useEffect(() => {
-        console.log(PostImageURL, 'changed')
-    }, [PostImageURL])
 
     if (PostImageURL !== undefined)
         if (PostImageFiles.length > 0) {

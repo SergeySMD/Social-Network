@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import s from './Users.module.css';
 import userPhoto from "../../assets/images/User_avatar_placeholder.png"
-import UserPaginationMenu from "./usersPagination";
+import UserPaginationMenu from "./UsersPagination/usersPagination";
 import SearchUsersMenu from "./UsersSearchMenu/usersSearchMenu";
 import {NavLink} from "react-router-dom";
 import Preloader from "../Commons/Preloader/Preloader";
@@ -14,8 +14,9 @@ import {
 } from "../../redux/usersReducer";
 import {compose} from "redux";
 import {connect} from "react-redux";
+import User from "./User/User";
 
-let Users = ({search=true,title='Users',...props}) => {
+let Users = ({search = true, title = 'Users', ...props}) => {
 
     useEffect(() => {
         props.updatePage(1)
@@ -67,37 +68,12 @@ let Users = ({search=true,title='Users',...props}) => {
                 {props.isFetching ? <Preloader h={256} w={256}/> : null}
 
                 <div className={s.users}>
-                    {
-                        props.users.map(u => (
-                            <div className={s.userBlock} key={u.id}>
-                                <div className={s.avatar}>
-                                    <NavLink to={"/profile/" + u.id}>
-                                        <img src={u.photos.small != null ? u.photos.small : userPhoto}/>
-                                    </NavLink>
-                                </div>
-                                <div className={s.userInfoBlock}>
-                                    <div className={s.name}>{u.name}</div>
-                                    <div className={s.status}>{u.status != null ? u.status : "Empty status"}</div>
-                                    <div className={s.button}>
-                                        {u.followed
-                                            ? <button className={s.follow}
-                                                      disabled={props.followingProcess.some(id => id === u.id)}
-                                                      onClick={() => {
-                                                          props.following(u.id, false)
-                                                      }}
-                                            >Unfollow</button>
-                                            : <button className={s.unfollow}
-                                                      disabled={props.followingProcess.some(id => id === u.id)}
-                                                      onClick={() => {
-                                                          props.following(u.id, true)
-                                                      }}
-                                            >Follow</button>
-                                        }
-                                    </div>
-                                </div>
-
-                            </div>))
-                    }
+                    {props.users.map(u => (
+                        <User user={u}
+                              following={props.following}
+                              followingProcess={props.followingProcess}
+                              key={u.id}/>
+                    ))}
                 </div>
                 <UserPaginationMenu pagesCount={pagesCount}
                                     pageSize={props.pageSize}
@@ -123,5 +99,5 @@ let mapDispatchToProps = {
     getUsers
 }
 export default compose(
-    connect(mapStateToProps,mapDispatchToProps))
+    connect(mapStateToProps, mapDispatchToProps))
 (Users);

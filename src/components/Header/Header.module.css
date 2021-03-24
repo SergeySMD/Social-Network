@@ -41,6 +41,7 @@
 .indicator {
     height: 5px;
     width: calc(100% + 60px);
+    min-width: 150px;
     color: rgba(0,0,0,0);
     background-color: var(--head-bg-color);
     border-radius: 5px 5px 0 0;
@@ -73,13 +74,14 @@
     position: absolute;
     top: 80px;
     width: 100%;
+    min-width: 150px;
     background-color: var(--head-bg-color);
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.08);
     z-index: 0;
     cursor: pointer;
     vertical-align: center;
 }
-.dropdownContent .a {
+.dropdownContent .title {
     color: var(--707070-EDEEF0-text-color);
     padding: 12px 16px;
     text-decoration: none;
@@ -97,7 +99,7 @@
 .dropdownItem {
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
-.dropdownContent .dropdownItem:hover .a{
+.dropdownContent .dropdownItem:hover .title{
     color: var(--black-white-text-color); font-weight: 500
 }
 .dropdownContent .dropdownItem:hover .exitLogo path{

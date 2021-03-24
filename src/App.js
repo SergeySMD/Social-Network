@@ -1,22 +1,24 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState,Suspense} from 'react';
 import './App.css';
-import Navbar from './components/Navbar/Navbar';
-import Music from "./components/Music/Music";
-import Settings from "./components/Settings/Settings";
-import News from "./components/News/News";
-import Login from "./components/Login/Login";
 import {Route} from "react-router-dom";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {addMessage} from "./redux/dialogsReducer";
 import Preloader from "./components/Commons/Preloader/Preloader";
 import {authAPI} from "./api/api";
 import {getMyDataProfile, setAuthUserData, toggleDarkTheme} from "./redux/authReducer";
-import Header from "./components/Header/Header";
 import {Redirect, withRouter} from "react-router";
-import Users from "./components/Users/Users";
-import Profile from "./components/Profile/Profile";
+import Login from "./components/Login/Login";
+import Navbar from './components/Navbar/Navbar';
+import Music from "./components/Music/Music";
+import News from "./components/News/News";
+import Header from "./components/Header/Header";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import Settings from "./components/Settings/Settings";
+// import Profile from "./components/Profile/Profile";
+const Profile = React.lazy(() => import('./components/Profile/Profile'));
+// import Users from "./components/Users/Users";
+const Users = React.lazy(() => import('./components/Users/Users'));
 
 const App = ({isAuth, ...props}) => {
 
@@ -47,10 +49,12 @@ const App = ({isAuth, ...props}) => {
                     <div className='app-wrapper-content'>
                         <Route exact path='/' render={() => <Redirect to={'/profile/' + props.id}/>}/>
                         <Route path='/login' render={() => <Login/>}/>
-                        <Route path='/profile/:userId?' render={() => <Profile/>}/>
+                        <Suspense fallback={<div/>}>
+                            <Route path='/profile/:userId?' render={() => <Profile/>}/>
+                            <Route path='/users' render={() => <Users title={'Users'}/>}/>
+                            <Route path='/friends' render={() => <Users title={'Friends'} isFriends/>}/>
+                        </Suspense>
                         <Route path='/dialogs' render={() => <DialogsContainer/>}/>
-                        <Route path='/users' render={() => <Users title={'Users'}/>}/>
-                        <Route path='/friends' render={() => <Users title={'Friends'} isFriends/>}/>
                         <Route path='/news-feed' render={() => <News/>}/>
                         <Route path='/music' render={() => <Music/>}/>
                         <Route path='/settings' render={() => <Settings/>}/>
