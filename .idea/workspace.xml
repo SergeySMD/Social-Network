@@ -4,29 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="hook, useState, bugs fixed">
-      <change afterPath="$PROJECT_DIR$/src/assets/images/LOGO.svg" afterDir="false" />
+    <list default="true" id="563439b9-40d0-483f-acf7-3ea58edae499" name="Default Changelist" comment="Refactoring">
+      <change afterPath="$PROJECT_DIR$/src/components/Users/User/User.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Users/User/User.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Commons/FormControls/FormsControls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Commons/FormControls/FormsControls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Commons/Preloader/Preloader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Commons/Preloader/Preloader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Commons/FormControls/FormsControls.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Commons/FormControls/FormsControls.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/login.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/login.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Settings/Settings.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Settings/Settings.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Settings/Settings.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Settings/Settings.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Users/Users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Users.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersSearchMenu/UsersSearch.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersSearchMenu/UsersSearch.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersSearchMenu/usersSearchMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersSearchMenu/usersSearchMenu.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/dialogsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/dialogsReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/usersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/Users.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Users.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/user-pagination.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersPagination/user-pagination.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/usersPagination.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersPagination/usersPagination.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/hoc" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Users/User" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -75,18 +72,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Users\User" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\hoc" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Header" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\redux" />
-      <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Users\User" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Users" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Users\UsersPagination" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Commons\Preloader" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Users\UsersSearchMenu" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Profile" />
       <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Navbar" />
-      <recent name="F:\Coding\ReactProjects\01\project-1-git\Social-Network\src\components\Header" />
     </key>
   </component>
   <component name="RunManager">
@@ -196,14 +193,11 @@
       <workItem from="1615282089307" duration="319000" />
       <workItem from="1615376203129" duration="2412000" />
       <workItem from="1615618540266" duration="711000" />
-      <workItem from="1615620300865" duration="5673000" />
-    </task>
-    <task id="LOCAL-00023" summary="callback, subscribe, observer">
-      <created>1611576452563</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1611576452563</updated>
+      <workItem from="1615620300865" duration="5963000" />
+      <workItem from="1615795551900" duration="2257000" />
+      <workItem from="1615976622165" duration="602000" />
+      <workItem from="1616143062009" duration="3591000" />
+      <workItem from="1616496632038" duration="5076000" />
     </task>
     <task id="LOCAL-00024" summary="store, state, ООП, рефакторинг">
       <created>1611672089503</created>
@@ -541,7 +535,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615036713958</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Refactoring">
+      <created>1615626688922</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1615626688922</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,7 +572,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="profile page, ajax, api" />
     <MESSAGE value="withRouter, props.match.params" />
     <MESSAGE value="cookie, login в теории, auth/me" />
     <MESSAGE value="практика, follow-unfollow api" />
@@ -596,6 +596,7 @@
     <MESSAGE value="Added Captcha support" />
     <MESSAGE value="Added Dark mode" />
     <MESSAGE value="hook, useState, bugs fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="hook, useState, bugs fixed" />
+    <MESSAGE value="Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
   </component>
 </project>

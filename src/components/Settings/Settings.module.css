@@ -20,10 +20,33 @@
     font-weight: normal;
     font-size: 16px;
     line-height: normal;
-    padding: 20px;
+    margin: 20px;
     width: max-content;
     display: inline-block;
 }
+.exitBlock {
+    text-align: right;
+}
+.logOutButton {
+    align-self: center;
+    background-color: #dd4545;
+    text-align: center;
+    padding: 12px 10px;
+    width: 160px;
+    color: var(--wrap-bg-color);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin: 20px;
+
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+}
+.logOutButton:hover {background-color: #e23232;}
 
 /*====================================================*/
 .switch {

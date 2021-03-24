@@ -20,14 +20,14 @@ export const LoginInputComponent = field => {
     return (
         <div className={s.LoginInputComponent}>
             <div className={s.icon}>{!hasError ?
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                <svg className={s.fieldIcon} width="24" height="24" viewBox="0 0 24 24" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M12 10C13.151 10 14 9.152 14 8C14 6.848 13.151 6 12 6C10.85 6 10 6.848 10 8C10 9.152 10.85 10 12 10ZM12 11C9.791 11 8 12.612 8 14.6V14.986H16V14.6C16 12.612 14.209 11 12 11Z"
-                        fill="#C4C4C4"/>
+                        fill="#000"/>
                     <path
                         d="M19 2H5C3.897 2 3 2.897 3 4V17C3 18.103 3.897 19 5 19H9L12 22L15 19H19C20.103 19 21 18.103 21 17V4C21 2.897 20.103 2 19 2ZM14 17L12 19L10 17H5V4H19L19.002 17H14Z"
-                        fill="#C4C4C4"/>
+                        fill="#000"/>
                 </svg> :
                 <span className={s.warningBlock} title={field.meta.error}><span title=''>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,10 +47,10 @@ export const PasswordInputComponent = field => {
     return (
         <div className={s.LoginInputComponent}>
             <div className={s.icon}>{!hasError ?
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg className={s.fieldIcon} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M17 8V7C17 4.243 14.757 2 12 2C9.243 2 7 4.243 7 7V10H6C4.897 10 4 10.897 4 12V20C4 21.103 4.897 22 6 22H18C19.103 22 20 21.103 20 20V12C20 10.897 19.103 10 18 10H9V7C9 5.346 10.346 4 12 4C13.654 4 15 5.346 15 7V8H17ZM18 12L18.002 20H6V12H18Z"
-                        fill="#C4C4C4"/>
+                        fill="#000"/>
                 </svg> :
                 <span className={s.warningBlock} title={field.meta.error}><span title=''>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
